@@ -1,0 +1,242 @@
+[
+  {
+    "product_id": "PROD-001",
+    "name": "Wireless Noise-Cancelling Headphones",
+    "category": "Electronics",
+    "price": 179.99,
+    "description": "Wireless Noise-Cancelling Headphones \u2014 electronics item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-002",
+    "name": "Mechanical Keyboard (Tactile)",
+    "category": "Electronics",
+    "price": 129.0,
+    "description": "Mechanical Keyboard (Tactile) \u2014 electronics item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-003",
+    "name": "27-inch 4K Monitor",
+    "category": "Electronics",
+    "price": 349.99,
+    "description": "27-inch 4K Monitor \u2014 electronics item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-004",
+    "name": "USB-C Docking Station",
+    "category": "Electronics",
+    "price": 89.5,
+    "description": "USB-C Docking Station \u2014 electronics item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-005",
+    "name": "Portable SSD 1TB",
+    "category": "Electronics",
+    "price": 114.99,
+    "description": "Portable SSD 1TB \u2014 electronics item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-006",
+    "name": "Smart Doorbell Camera",
+    "category": "Electronics",
+    "price": 159.0,
+    "description": "Smart Doorbell Camera \u2014 electronics item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-007",
+    "name": "Bluetooth Speaker (Waterproof)",
+    "category": "Electronics",
+    "price": 64.99,
+    "description": "Bluetooth Speaker (Waterproof) \u2014 electronics item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-008",
+    "name": "Ergonomic Vertical Mouse",
+    "category": "Electronics",
+    "price": 42.0,
+    "description": "Ergonomic Vertical Mouse \u2014 electronics item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-009",
+    "name": "Merino Wool Crew Sweater",
+    "category": "Clothing",
+    "price": 98.0,
+    "description": "Merino Wool Crew Sweater \u2014 clothing item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-010",
+    "name": "Waterproof Hiking Jacket",
+    "category": "Clothing",
+    "price": 189.0,
+    "description": "Waterproof Hiking Jacket \u2014 clothing item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-011",
+    "name": "Selvedge Denim Jeans",
+    "category": "Clothing",
+    "price": 138.0,
+    "description": "Selvedge Denim Jeans \u2014 clothing item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-012",
+    "name": "Cotton Oxford Shirt",
+    "category": "Clothing",
+    "price": 68.0,
+    "description": "Cotton Oxford Shirt \u2014 clothing item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-013",
+    "name": "Running Shoes (Neutral)",
+    "category": "Clothing",
+    "price": 132.0,
+    "description": "Running Shoes (Neutral) \u2014 clothing item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-014",
+    "name": "Packable Down Vest",
+    "category": "Clothing",
+    "price": 110.0,
+    "description": "Packable Down Vest \u2014 clothing item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-015",
+    "name": "Leather Chelsea Boots",
+    "category": "Clothing",
+    "price": 215.0,
+    "description": "Leather Chelsea Boots \u2014 clothing item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-016",
+    "name": "Cast Iron Dutch Oven 5.5qt",
+    "category": "Home",
+    "price": 145.0,
+    "description": "Cast Iron Dutch Oven 5.5qt \u2014 home item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-017",
+    "name": "Linen Duvet Cover (Queen)",
+    "category": "Home",
+    "price": 175.0,
+    "description": "Linen Duvet Cover (Queen) \u2014 home item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-018",
+    "name": "Air Purifier (Medium Room)",
+    "category": "Home",
+    "price": 219.99,
+    "description": "Air Purifier (Medium Room) \u2014 home item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-019",
+    "name": "Ceramic Pour-Over Coffee Set",
+    "category": "Home",
+    "price": 54.0,
+    "description": "Ceramic Pour-Over Coffee Set \u2014 home item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-020",
+    "name": "Standing Desk Converter",
+    "category": "Home",
+    "price": 245.0,
+    "description": "Standing Desk Converter \u2014 home item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-021",
+    "name": "Wool Area Rug 5x7",
+    "category": "Home",
+    "price": 289.0,
+    "description": "Wool Area Rug 5x7 \u2014 home item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-022",
+    "name": "Blackout Curtains (Pair)",
+    "category": "Home",
+    "price": 72.0,
+    "description": "Blackout Curtains (Pair) \u2014 home item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-023",
+    "name": "The Pragmatic Programmer",
+    "category": "Books",
+    "price": 44.99,
+    "description": "The Pragmatic Programmer \u2014 books item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-024",
+    "name": "Designing Data-Intensive Applications",
+    "category": "Books",
+    "price": 54.99,
+    "description": "Designing Data-Intensive Applications \u2014 books item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-025",
+    "name": "A Short History of Nearly Everything",
+    "category": "Books",
+    "price": 19.99,
+    "description": "A Short History of Nearly Everything \u2014 books item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-026",
+    "name": "Atlas of Remote Islands",
+    "category": "Books",
+    "price": 28.0,
+    "description": "Atlas of Remote Islands \u2014 books item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-027",
+    "name": "The Making of Prince of Persia",
+    "category": "Books",
+    "price": 32.0,
+    "description": "The Making of Prince of Persia \u2014 books item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-028",
+    "name": "Thinking in Systems",
+    "category": "Books",
+    "price": 24.5,
+    "description": "Thinking in Systems \u2014 books item sold by ShopFast.",
+    "final_sale": true
+  },
+  {
+    "product_id": "PROD-029",
+    "name": "Seeing Like a State",
+    "category": "Books",
+    "price": 29.95,
+    "description": "Seeing Like a State \u2014 books item sold by ShopFast.",
+    "final_sale": false
+  },
+  {
+    "product_id": "PROD-030",
+    "name": "The Soul of a New Machine",
+    "category": "Books",
+    "price": 21.0,
+    "description": "The Soul of a New Machine \u2014 books item sold by ShopFast.",
+    "final_sale": false
+  }
+]

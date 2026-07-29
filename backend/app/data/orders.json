@@ -1,0 +1,6804 @@
+[
+  {
+    "order_id": "ORD-10001",
+    "customer_id": "CUST-041",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 189.0,
+        "line_total": 189.0
+      }
+    ],
+    "subtotal": 189.0,
+    "shipping_cost": 12.99,
+    "total": 201.99,
+    "order_date": "2026-06-03",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "7873 Hawthorn Ter",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "66097"
+    },
+    "estimated_delivery": "2026-06-09",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10002",
+    "customer_id": "CUST-046",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 2,
+        "unit_price": 189.0,
+        "line_total": 378.0
+      },
+      {
+        "product_id": "PROD-009",
+        "name": "Merino Wool Crew Sweater",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 98.0,
+        "line_total": 98.0
+      }
+    ],
+    "subtotal": 476.0,
+    "shipping_cost": 12.99,
+    "total": 488.99,
+    "order_date": "2026-06-22",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "3540 Willow Way",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "99468"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX6587108919",
+    "ship_date": "2026-06-23",
+    "estimated_delivery": "2026-06-26",
+    "delivered_date": "2026-06-25"
+  },
+  {
+    "order_id": "ORD-10003",
+    "customer_id": "CUST-011",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      },
+      {
+        "product_id": "PROD-014",
+        "name": "Packable Down Vest",
+        "category": "Clothing",
+        "quantity": 2,
+        "unit_price": 110.0,
+        "line_total": 220.0
+      }
+    ],
+    "subtotal": 435.0,
+    "shipping_cost": 24.99,
+    "total": 459.99,
+    "order_date": "2026-06-11",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "9643 Hawthorn Ter",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "72641"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX7276699375",
+    "ship_date": "2026-06-12",
+    "estimated_delivery": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10004",
+    "customer_id": "CUST-004",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-002",
+        "name": "Mechanical Keyboard (Tactile)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 129.0,
+        "line_total": 129.0
+      }
+    ],
+    "subtotal": 129.0,
+    "shipping_cost": 0.0,
+    "total": 129.0,
+    "order_date": "2026-07-04",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "5918 Sycamore Blvd",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "42527"
+    },
+    "estimated_delivery": "2026-07-14",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10005",
+    "customer_id": "CUST-037",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      }
+    ],
+    "subtotal": 175.0,
+    "shipping_cost": 0.0,
+    "total": 175.0,
+    "order_date": "2026-05-30",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6892 Hawthorn Ter",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "36847"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z8106956965",
+    "ship_date": "2026-05-31",
+    "estimated_delivery": "2026-06-09",
+    "delivered_date": "2026-06-09"
+  },
+  {
+    "order_id": "ORD-10006",
+    "customer_id": "CUST-005",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      }
+    ],
+    "subtotal": 215.0,
+    "shipping_cost": 12.99,
+    "total": 227.99,
+    "order_date": "2026-07-20",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4116 Cedar St",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "91709"
+    },
+    "carrier": "USPS",
+    "tracking_number": "943336199107",
+    "ship_date": "2026-07-21",
+    "estimated_delivery": "2026-07-29"
+  },
+  {
+    "order_id": "ORD-10007",
+    "customer_id": "CUST-037",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-022",
+        "name": "Blackout Curtains (Pair)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 72.0,
+        "line_total": 72.0
+      }
+    ],
+    "subtotal": 72.0,
+    "shipping_cost": 12.99,
+    "total": 84.99,
+    "order_date": "2026-07-20",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "6892 Hawthorn Ter",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "36847"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX9430015024",
+    "ship_date": "2026-07-21",
+    "estimated_delivery": "2026-07-24"
+  },
+  {
+    "order_id": "ORD-10008",
+    "customer_id": "CUST-028",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      },
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      }
+    ],
+    "subtotal": 369.98,
+    "shipping_cost": 0.0,
+    "total": 369.98,
+    "order_date": "2026-07-26",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "226 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "79738"
+    },
+    "carrier": "USPS",
+    "tracking_number": "948405541088",
+    "ship_date": "2026-07-27",
+    "estimated_delivery": "2026-08-05"
+  },
+  {
+    "order_id": "ORD-10009",
+    "customer_id": "CUST-048",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 89.5,
+        "line_total": 179.0
+      },
+      {
+        "product_id": "PROD-029",
+        "name": "Seeing Like a State",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 29.95,
+        "line_total": 29.95
+      },
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      }
+    ],
+    "subtotal": 423.95,
+    "shipping_cost": 0.0,
+    "total": 423.95,
+    "order_date": "2026-06-28",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "3920 Willow Way",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "37038"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z3960545221",
+    "ship_date": "2026-06-29",
+    "estimated_delivery": "2026-07-08",
+    "delivered_date": "2026-07-07"
+  },
+  {
+    "order_id": "ORD-10010",
+    "customer_id": "CUST-039",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-030",
+        "name": "The Soul of a New Machine",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 21.0,
+        "line_total": 42.0
+      }
+    ],
+    "subtotal": 42.0,
+    "shipping_cost": 0.0,
+    "total": 42.0,
+    "order_date": "2026-07-07",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "9453 Maple Ave",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "39381"
+    },
+    "carrier": "USPS",
+    "tracking_number": "946392350252",
+    "ship_date": "2026-07-08",
+    "estimated_delivery": "2026-07-17",
+    "delivered_date": "2026-07-17"
+  },
+  {
+    "order_id": "ORD-10011",
+    "customer_id": "CUST-038",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-019",
+        "name": "Ceramic Pour-Over Coffee Set",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 54.0,
+        "line_total": 108.0
+      }
+    ],
+    "subtotal": 108.0,
+    "shipping_cost": 0.0,
+    "total": 108.0,
+    "order_date": "2026-06-04",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "1847 Juniper Dr",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "87830"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX7356725750",
+    "ship_date": "2026-06-05",
+    "estimated_delivery": "2026-06-12",
+    "delivered_date": "2026-06-12"
+  },
+  {
+    "order_id": "ORD-10012",
+    "customer_id": "CUST-037",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-020",
+        "name": "Standing Desk Converter",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 245.0,
+        "line_total": 245.0
+      }
+    ],
+    "subtotal": 245.0,
+    "shipping_cost": 24.99,
+    "total": 269.99,
+    "order_date": "2026-06-27",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "6892 Hawthorn Ter",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "36847"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z7023243680",
+    "ship_date": "2026-06-28",
+    "estimated_delivery": "2026-06-29"
+  },
+  {
+    "order_id": "ORD-10013",
+    "customer_id": "CUST-009",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      }
+    ],
+    "subtotal": 89.5,
+    "shipping_cost": 24.99,
+    "total": 114.49,
+    "order_date": "2026-07-01",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "1204 Sycamore Blvd",
+      "city": "New York",
+      "state": "NY",
+      "zip": "93813"
+    },
+    "carrier": "USPS",
+    "tracking_number": "944744777951",
+    "ship_date": "2026-07-02",
+    "estimated_delivery": "2026-07-03"
+  },
+  {
+    "order_id": "ORD-10014",
+    "customer_id": "CUST-003",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-022",
+        "name": "Blackout Curtains (Pair)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 72.0,
+        "line_total": 72.0
+      }
+    ],
+    "subtotal": 72.0,
+    "shipping_cost": 12.99,
+    "total": 84.99,
+    "order_date": "2026-07-15",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "576 Cedar St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "64005"
+    },
+    "carrier": "USPS",
+    "tracking_number": "941685411878",
+    "ship_date": "2026-07-16",
+    "estimated_delivery": "2026-07-20",
+    "delivered_date": "2026-07-20"
+  },
+  {
+    "order_id": "ORD-10015",
+    "customer_id": "CUST-050",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      },
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      }
+    ],
+    "subtotal": 121.5,
+    "shipping_cost": 0.0,
+    "total": 121.5,
+    "order_date": "2026-06-21",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6772 Sycamore Blvd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "26726"
+    },
+    "carrier": "USPS",
+    "tracking_number": "949308717007",
+    "ship_date": "2026-06-22",
+    "estimated_delivery": "2026-06-29",
+    "delivered_date": "2026-06-28"
+  },
+  {
+    "order_id": "ORD-10016",
+    "customer_id": "CUST-033",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-005",
+        "name": "Portable SSD 1TB",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 114.99,
+        "line_total": 114.99
+      },
+      {
+        "product_id": "PROD-001",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 179.99,
+        "line_total": 359.98
+      }
+    ],
+    "subtotal": 474.97,
+    "shipping_cost": 24.99,
+    "total": 499.96,
+    "order_date": "2026-07-23",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "476 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "58508"
+    },
+    "estimated_delivery": "2026-07-27",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10017",
+    "customer_id": "CUST-002",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      },
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 19.99,
+        "line_total": 39.98
+      }
+    ],
+    "subtotal": 129.48,
+    "shipping_cost": 12.99,
+    "total": 142.47,
+    "order_date": "2026-06-04",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "2182 Poplar Rd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "51944"
+    },
+    "carrier": "USPS",
+    "tracking_number": "941374715549",
+    "ship_date": "2026-06-05",
+    "estimated_delivery": "2026-06-10",
+    "delivered_date": "2026-06-10"
+  },
+  {
+    "order_id": "ORD-10018",
+    "customer_id": "CUST-023",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-014",
+        "name": "Packable Down Vest",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 110.0,
+        "line_total": 110.0
+      },
+      {
+        "product_id": "PROD-020",
+        "name": "Standing Desk Converter",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 245.0,
+        "line_total": 245.0
+      },
+      {
+        "product_id": "PROD-005",
+        "name": "Portable SSD 1TB",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 114.99,
+        "line_total": 229.98
+      }
+    ],
+    "subtotal": 584.98,
+    "shipping_cost": 12.99,
+    "total": 597.97,
+    "order_date": "2026-06-17",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "3510 Aspen Ct",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "42004"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX3448879250",
+    "ship_date": "2026-06-18",
+    "estimated_delivery": "2026-06-22"
+  },
+  {
+    "order_id": "ORD-10019",
+    "customer_id": "CUST-043",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-030",
+        "name": "The Soul of a New Machine",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 21.0,
+        "line_total": 42.0
+      },
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      },
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      }
+    ],
+    "subtotal": 289.0,
+    "shipping_cost": 0.0,
+    "total": 289.0,
+    "order_date": "2026-06-28",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "3535 Maple Ave",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "25335"
+    },
+    "estimated_delivery": "2026-07-08",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10020",
+    "customer_id": "CUST-001",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-016",
+        "name": "Cast Iron Dutch Oven 5.5qt",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 145.0,
+        "line_total": 145.0
+      }
+    ],
+    "subtotal": 145.0,
+    "shipping_cost": 24.99,
+    "total": 169.99,
+    "order_date": "2026-06-30",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "4716 Willow Way",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "32604"
+    },
+    "carrier": "USPS",
+    "tracking_number": "947914980128",
+    "ship_date": "2026-07-01",
+    "estimated_delivery": "2026-07-07",
+    "delivered_date": "2026-07-07"
+  },
+  {
+    "order_id": "ORD-10021",
+    "customer_id": "CUST-047",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      }
+    ],
+    "subtotal": 349.99,
+    "shipping_cost": 0.0,
+    "total": 349.99,
+    "order_date": "2026-06-07",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6569 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "42811"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z4652765874",
+    "ship_date": "2026-06-08",
+    "estimated_delivery": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10022",
+    "customer_id": "CUST-040",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-014",
+        "name": "Packable Down Vest",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 110.0,
+        "line_total": 110.0
+      }
+    ],
+    "subtotal": 110.0,
+    "shipping_cost": 24.99,
+    "total": 134.99,
+    "order_date": "2026-06-07",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "3299 Maple Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "28011"
+    },
+    "carrier": "USPS",
+    "tracking_number": "949929604008",
+    "ship_date": "2026-06-08",
+    "estimated_delivery": "2026-06-09"
+  },
+  {
+    "order_id": "ORD-10023",
+    "customer_id": "CUST-002",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-012",
+        "name": "Cotton Oxford Shirt",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 68.0,
+        "line_total": 68.0
+      }
+    ],
+    "subtotal": 68.0,
+    "shipping_cost": 0.0,
+    "total": 68.0,
+    "order_date": "2026-07-03",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "2182 Poplar Rd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "51944"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX2524004506",
+    "ship_date": "2026-07-04",
+    "estimated_delivery": "2026-07-14"
+  },
+  {
+    "order_id": "ORD-10024",
+    "customer_id": "CUST-027",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-006",
+        "name": "Smart Doorbell Camera",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 159.0,
+        "line_total": 159.0
+      }
+    ],
+    "subtotal": 159.0,
+    "shipping_cost": 24.99,
+    "total": 183.99,
+    "order_date": "2026-07-17",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "2366 Aspen Ct",
+      "city": "New York",
+      "state": "NY",
+      "zip": "68463"
+    },
+    "carrier": "USPS",
+    "tracking_number": "944130594394",
+    "ship_date": "2026-07-18",
+    "estimated_delivery": "2026-07-20",
+    "delivered_date": "2026-07-19"
+  },
+  {
+    "order_id": "ORD-10025",
+    "customer_id": "CUST-005",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      },
+      {
+        "product_id": "PROD-018",
+        "name": "Air Purifier (Medium Room)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 219.99,
+        "line_total": 219.99
+      }
+    ],
+    "subtotal": 434.99,
+    "shipping_cost": 12.99,
+    "total": 447.98,
+    "order_date": "2026-07-03",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4116 Cedar St",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "91709"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX3014653593",
+    "ship_date": "2026-07-04",
+    "estimated_delivery": "2026-07-10"
+  },
+  {
+    "order_id": "ORD-10026",
+    "customer_id": "CUST-023",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 289.0,
+        "line_total": 289.0
+      }
+    ],
+    "subtotal": 289.0,
+    "shipping_cost": 24.99,
+    "total": 313.99,
+    "order_date": "2026-07-27",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "3510 Aspen Ct",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "42004"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z9532506343",
+    "ship_date": "2026-07-28",
+    "estimated_delivery": "2026-07-29",
+    "delivered_date": "2026-07-29"
+  },
+  {
+    "order_id": "ORD-10027",
+    "customer_id": "CUST-029",
+    "status": "Cancelled",
+    "items": [
+      {
+        "product_id": "PROD-001",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 179.99,
+        "line_total": 179.99
+      },
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      }
+    ],
+    "subtotal": 199.98,
+    "shipping_cost": 12.99,
+    "total": 212.97,
+    "order_date": "2026-07-02",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "795 Juniper Dr",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "92759"
+    },
+    "estimated_delivery": "2026-07-08",
+    "tracking_number": null,
+    "carrier": null,
+    "cancelled_date": "2026-07-02"
+  },
+  {
+    "order_id": "ORD-10028",
+    "customer_id": "CUST-011",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 28.0,
+        "line_total": 28.0
+      },
+      {
+        "product_id": "PROD-006",
+        "name": "Smart Doorbell Camera",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 159.0,
+        "line_total": 159.0
+      }
+    ],
+    "subtotal": 187.0,
+    "shipping_cost": 0.0,
+    "total": 187.0,
+    "order_date": "2026-06-19",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "9643 Hawthorn Ter",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "72641"
+    },
+    "carrier": "USPS",
+    "tracking_number": "949880938350",
+    "ship_date": "2026-06-20",
+    "estimated_delivery": "2026-06-30",
+    "delivered_date": "2026-06-30"
+  },
+  {
+    "order_id": "ORD-10029",
+    "customer_id": "CUST-003",
+    "status": "Returned",
+    "items": [
+      {
+        "product_id": "PROD-030",
+        "name": "The Soul of a New Machine",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 21.0,
+        "line_total": 21.0
+      }
+    ],
+    "subtotal": 21.0,
+    "shipping_cost": 24.99,
+    "total": 45.99,
+    "order_date": "2026-06-18",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "576 Cedar St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "64005"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX6696589245",
+    "ship_date": "2026-06-19",
+    "estimated_delivery": "2026-06-22",
+    "delivered_date": "2026-06-21",
+    "return_status": "Return Received"
+  },
+  {
+    "order_id": "ORD-10030",
+    "customer_id": "CUST-029",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      },
+      {
+        "product_id": "PROD-019",
+        "name": "Ceramic Pour-Over Coffee Set",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 54.0,
+        "line_total": 54.0
+      }
+    ],
+    "subtotal": 73.99,
+    "shipping_cost": 0.0,
+    "total": 73.99,
+    "order_date": "2026-07-24",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "795 Juniper Dr",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "92759"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z7159499849",
+    "ship_date": "2026-07-25",
+    "estimated_delivery": "2026-08-04"
+  },
+  {
+    "order_id": "ORD-10031",
+    "customer_id": "CUST-022",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      }
+    ],
+    "subtotal": 175.0,
+    "shipping_cost": 24.99,
+    "total": 199.99,
+    "order_date": "2026-07-26",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "1026 Cedar St",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "71673"
+    },
+    "carrier": "USPS",
+    "tracking_number": "941544805370",
+    "ship_date": "2026-07-27",
+    "estimated_delivery": "2026-07-28",
+    "delivered_date": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10032",
+    "customer_id": "CUST-048",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      },
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      },
+      {
+        "product_id": "PROD-019",
+        "name": "Ceramic Pour-Over Coffee Set",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 54.0,
+        "line_total": 54.0
+      }
+    ],
+    "subtotal": 444.0,
+    "shipping_cost": 12.99,
+    "total": 456.99,
+    "order_date": "2026-06-10",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "3920 Willow Way",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "37038"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX9743569127",
+    "ship_date": "2026-06-11",
+    "estimated_delivery": "2026-06-16",
+    "delivered_date": "2026-06-16"
+  },
+  {
+    "order_id": "ORD-10033",
+    "customer_id": "CUST-026",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      }
+    ],
+    "subtotal": 32.0,
+    "shipping_cost": 12.99,
+    "total": 44.99,
+    "order_date": "2026-06-05",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "1187 Birch Ln",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "83421"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z9169858702",
+    "ship_date": "2026-06-06",
+    "estimated_delivery": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10034",
+    "customer_id": "CUST-035",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      }
+    ],
+    "subtotal": 175.0,
+    "shipping_cost": 24.99,
+    "total": 199.99,
+    "order_date": "2026-07-26",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "8407 Hawthorn Ter",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "15872"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z5067109866",
+    "ship_date": "2026-07-27",
+    "estimated_delivery": "2026-07-28",
+    "delivered_date": "2026-07-27"
+  },
+  {
+    "order_id": "ORD-10035",
+    "customer_id": "CUST-034",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-029",
+        "name": "Seeing Like a State",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 29.95,
+        "line_total": 29.95
+      }
+    ],
+    "subtotal": 29.95,
+    "shipping_cost": 12.99,
+    "total": 42.94,
+    "order_date": "2026-06-24",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "9606 Hawthorn Ter",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "28292"
+    },
+    "carrier": "USPS",
+    "tracking_number": "947993609323",
+    "ship_date": "2026-06-25",
+    "estimated_delivery": "2026-06-30"
+  },
+  {
+    "order_id": "ORD-10036",
+    "customer_id": "CUST-001",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-009",
+        "name": "Merino Wool Crew Sweater",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 98.0,
+        "line_total": 98.0
+      },
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      }
+    ],
+    "subtotal": 130.0,
+    "shipping_cost": 12.99,
+    "total": 142.99,
+    "order_date": "2026-07-07",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4716 Willow Way",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "32604"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX6712559907",
+    "ship_date": "2026-07-08",
+    "estimated_delivery": "2026-07-16"
+  },
+  {
+    "order_id": "ORD-10037",
+    "customer_id": "CUST-021",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-006",
+        "name": "Smart Doorbell Camera",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 159.0,
+        "line_total": 159.0
+      }
+    ],
+    "subtotal": 159.0,
+    "shipping_cost": 0.0,
+    "total": 159.0,
+    "order_date": "2026-06-13",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6853 Sycamore Blvd",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "54310"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z8844206817",
+    "ship_date": "2026-06-14",
+    "estimated_delivery": "2026-06-24",
+    "delivered_date": "2026-06-24"
+  },
+  {
+    "order_id": "ORD-10038",
+    "customer_id": "CUST-023",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 189.0,
+        "line_total": 189.0
+      }
+    ],
+    "subtotal": 189.0,
+    "shipping_cost": 0.0,
+    "total": 189.0,
+    "order_date": "2026-06-02",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "3510 Aspen Ct",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "42004"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX5863285044",
+    "ship_date": "2026-06-03",
+    "estimated_delivery": "2026-06-10"
+  },
+  {
+    "order_id": "ORD-10039",
+    "customer_id": "CUST-034",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-019",
+        "name": "Ceramic Pour-Over Coffee Set",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 54.0,
+        "line_total": 54.0
+      }
+    ],
+    "subtotal": 54.0,
+    "shipping_cost": 0.0,
+    "total": 54.0,
+    "order_date": "2026-07-18",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "9606 Hawthorn Ter",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "28292"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z7772492617",
+    "ship_date": "2026-07-19",
+    "estimated_delivery": "2026-07-27",
+    "delivered_date": "2026-07-27"
+  },
+  {
+    "order_id": "ORD-10040",
+    "customer_id": "CUST-002",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-002",
+        "name": "Mechanical Keyboard (Tactile)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 129.0,
+        "line_total": 129.0
+      }
+    ],
+    "subtotal": 129.0,
+    "shipping_cost": 24.99,
+    "total": 153.99,
+    "order_date": "2026-07-05",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "2182 Poplar Rd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "51944"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z3879333107",
+    "ship_date": "2026-07-06",
+    "estimated_delivery": "2026-07-07"
+  },
+  {
+    "order_id": "ORD-10041",
+    "customer_id": "CUST-015",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 28.0,
+        "line_total": 56.0
+      }
+    ],
+    "subtotal": 56.0,
+    "shipping_cost": 24.99,
+    "total": 80.99,
+    "order_date": "2026-06-30",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "8808 Chestnut Pl",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "42070"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX7970571869",
+    "ship_date": "2026-07-01",
+    "estimated_delivery": "2026-07-02"
+  },
+  {
+    "order_id": "ORD-10042",
+    "customer_id": "CUST-017",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-022",
+        "name": "Blackout Curtains (Pair)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 72.0,
+        "line_total": 72.0
+      },
+      {
+        "product_id": "PROD-018",
+        "name": "Air Purifier (Medium Room)",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 219.99,
+        "line_total": 439.98
+      }
+    ],
+    "subtotal": 511.98,
+    "shipping_cost": 12.99,
+    "total": 524.97,
+    "order_date": "2026-06-24",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "1889 Willow Way",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "35238"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX1108933161",
+    "ship_date": "2026-06-25",
+    "estimated_delivery": "2026-06-30"
+  },
+  {
+    "order_id": "ORD-10043",
+    "customer_id": "CUST-016",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-024",
+        "name": "Designing Data-Intensive Applications",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 54.99,
+        "line_total": 54.99
+      }
+    ],
+    "subtotal": 54.99,
+    "shipping_cost": 0.0,
+    "total": 54.99,
+    "order_date": "2026-06-19",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "4188 Chestnut Pl",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "68191"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z2426579377",
+    "ship_date": "2026-06-20",
+    "estimated_delivery": "2026-06-29"
+  },
+  {
+    "order_id": "ORD-10044",
+    "customer_id": "CUST-042",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-002",
+        "name": "Mechanical Keyboard (Tactile)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 129.0,
+        "line_total": 129.0
+      }
+    ],
+    "subtotal": 129.0,
+    "shipping_cost": 24.99,
+    "total": 153.99,
+    "order_date": "2026-07-03",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "5733 Sycamore Blvd",
+      "city": "Miami",
+      "state": "FL",
+      "zip": "32954"
+    },
+    "carrier": "USPS",
+    "tracking_number": "947331076392",
+    "ship_date": "2026-07-04",
+    "estimated_delivery": "2026-07-06",
+    "delivered_date": "2026-07-06"
+  },
+  {
+    "order_id": "ORD-10045",
+    "customer_id": "CUST-036",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-014",
+        "name": "Packable Down Vest",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 110.0,
+        "line_total": 110.0
+      },
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      },
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 189.0,
+        "line_total": 189.0
+      }
+    ],
+    "subtotal": 648.99,
+    "shipping_cost": 24.99,
+    "total": 673.98,
+    "order_date": "2026-05-30",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "7610 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "72419"
+    },
+    "carrier": "USPS",
+    "tracking_number": "947696437644",
+    "ship_date": "2026-05-31",
+    "estimated_delivery": "2026-06-01",
+    "delivered_date": "2026-06-01"
+  },
+  {
+    "order_id": "ORD-10046",
+    "customer_id": "CUST-046",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-011",
+        "name": "Selvedge Denim Jeans",
+        "category": "Clothing",
+        "quantity": 2,
+        "unit_price": 138.0,
+        "line_total": 276.0
+      }
+    ],
+    "subtotal": 276.0,
+    "shipping_cost": 24.99,
+    "total": 300.99,
+    "order_date": "2026-07-10",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "3540 Willow Way",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "99468"
+    },
+    "carrier": "USPS",
+    "tracking_number": "946562624324",
+    "ship_date": "2026-07-11",
+    "estimated_delivery": "2026-07-13"
+  },
+  {
+    "order_id": "ORD-10047",
+    "customer_id": "CUST-030",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-022",
+        "name": "Blackout Curtains (Pair)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 72.0,
+        "line_total": 72.0
+      }
+    ],
+    "subtotal": 72.0,
+    "shipping_cost": 24.99,
+    "total": 96.99,
+    "order_date": "2026-06-10",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "2548 Juniper Dr",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "46214"
+    },
+    "estimated_delivery": "2026-06-12",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10048",
+    "customer_id": "CUST-047",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-013",
+        "name": "Running Shoes (Neutral)",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 132.0,
+        "line_total": 132.0
+      }
+    ],
+    "subtotal": 132.0,
+    "shipping_cost": 24.99,
+    "total": 156.99,
+    "order_date": "2026-05-30",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "6569 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "42811"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z8989180486",
+    "ship_date": "2026-05-31",
+    "estimated_delivery": "2026-06-01",
+    "delivered_date": "2026-06-01"
+  },
+  {
+    "order_id": "ORD-10049",
+    "customer_id": "CUST-028",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      }
+    ],
+    "subtotal": 349.99,
+    "shipping_cost": 0.0,
+    "total": 349.99,
+    "order_date": "2026-06-04",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "226 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "79738"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX6610698452",
+    "ship_date": "2026-06-05",
+    "estimated_delivery": "2026-06-12"
+  },
+  {
+    "order_id": "ORD-10050",
+    "customer_id": "CUST-046",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-014",
+        "name": "Packable Down Vest",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 110.0,
+        "line_total": 110.0
+      }
+    ],
+    "subtotal": 110.0,
+    "shipping_cost": 12.99,
+    "total": 122.99,
+    "order_date": "2026-07-04",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "3540 Willow Way",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "99468"
+    },
+    "carrier": "USPS",
+    "tracking_number": "941827341841",
+    "ship_date": "2026-07-05",
+    "estimated_delivery": "2026-07-08"
+  },
+  {
+    "order_id": "ORD-10051",
+    "customer_id": "CUST-027",
+    "status": "Cancelled",
+    "items": [
+      {
+        "product_id": "PROD-013",
+        "name": "Running Shoes (Neutral)",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 132.0,
+        "line_total": 132.0
+      },
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      },
+      {
+        "product_id": "PROD-012",
+        "name": "Cotton Oxford Shirt",
+        "category": "Clothing",
+        "quantity": 2,
+        "unit_price": 68.0,
+        "line_total": 136.0
+      }
+    ],
+    "subtotal": 357.5,
+    "shipping_cost": 12.99,
+    "total": 370.49,
+    "order_date": "2026-07-25",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "2366 Aspen Ct",
+      "city": "New York",
+      "state": "NY",
+      "zip": "68463"
+    },
+    "estimated_delivery": "2026-07-29",
+    "tracking_number": null,
+    "carrier": null,
+    "cancelled_date": "2026-07-27"
+  },
+  {
+    "order_id": "ORD-10052",
+    "customer_id": "CUST-049",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 28.0,
+        "line_total": 28.0
+      }
+    ],
+    "subtotal": 28.0,
+    "shipping_cost": 4.99,
+    "total": 32.99,
+    "order_date": "2026-06-13",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "7357 Sycamore Blvd",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "38134"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z4646468523",
+    "ship_date": "2026-06-14",
+    "estimated_delivery": "2026-06-24"
+  },
+  {
+    "order_id": "ORD-10053",
+    "customer_id": "CUST-029",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-019",
+        "name": "Ceramic Pour-Over Coffee Set",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 54.0,
+        "line_total": 54.0
+      }
+    ],
+    "subtotal": 54.0,
+    "shipping_cost": 12.99,
+    "total": 66.99,
+    "order_date": "2026-07-23",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "795 Juniper Dr",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "92759"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z7301125422",
+    "ship_date": "2026-07-24",
+    "estimated_delivery": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10054",
+    "customer_id": "CUST-036",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      }
+    ],
+    "subtotal": 215.0,
+    "shipping_cost": 24.99,
+    "total": 239.99,
+    "order_date": "2026-06-06",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "7610 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "72419"
+    },
+    "estimated_delivery": "2026-06-08",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10055",
+    "customer_id": "CUST-009",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      }
+    ],
+    "subtotal": 89.5,
+    "shipping_cost": 24.99,
+    "total": 114.49,
+    "order_date": "2026-07-04",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "1204 Sycamore Blvd",
+      "city": "New York",
+      "state": "NY",
+      "zip": "93813"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z1336973199",
+    "ship_date": "2026-07-05",
+    "estimated_delivery": "2026-07-06"
+  },
+  {
+    "order_id": "ORD-10056",
+    "customer_id": "CUST-033",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      },
+      {
+        "product_id": "PROD-016",
+        "name": "Cast Iron Dutch Oven 5.5qt",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 145.0,
+        "line_total": 145.0
+      }
+    ],
+    "subtotal": 320.0,
+    "shipping_cost": 12.99,
+    "total": 332.99,
+    "order_date": "2026-06-03",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "476 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "58508"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z3130966789",
+    "ship_date": "2026-06-04",
+    "estimated_delivery": "2026-06-08",
+    "delivered_date": "2026-06-07"
+  },
+  {
+    "order_id": "ORD-10057",
+    "customer_id": "CUST-004",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-030",
+        "name": "The Soul of a New Machine",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 21.0,
+        "line_total": 21.0
+      }
+    ],
+    "subtotal": 21.0,
+    "shipping_cost": 12.99,
+    "total": 33.99,
+    "order_date": "2026-06-27",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "5918 Sycamore Blvd",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "42527"
+    },
+    "carrier": "USPS",
+    "tracking_number": "943731506727",
+    "ship_date": "2026-06-28",
+    "estimated_delivery": "2026-07-03",
+    "delivered_date": "2026-07-03"
+  },
+  {
+    "order_id": "ORD-10058",
+    "customer_id": "CUST-038",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-029",
+        "name": "Seeing Like a State",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 29.95,
+        "line_total": 29.95
+      }
+    ],
+    "subtotal": 29.95,
+    "shipping_cost": 12.99,
+    "total": 42.94,
+    "order_date": "2026-06-10",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "1847 Juniper Dr",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "87830"
+    },
+    "carrier": "USPS",
+    "tracking_number": "944372132092",
+    "ship_date": "2026-06-11",
+    "estimated_delivery": "2026-06-16",
+    "delivered_date": "2026-06-16"
+  },
+  {
+    "order_id": "ORD-10059",
+    "customer_id": "CUST-044",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-024",
+        "name": "Designing Data-Intensive Applications",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 54.99,
+        "line_total": 54.99
+      },
+      {
+        "product_id": "PROD-008",
+        "name": "Ergonomic Vertical Mouse",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 42.0,
+        "line_total": 84.0
+      }
+    ],
+    "subtotal": 138.99,
+    "shipping_cost": 12.99,
+    "total": 151.98,
+    "order_date": "2026-06-24",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "9383 Cedar St",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "28272"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z6646225902",
+    "ship_date": "2026-06-25",
+    "estimated_delivery": "2026-06-30"
+  },
+  {
+    "order_id": "ORD-10060",
+    "customer_id": "CUST-015",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-006",
+        "name": "Smart Doorbell Camera",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 159.0,
+        "line_total": 318.0
+      }
+    ],
+    "subtotal": 318.0,
+    "shipping_cost": 24.99,
+    "total": 342.99,
+    "order_date": "2026-06-14",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "8808 Chestnut Pl",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "42070"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX4521430009",
+    "ship_date": "2026-06-15",
+    "estimated_delivery": "2026-06-16"
+  },
+  {
+    "order_id": "ORD-10061",
+    "customer_id": "CUST-006",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-008",
+        "name": "Ergonomic Vertical Mouse",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 42.0,
+        "line_total": 42.0
+      }
+    ],
+    "subtotal": 42.0,
+    "shipping_cost": 12.99,
+    "total": 54.99,
+    "order_date": "2026-07-09",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "2744 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "45571"
+    },
+    "carrier": "USPS",
+    "tracking_number": "947626970234",
+    "ship_date": "2026-07-10",
+    "estimated_delivery": "2026-07-14"
+  },
+  {
+    "order_id": "ORD-10062",
+    "customer_id": "CUST-004",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-029",
+        "name": "Seeing Like a State",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 29.95,
+        "line_total": 29.95
+      }
+    ],
+    "subtotal": 29.95,
+    "shipping_cost": 4.99,
+    "total": 34.94,
+    "order_date": "2026-06-09",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "5918 Sycamore Blvd",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "42527"
+    },
+    "estimated_delivery": "2026-06-19",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10063",
+    "customer_id": "CUST-012",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-012",
+        "name": "Cotton Oxford Shirt",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 68.0,
+        "line_total": 68.0
+      },
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      },
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 28.0,
+        "line_total": 28.0
+      }
+    ],
+    "subtotal": 185.5,
+    "shipping_cost": 12.99,
+    "total": 198.49,
+    "order_date": "2026-06-07",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "8550 Aspen Ct",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "42736"
+    },
+    "estimated_delivery": "2026-06-11",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10064",
+    "customer_id": "CUST-050",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      },
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      }
+    ],
+    "subtotal": 369.98,
+    "shipping_cost": 12.99,
+    "total": 382.97,
+    "order_date": "2026-06-10",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "6772 Sycamore Blvd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "26726"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX1303163429",
+    "ship_date": "2026-06-11",
+    "estimated_delivery": "2026-06-15",
+    "delivered_date": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10065",
+    "customer_id": "CUST-033",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      },
+      {
+        "product_id": "PROD-006",
+        "name": "Smart Doorbell Camera",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 159.0,
+        "line_total": 159.0
+      }
+    ],
+    "subtotal": 178.99,
+    "shipping_cost": 0.0,
+    "total": 178.99,
+    "order_date": "2026-06-08",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "476 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "58508"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX5730806001",
+    "ship_date": "2026-06-09",
+    "estimated_delivery": "2026-06-17",
+    "delivered_date": "2026-06-17"
+  },
+  {
+    "order_id": "ORD-10066",
+    "customer_id": "CUST-037",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-014",
+        "name": "Packable Down Vest",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 110.0,
+        "line_total": 110.0
+      }
+    ],
+    "subtotal": 110.0,
+    "shipping_cost": 24.99,
+    "total": 134.99,
+    "order_date": "2026-06-13",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "6892 Hawthorn Ter",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "36847"
+    },
+    "carrier": "USPS",
+    "tracking_number": "949638720802",
+    "ship_date": "2026-06-14",
+    "estimated_delivery": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10067",
+    "customer_id": "CUST-029",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      }
+    ],
+    "subtotal": 215.0,
+    "shipping_cost": 24.99,
+    "total": 239.99,
+    "order_date": "2026-06-28",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "795 Juniper Dr",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "92759"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z1970777577",
+    "ship_date": "2026-06-29",
+    "estimated_delivery": "2026-06-30",
+    "delivered_date": "2026-06-29"
+  },
+  {
+    "order_id": "ORD-10068",
+    "customer_id": "CUST-019",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-009",
+        "name": "Merino Wool Crew Sweater",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 98.0,
+        "line_total": 98.0
+      },
+      {
+        "product_id": "PROD-018",
+        "name": "Air Purifier (Medium Room)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 219.99,
+        "line_total": 219.99
+      }
+    ],
+    "subtotal": 317.99,
+    "shipping_cost": 0.0,
+    "total": 317.99,
+    "order_date": "2026-05-31",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "4054 Aspen Ct",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "38221"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX9260659158",
+    "ship_date": "2026-06-01",
+    "estimated_delivery": "2026-06-08"
+  },
+  {
+    "order_id": "ORD-10069",
+    "customer_id": "CUST-003",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      },
+      {
+        "product_id": "PROD-023",
+        "name": "The Pragmatic Programmer",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 44.99,
+        "line_total": 89.98
+      }
+    ],
+    "subtotal": 264.98,
+    "shipping_cost": 12.99,
+    "total": 277.97,
+    "order_date": "2026-06-03",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "576 Cedar St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "64005"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX9142080187",
+    "ship_date": "2026-06-04",
+    "estimated_delivery": "2026-06-09",
+    "delivered_date": "2026-06-09"
+  },
+  {
+    "order_id": "ORD-10070",
+    "customer_id": "CUST-022",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-016",
+        "name": "Cast Iron Dutch Oven 5.5qt",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 145.0,
+        "line_total": 145.0
+      }
+    ],
+    "subtotal": 145.0,
+    "shipping_cost": 0.0,
+    "total": 145.0,
+    "order_date": "2026-06-26",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "1026 Cedar St",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "71673"
+    },
+    "carrier": "USPS",
+    "tracking_number": "946126390135",
+    "ship_date": "2026-06-27",
+    "estimated_delivery": "2026-07-03"
+  },
+  {
+    "order_id": "ORD-10071",
+    "customer_id": "CUST-006",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-009",
+        "name": "Merino Wool Crew Sweater",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 98.0,
+        "line_total": 98.0
+      }
+    ],
+    "subtotal": 98.0,
+    "shipping_cost": 24.99,
+    "total": 122.99,
+    "order_date": "2026-06-27",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "2744 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "45571"
+    },
+    "carrier": "USPS",
+    "tracking_number": "949236980205",
+    "ship_date": "2026-06-28",
+    "estimated_delivery": "2026-06-29"
+  },
+  {
+    "order_id": "ORD-10072",
+    "customer_id": "CUST-001",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      },
+      {
+        "product_id": "PROD-001",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 179.99,
+        "line_total": 179.99
+      }
+    ],
+    "subtotal": 394.99,
+    "shipping_cost": 12.99,
+    "total": 407.98,
+    "order_date": "2026-06-09",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4716 Willow Way",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "32604"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z1396869147",
+    "ship_date": "2026-06-10",
+    "estimated_delivery": "2026-06-17"
+  },
+  {
+    "order_id": "ORD-10073",
+    "customer_id": "CUST-008",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-022",
+        "name": "Blackout Curtains (Pair)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 72.0,
+        "line_total": 72.0
+      }
+    ],
+    "subtotal": 72.0,
+    "shipping_cost": 12.99,
+    "total": 84.99,
+    "order_date": "2026-06-02",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4202 Hawthorn Ter",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "51231"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX3318513788",
+    "ship_date": "2026-06-03",
+    "estimated_delivery": "2026-06-05"
+  },
+  {
+    "order_id": "ORD-10074",
+    "customer_id": "CUST-040",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-018",
+        "name": "Air Purifier (Medium Room)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 219.99,
+        "line_total": 219.99
+      }
+    ],
+    "subtotal": 219.99,
+    "shipping_cost": 0.0,
+    "total": 219.99,
+    "order_date": "2026-07-13",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "3299 Maple Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "28011"
+    },
+    "estimated_delivery": "2026-07-23",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10075",
+    "customer_id": "CUST-009",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      }
+    ],
+    "subtotal": 175.0,
+    "shipping_cost": 24.99,
+    "total": 199.99,
+    "order_date": "2026-06-24",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "1204 Sycamore Blvd",
+      "city": "New York",
+      "state": "NY",
+      "zip": "93813"
+    },
+    "carrier": "USPS",
+    "tracking_number": "945908388741",
+    "ship_date": "2026-06-25",
+    "estimated_delivery": "2026-06-26"
+  },
+  {
+    "order_id": "ORD-10076",
+    "customer_id": "CUST-008",
+    "status": "Returned",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      },
+      {
+        "product_id": "PROD-005",
+        "name": "Portable SSD 1TB",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 114.99,
+        "line_total": 114.99
+      }
+    ],
+    "subtotal": 204.49,
+    "shipping_cost": 12.99,
+    "total": 217.48,
+    "order_date": "2026-07-21",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4202 Hawthorn Ter",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "51231"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX3060779800",
+    "ship_date": "2026-07-22",
+    "estimated_delivery": "2026-07-27",
+    "delivered_date": "2026-07-17",
+    "return_status": "Return Received"
+  },
+  {
+    "order_id": "ORD-10077",
+    "customer_id": "CUST-027",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-023",
+        "name": "The Pragmatic Programmer",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 44.99,
+        "line_total": 44.99
+      }
+    ],
+    "subtotal": 44.99,
+    "shipping_cost": 24.99,
+    "total": 69.98,
+    "order_date": "2026-07-28",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "2366 Aspen Ct",
+      "city": "New York",
+      "state": "NY",
+      "zip": "68463"
+    },
+    "carrier": "USPS",
+    "tracking_number": "942258625130",
+    "ship_date": "2026-07-29",
+    "estimated_delivery": "2026-07-30"
+  },
+  {
+    "order_id": "ORD-10078",
+    "customer_id": "CUST-002",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-023",
+        "name": "The Pragmatic Programmer",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 44.99,
+        "line_total": 89.98
+      }
+    ],
+    "subtotal": 89.98,
+    "shipping_cost": 24.99,
+    "total": 114.97,
+    "order_date": "2026-06-14",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "2182 Poplar Rd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "51944"
+    },
+    "carrier": "USPS",
+    "tracking_number": "945233405492",
+    "ship_date": "2026-06-15",
+    "estimated_delivery": "2026-06-16",
+    "delivered_date": "2026-06-16"
+  },
+  {
+    "order_id": "ORD-10079",
+    "customer_id": "CUST-038",
+    "status": "Cancelled",
+    "items": [
+      {
+        "product_id": "PROD-001",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 179.99,
+        "line_total": 179.99
+      }
+    ],
+    "subtotal": 179.99,
+    "shipping_cost": 24.99,
+    "total": 204.98,
+    "order_date": "2026-06-10",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "1847 Juniper Dr",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "87830"
+    },
+    "estimated_delivery": "2026-06-12",
+    "tracking_number": null,
+    "carrier": null,
+    "cancelled_date": "2026-06-12"
+  },
+  {
+    "order_id": "ORD-10080",
+    "customer_id": "CUST-048",
+    "status": "Cancelled",
+    "items": [
+      {
+        "product_id": "PROD-030",
+        "name": "The Soul of a New Machine",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 21.0,
+        "line_total": 21.0
+      }
+    ],
+    "subtotal": 21.0,
+    "shipping_cost": 24.99,
+    "total": 45.99,
+    "order_date": "2026-07-04",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "3920 Willow Way",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "37038"
+    },
+    "estimated_delivery": "2026-07-06",
+    "tracking_number": null,
+    "carrier": null,
+    "cancelled_date": "2026-07-04"
+  },
+  {
+    "order_id": "ORD-10081",
+    "customer_id": "CUST-032",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-012",
+        "name": "Cotton Oxford Shirt",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 68.0,
+        "line_total": 68.0
+      },
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      },
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      }
+    ],
+    "subtotal": 449.99,
+    "shipping_cost": 0.0,
+    "total": 449.99,
+    "order_date": "2026-07-25",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6646 Maple Ave",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "46889"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z5145848761",
+    "ship_date": "2026-07-26",
+    "estimated_delivery": "2026-08-03"
+  },
+  {
+    "order_id": "ORD-10082",
+    "customer_id": "CUST-024",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-018",
+        "name": "Air Purifier (Medium Room)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 219.99,
+        "line_total": 219.99
+      }
+    ],
+    "subtotal": 219.99,
+    "shipping_cost": 12.99,
+    "total": 232.98,
+    "order_date": "2026-06-15",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "9101 Birch Ln",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "15368"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX7725150462",
+    "ship_date": "2026-06-16",
+    "estimated_delivery": "2026-06-18"
+  },
+  {
+    "order_id": "ORD-10083",
+    "customer_id": "CUST-004",
+    "status": "Cancelled",
+    "items": [
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      }
+    ],
+    "subtotal": 349.99,
+    "shipping_cost": 12.99,
+    "total": 362.98,
+    "order_date": "2026-06-27",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "5918 Sycamore Blvd",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "42527"
+    },
+    "estimated_delivery": "2026-07-01",
+    "tracking_number": null,
+    "carrier": null,
+    "cancelled_date": "2026-06-29"
+  },
+  {
+    "order_id": "ORD-10084",
+    "customer_id": "CUST-036",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 175.0,
+        "line_total": 350.0
+      },
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 289.0,
+        "line_total": 289.0
+      }
+    ],
+    "subtotal": 639.0,
+    "shipping_cost": 0.0,
+    "total": 639.0,
+    "order_date": "2026-06-24",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "7610 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "72419"
+    },
+    "estimated_delivery": "2026-07-06",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10085",
+    "customer_id": "CUST-041",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      }
+    ],
+    "subtotal": 215.0,
+    "shipping_cost": 0.0,
+    "total": 215.0,
+    "order_date": "2026-07-03",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "7873 Hawthorn Ter",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "66097"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z4762314790",
+    "ship_date": "2026-07-04",
+    "estimated_delivery": "2026-07-17"
+  },
+  {
+    "order_id": "ORD-10086",
+    "customer_id": "CUST-038",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 28.0,
+        "line_total": 28.0
+      },
+      {
+        "product_id": "PROD-013",
+        "name": "Running Shoes (Neutral)",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 132.0,
+        "line_total": 132.0
+      },
+      {
+        "product_id": "PROD-020",
+        "name": "Standing Desk Converter",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 245.0,
+        "line_total": 245.0
+      }
+    ],
+    "subtotal": 405.0,
+    "shipping_cost": 0.0,
+    "total": 405.0,
+    "order_date": "2026-07-16",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "1847 Juniper Dr",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "87830"
+    },
+    "estimated_delivery": "2026-07-28",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10087",
+    "customer_id": "CUST-043",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 289.0,
+        "line_total": 289.0
+      }
+    ],
+    "subtotal": 289.0,
+    "shipping_cost": 0.0,
+    "total": 289.0,
+    "order_date": "2026-06-11",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "3535 Maple Ave",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "25335"
+    },
+    "carrier": "USPS",
+    "tracking_number": "945509944505",
+    "ship_date": "2026-06-12",
+    "estimated_delivery": "2026-06-22"
+  },
+  {
+    "order_id": "ORD-10088",
+    "customer_id": "CUST-012",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 28.0,
+        "line_total": 28.0
+      }
+    ],
+    "subtotal": 28.0,
+    "shipping_cost": 24.99,
+    "total": 52.99,
+    "order_date": "2026-06-13",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "8550 Aspen Ct",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "42736"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z5459108666",
+    "ship_date": "2026-06-14",
+    "estimated_delivery": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10089",
+    "customer_id": "CUST-028",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      },
+      {
+        "product_id": "PROD-016",
+        "name": "Cast Iron Dutch Oven 5.5qt",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 145.0,
+        "line_total": 290.0
+      }
+    ],
+    "subtotal": 639.99,
+    "shipping_cost": 12.99,
+    "total": 652.98,
+    "order_date": "2026-06-02",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "226 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "79738"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX8639310822",
+    "ship_date": "2026-06-03",
+    "estimated_delivery": "2026-06-08",
+    "delivered_date": "2026-06-07"
+  },
+  {
+    "order_id": "ORD-10090",
+    "customer_id": "CUST-006",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      }
+    ],
+    "subtotal": 19.99,
+    "shipping_cost": 12.99,
+    "total": 32.98,
+    "order_date": "2026-06-14",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "2744 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "45571"
+    },
+    "estimated_delivery": "2026-06-18",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10091",
+    "customer_id": "CUST-033",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      }
+    ],
+    "subtotal": 89.5,
+    "shipping_cost": 12.99,
+    "total": 102.49,
+    "order_date": "2026-06-11",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "476 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "58508"
+    },
+    "estimated_delivery": "2026-06-17",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10092",
+    "customer_id": "CUST-037",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      }
+    ],
+    "subtotal": 175.0,
+    "shipping_cost": 0.0,
+    "total": 175.0,
+    "order_date": "2026-07-16",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6892 Hawthorn Ter",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "36847"
+    },
+    "carrier": "USPS",
+    "tracking_number": "948536398164",
+    "ship_date": "2026-07-17",
+    "estimated_delivery": "2026-07-27"
+  },
+  {
+    "order_id": "ORD-10093",
+    "customer_id": "CUST-011",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-022",
+        "name": "Blackout Curtains (Pair)",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 72.0,
+        "line_total": 144.0
+      }
+    ],
+    "subtotal": 144.0,
+    "shipping_cost": 12.99,
+    "total": 156.99,
+    "order_date": "2026-06-29",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "9643 Hawthorn Ter",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "72641"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX7089699489",
+    "ship_date": "2026-06-30",
+    "estimated_delivery": "2026-07-03"
+  },
+  {
+    "order_id": "ORD-10094",
+    "customer_id": "CUST-032",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      },
+      {
+        "product_id": "PROD-009",
+        "name": "Merino Wool Crew Sweater",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 98.0,
+        "line_total": 98.0
+      }
+    ],
+    "subtotal": 273.0,
+    "shipping_cost": 12.99,
+    "total": 285.99,
+    "order_date": "2026-07-12",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "6646 Maple Ave",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "46889"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z9688004541",
+    "ship_date": "2026-07-13",
+    "estimated_delivery": "2026-07-15"
+  },
+  {
+    "order_id": "ORD-10095",
+    "customer_id": "CUST-002",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-018",
+        "name": "Air Purifier (Medium Room)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 219.99,
+        "line_total": 219.99
+      }
+    ],
+    "subtotal": 219.99,
+    "shipping_cost": 12.99,
+    "total": 232.98,
+    "order_date": "2026-07-21",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "2182 Poplar Rd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "51944"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX5551184837",
+    "ship_date": "2026-07-22",
+    "estimated_delivery": "2026-07-27",
+    "delivered_date": "2026-07-27"
+  },
+  {
+    "order_id": "ORD-10096",
+    "customer_id": "CUST-005",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      },
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 28.0,
+        "line_total": 28.0
+      }
+    ],
+    "subtotal": 47.99,
+    "shipping_cost": 24.99,
+    "total": 72.98,
+    "order_date": "2026-06-26",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "4116 Cedar St",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "91709"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z4428313788",
+    "ship_date": "2026-06-27",
+    "estimated_delivery": "2026-07-02",
+    "delivered_date": "2026-07-01"
+  },
+  {
+    "order_id": "ORD-10097",
+    "customer_id": "CUST-001",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-024",
+        "name": "Designing Data-Intensive Applications",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 54.99,
+        "line_total": 54.99
+      }
+    ],
+    "subtotal": 54.99,
+    "shipping_cost": 12.99,
+    "total": 67.98,
+    "order_date": "2026-06-08",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4716 Willow Way",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "32604"
+    },
+    "estimated_delivery": "2026-06-12",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10098",
+    "customer_id": "CUST-013",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-002",
+        "name": "Mechanical Keyboard (Tactile)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 129.0,
+        "line_total": 129.0
+      },
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 289.0,
+        "line_total": 289.0
+      }
+    ],
+    "subtotal": 418.0,
+    "shipping_cost": 12.99,
+    "total": 430.99,
+    "order_date": "2026-07-19",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "7708 Juniper Dr",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "32279"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX1191935501",
+    "ship_date": "2026-07-20",
+    "estimated_delivery": "2026-07-23",
+    "delivered_date": "2026-07-23"
+  },
+  {
+    "order_id": "ORD-10099",
+    "customer_id": "CUST-039",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 175.0,
+        "line_total": 350.0
+      }
+    ],
+    "subtotal": 350.0,
+    "shipping_cost": 12.99,
+    "total": 362.99,
+    "order_date": "2026-06-14",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "9453 Maple Ave",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "39381"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z4391084403",
+    "ship_date": "2026-06-15",
+    "estimated_delivery": "2026-06-18"
+  },
+  {
+    "order_id": "ORD-10100",
+    "customer_id": "CUST-011",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      }
+    ],
+    "subtotal": 349.99,
+    "shipping_cost": 24.99,
+    "total": 374.98,
+    "order_date": "2026-07-13",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "9643 Hawthorn Ter",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "72641"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z5902371337",
+    "ship_date": "2026-07-14",
+    "estimated_delivery": "2026-07-15"
+  },
+  {
+    "order_id": "ORD-10101",
+    "customer_id": "CUST-050",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-019",
+        "name": "Ceramic Pour-Over Coffee Set",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 54.0,
+        "line_total": 108.0
+      }
+    ],
+    "subtotal": 108.0,
+    "shipping_cost": 0.0,
+    "total": 108.0,
+    "order_date": "2026-07-14",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6772 Sycamore Blvd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "26726"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX5729661271",
+    "ship_date": "2026-07-15",
+    "estimated_delivery": "2026-07-22"
+  },
+  {
+    "order_id": "ORD-10102",
+    "customer_id": "CUST-027",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-009",
+        "name": "Merino Wool Crew Sweater",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 98.0,
+        "line_total": 98.0
+      },
+      {
+        "product_id": "PROD-020",
+        "name": "Standing Desk Converter",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 245.0,
+        "line_total": 245.0
+      }
+    ],
+    "subtotal": 343.0,
+    "shipping_cost": 24.99,
+    "total": 367.99,
+    "order_date": "2026-07-21",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "2366 Aspen Ct",
+      "city": "New York",
+      "state": "NY",
+      "zip": "68463"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX1399454524",
+    "ship_date": "2026-07-22",
+    "estimated_delivery": "2026-07-23"
+  },
+  {
+    "order_id": "ORD-10103",
+    "customer_id": "CUST-047",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 28.0,
+        "line_total": 28.0
+      },
+      {
+        "product_id": "PROD-028",
+        "name": "Thinking in Systems",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 24.5,
+        "line_total": 24.5
+      }
+    ],
+    "subtotal": 52.5,
+    "shipping_cost": 12.99,
+    "total": 65.49,
+    "order_date": "2026-07-27",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "6569 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "42811"
+    },
+    "estimated_delivery": "2026-07-31",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10104",
+    "customer_id": "CUST-023",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-023",
+        "name": "The Pragmatic Programmer",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 44.99,
+        "line_total": 44.99
+      }
+    ],
+    "subtotal": 44.99,
+    "shipping_cost": 24.99,
+    "total": 69.98,
+    "order_date": "2026-06-13",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "3510 Aspen Ct",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "42004"
+    },
+    "carrier": "USPS",
+    "tracking_number": "946270325272",
+    "ship_date": "2026-06-14",
+    "estimated_delivery": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10105",
+    "customer_id": "CUST-013",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-022",
+        "name": "Blackout Curtains (Pair)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 72.0,
+        "line_total": 72.0
+      },
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      }
+    ],
+    "subtotal": 421.99,
+    "shipping_cost": 0.0,
+    "total": 421.99,
+    "order_date": "2026-06-27",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "7708 Juniper Dr",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "32279"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z4282790008",
+    "ship_date": "2026-06-28",
+    "estimated_delivery": "2026-07-03"
+  },
+  {
+    "order_id": "ORD-10106",
+    "customer_id": "CUST-043",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      }
+    ],
+    "subtotal": 89.5,
+    "shipping_cost": 24.99,
+    "total": 114.49,
+    "order_date": "2026-06-19",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "3535 Maple Ave",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "25335"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX1744788896",
+    "ship_date": "2026-06-20",
+    "estimated_delivery": "2026-06-22"
+  },
+  {
+    "order_id": "ORD-10107",
+    "customer_id": "CUST-047",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-029",
+        "name": "Seeing Like a State",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 29.95,
+        "line_total": 29.95
+      }
+    ],
+    "subtotal": 29.95,
+    "shipping_cost": 4.99,
+    "total": 34.94,
+    "order_date": "2026-06-16",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6569 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "42811"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX9006272824",
+    "ship_date": "2026-06-17",
+    "estimated_delivery": "2026-06-25",
+    "delivered_date": "2026-06-25"
+  },
+  {
+    "order_id": "ORD-10108",
+    "customer_id": "CUST-007",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-016",
+        "name": "Cast Iron Dutch Oven 5.5qt",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 145.0,
+        "line_total": 145.0
+      }
+    ],
+    "subtotal": 145.0,
+    "shipping_cost": 24.99,
+    "total": 169.99,
+    "order_date": "2026-06-15",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "8914 Chestnut Pl",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "57464"
+    },
+    "carrier": "USPS",
+    "tracking_number": "946973567640",
+    "ship_date": "2026-06-16",
+    "estimated_delivery": "2026-06-17",
+    "delivered_date": "2026-06-16"
+  },
+  {
+    "order_id": "ORD-10109",
+    "customer_id": "CUST-024",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-011",
+        "name": "Selvedge Denim Jeans",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 138.0,
+        "line_total": 138.0
+      }
+    ],
+    "subtotal": 138.0,
+    "shipping_cost": 0.0,
+    "total": 138.0,
+    "order_date": "2026-06-27",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "9101 Birch Ln",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "15368"
+    },
+    "carrier": "USPS",
+    "tracking_number": "942342224118",
+    "ship_date": "2026-06-28",
+    "estimated_delivery": "2026-07-06"
+  },
+  {
+    "order_id": "ORD-10110",
+    "customer_id": "CUST-032",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-018",
+        "name": "Air Purifier (Medium Room)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 219.99,
+        "line_total": 219.99
+      },
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 189.0,
+        "line_total": 189.0
+      },
+      {
+        "product_id": "PROD-013",
+        "name": "Running Shoes (Neutral)",
+        "category": "Clothing",
+        "quantity": 2,
+        "unit_price": 132.0,
+        "line_total": 264.0
+      }
+    ],
+    "subtotal": 672.99,
+    "shipping_cost": 0.0,
+    "total": 672.99,
+    "order_date": "2026-06-17",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6646 Maple Ave",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "46889"
+    },
+    "estimated_delivery": "2026-06-29",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10111",
+    "customer_id": "CUST-044",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      }
+    ],
+    "subtotal": 89.5,
+    "shipping_cost": 24.99,
+    "total": 114.49,
+    "order_date": "2026-06-30",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "9383 Cedar St",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "28272"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z7310123896",
+    "ship_date": "2026-07-01",
+    "estimated_delivery": "2026-07-02"
+  },
+  {
+    "order_id": "ORD-10112",
+    "customer_id": "CUST-042",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 32.0,
+        "line_total": 64.0
+      },
+      {
+        "product_id": "PROD-022",
+        "name": "Blackout Curtains (Pair)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 72.0,
+        "line_total": 72.0
+      }
+    ],
+    "subtotal": 136.0,
+    "shipping_cost": 12.99,
+    "total": 148.99,
+    "order_date": "2026-06-21",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "5733 Sycamore Blvd",
+      "city": "Miami",
+      "state": "FL",
+      "zip": "32954"
+    },
+    "carrier": "USPS",
+    "tracking_number": "944311805143",
+    "ship_date": "2026-06-22",
+    "estimated_delivery": "2026-06-25"
+  },
+  {
+    "order_id": "ORD-10113",
+    "customer_id": "CUST-029",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      }
+    ],
+    "subtotal": 349.99,
+    "shipping_cost": 12.99,
+    "total": 362.98,
+    "order_date": "2026-06-10",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "795 Juniper Dr",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "92759"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z7822883843",
+    "ship_date": "2026-06-11",
+    "estimated_delivery": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10114",
+    "customer_id": "CUST-015",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 189.0,
+        "line_total": 189.0
+      }
+    ],
+    "subtotal": 189.0,
+    "shipping_cost": 0.0,
+    "total": 189.0,
+    "order_date": "2026-07-09",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "8808 Chestnut Pl",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "42070"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z7145906730",
+    "ship_date": "2026-07-10",
+    "estimated_delivery": "2026-07-17"
+  },
+  {
+    "order_id": "ORD-10115",
+    "customer_id": "CUST-046",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      },
+      {
+        "product_id": "PROD-028",
+        "name": "Thinking in Systems",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 24.5,
+        "line_total": 24.5
+      }
+    ],
+    "subtotal": 199.5,
+    "shipping_cost": 0.0,
+    "total": 199.5,
+    "order_date": "2026-07-21",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "3540 Willow Way",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "99468"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z6827362971",
+    "ship_date": "2026-07-22",
+    "estimated_delivery": "2026-07-30"
+  },
+  {
+    "order_id": "ORD-10116",
+    "customer_id": "CUST-033",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 19.99,
+        "line_total": 39.98
+      },
+      {
+        "product_id": "PROD-001",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 179.99,
+        "line_total": 179.99
+      }
+    ],
+    "subtotal": 219.97,
+    "shipping_cost": 24.99,
+    "total": 244.96,
+    "order_date": "2026-07-03",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "476 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "58508"
+    },
+    "carrier": "USPS",
+    "tracking_number": "949243220827",
+    "ship_date": "2026-07-04",
+    "estimated_delivery": "2026-07-06"
+  },
+  {
+    "order_id": "ORD-10117",
+    "customer_id": "CUST-028",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-007",
+        "name": "Bluetooth Speaker (Waterproof)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 64.99,
+        "line_total": 64.99
+      }
+    ],
+    "subtotal": 64.99,
+    "shipping_cost": 0.0,
+    "total": 64.99,
+    "order_date": "2026-07-10",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "226 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "79738"
+    },
+    "carrier": "USPS",
+    "tracking_number": "943838224779",
+    "ship_date": "2026-07-11",
+    "estimated_delivery": "2026-07-20",
+    "delivered_date": "2026-07-20"
+  },
+  {
+    "order_id": "ORD-10118",
+    "customer_id": "CUST-026",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 289.0,
+        "line_total": 578.0
+      }
+    ],
+    "subtotal": 578.0,
+    "shipping_cost": 12.99,
+    "total": 590.99,
+    "order_date": "2026-06-04",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "1187 Birch Ln",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "83421"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z4318410126",
+    "ship_date": "2026-06-05",
+    "estimated_delivery": "2026-06-12",
+    "delivered_date": "2026-06-12"
+  },
+  {
+    "order_id": "ORD-10119",
+    "customer_id": "CUST-027",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-009",
+        "name": "Merino Wool Crew Sweater",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 98.0,
+        "line_total": 98.0
+      },
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 289.0,
+        "line_total": 289.0
+      },
+      {
+        "product_id": "PROD-008",
+        "name": "Ergonomic Vertical Mouse",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 42.0,
+        "line_total": 42.0
+      }
+    ],
+    "subtotal": 429.0,
+    "shipping_cost": 12.99,
+    "total": 441.99,
+    "order_date": "2026-07-13",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "2366 Aspen Ct",
+      "city": "New York",
+      "state": "NY",
+      "zip": "68463"
+    },
+    "carrier": "USPS",
+    "tracking_number": "947418464961",
+    "ship_date": "2026-07-14",
+    "estimated_delivery": "2026-07-16",
+    "delivered_date": "2026-07-16"
+  },
+  {
+    "order_id": "ORD-10120",
+    "customer_id": "CUST-021",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-001",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 179.99,
+        "line_total": 179.99
+      },
+      {
+        "product_id": "PROD-022",
+        "name": "Blackout Curtains (Pair)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 72.0,
+        "line_total": 72.0
+      }
+    ],
+    "subtotal": 251.99,
+    "shipping_cost": 0.0,
+    "total": 251.99,
+    "order_date": "2026-07-23",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6853 Sycamore Blvd",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "54310"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z3773076860",
+    "ship_date": "2026-07-24",
+    "estimated_delivery": "2026-08-07",
+    "delivered_date": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10121",
+    "customer_id": "CUST-019",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-024",
+        "name": "Designing Data-Intensive Applications",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 54.99,
+        "line_total": 54.99
+      }
+    ],
+    "subtotal": 54.99,
+    "shipping_cost": 0.0,
+    "total": 54.99,
+    "order_date": "2026-07-23",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "4054 Aspen Ct",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "38221"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z3267693206",
+    "ship_date": "2026-07-24",
+    "estimated_delivery": "2026-08-03",
+    "delivered_date": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10122",
+    "customer_id": "CUST-006",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-019",
+        "name": "Ceramic Pour-Over Coffee Set",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 54.0,
+        "line_total": 54.0
+      }
+    ],
+    "subtotal": 54.0,
+    "shipping_cost": 12.99,
+    "total": 66.99,
+    "order_date": "2026-07-06",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "2744 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "45571"
+    },
+    "carrier": "USPS",
+    "tracking_number": "945723704889",
+    "ship_date": "2026-07-07",
+    "estimated_delivery": "2026-07-10",
+    "delivered_date": "2026-07-10"
+  },
+  {
+    "order_id": "ORD-10123",
+    "customer_id": "CUST-041",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      },
+      {
+        "product_id": "PROD-014",
+        "name": "Packable Down Vest",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 110.0,
+        "line_total": 110.0
+      }
+    ],
+    "subtotal": 129.99,
+    "shipping_cost": 12.99,
+    "total": 142.98,
+    "order_date": "2026-07-09",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "7873 Hawthorn Ter",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "66097"
+    },
+    "estimated_delivery": "2026-07-15",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10124",
+    "customer_id": "CUST-035",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 189.0,
+        "line_total": 189.0
+      }
+    ],
+    "subtotal": 189.0,
+    "shipping_cost": 12.99,
+    "total": 201.99,
+    "order_date": "2026-07-02",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "8407 Hawthorn Ter",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "15872"
+    },
+    "estimated_delivery": "2026-07-08",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10125",
+    "customer_id": "CUST-022",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      }
+    ],
+    "subtotal": 32.0,
+    "shipping_cost": 12.99,
+    "total": 44.99,
+    "order_date": "2026-06-19",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "1026 Cedar St",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "71673"
+    },
+    "carrier": "USPS",
+    "tracking_number": "946186222640",
+    "ship_date": "2026-06-20",
+    "estimated_delivery": "2026-06-23"
+  },
+  {
+    "order_id": "ORD-10126",
+    "customer_id": "CUST-036",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-016",
+        "name": "Cast Iron Dutch Oven 5.5qt",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 145.0,
+        "line_total": 145.0
+      }
+    ],
+    "subtotal": 145.0,
+    "shipping_cost": 0.0,
+    "total": 145.0,
+    "order_date": "2026-06-17",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "7610 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "72419"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z8045992879",
+    "ship_date": "2026-06-18",
+    "estimated_delivery": "2026-06-26",
+    "delivered_date": "2026-06-26"
+  },
+  {
+    "order_id": "ORD-10127",
+    "customer_id": "CUST-009",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 28.0,
+        "line_total": 56.0
+      }
+    ],
+    "subtotal": 56.0,
+    "shipping_cost": 12.99,
+    "total": 68.99,
+    "order_date": "2026-06-14",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "1204 Sycamore Blvd",
+      "city": "New York",
+      "state": "NY",
+      "zip": "93813"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX7339372680",
+    "ship_date": "2026-06-15",
+    "estimated_delivery": "2026-06-18"
+  },
+  {
+    "order_id": "ORD-10128",
+    "customer_id": "CUST-003",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      },
+      {
+        "product_id": "PROD-009",
+        "name": "Merino Wool Crew Sweater",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 98.0,
+        "line_total": 98.0
+      }
+    ],
+    "subtotal": 187.5,
+    "shipping_cost": 24.99,
+    "total": 212.49,
+    "order_date": "2026-07-22",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "576 Cedar St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "64005"
+    },
+    "carrier": "USPS",
+    "tracking_number": "945600581550",
+    "ship_date": "2026-07-23",
+    "estimated_delivery": "2026-07-24"
+  },
+  {
+    "order_id": "ORD-10129",
+    "customer_id": "CUST-046",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-030",
+        "name": "The Soul of a New Machine",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 21.0,
+        "line_total": 21.0
+      },
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 189.0,
+        "line_total": 189.0
+      },
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 28.0,
+        "line_total": 56.0
+      }
+    ],
+    "subtotal": 266.0,
+    "shipping_cost": 12.99,
+    "total": 278.99,
+    "order_date": "2026-07-24",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "3540 Willow Way",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "99468"
+    },
+    "carrier": "USPS",
+    "tracking_number": "949325087866",
+    "ship_date": "2026-07-25",
+    "estimated_delivery": "2026-07-29"
+  },
+  {
+    "order_id": "ORD-10130",
+    "customer_id": "CUST-010",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-006",
+        "name": "Smart Doorbell Camera",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 159.0,
+        "line_total": 159.0
+      },
+      {
+        "product_id": "PROD-020",
+        "name": "Standing Desk Converter",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 245.0,
+        "line_total": 245.0
+      }
+    ],
+    "subtotal": 404.0,
+    "shipping_cost": 24.99,
+    "total": 428.99,
+    "order_date": "2026-07-25",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "8177 Hawthorn Ter",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "24746"
+    },
+    "estimated_delivery": "2026-07-27",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10131",
+    "customer_id": "CUST-005",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-005",
+        "name": "Portable SSD 1TB",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 114.99,
+        "line_total": 114.99
+      },
+      {
+        "product_id": "PROD-024",
+        "name": "Designing Data-Intensive Applications",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 54.99,
+        "line_total": 54.99
+      }
+    ],
+    "subtotal": 169.98,
+    "shipping_cost": 24.99,
+    "total": 194.97,
+    "order_date": "2026-07-26",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "4116 Cedar St",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "91709"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z6769828746",
+    "ship_date": "2026-07-27",
+    "estimated_delivery": "2026-07-31",
+    "delivered_date": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10132",
+    "customer_id": "CUST-034",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-013",
+        "name": "Running Shoes (Neutral)",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 132.0,
+        "line_total": 132.0
+      }
+    ],
+    "subtotal": 132.0,
+    "shipping_cost": 24.99,
+    "total": 156.99,
+    "order_date": "2026-06-01",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "9606 Hawthorn Ter",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "28292"
+    },
+    "carrier": "USPS",
+    "tracking_number": "941474203234",
+    "ship_date": "2026-06-02",
+    "estimated_delivery": "2026-06-03"
+  },
+  {
+    "order_id": "ORD-10133",
+    "customer_id": "CUST-014",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      }
+    ],
+    "subtotal": 89.5,
+    "shipping_cost": 24.99,
+    "total": 114.49,
+    "order_date": "2026-07-16",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "4637 Maple Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "53443"
+    },
+    "carrier": "USPS",
+    "tracking_number": "942218773957",
+    "ship_date": "2026-07-17",
+    "estimated_delivery": "2026-07-20"
+  },
+  {
+    "order_id": "ORD-10134",
+    "customer_id": "CUST-016",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-013",
+        "name": "Running Shoes (Neutral)",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 132.0,
+        "line_total": 132.0
+      }
+    ],
+    "subtotal": 132.0,
+    "shipping_cost": 0.0,
+    "total": 132.0,
+    "order_date": "2026-07-03",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "4188 Chestnut Pl",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "68191"
+    },
+    "carrier": "USPS",
+    "tracking_number": "942669220952",
+    "ship_date": "2026-07-04",
+    "estimated_delivery": "2026-07-10"
+  },
+  {
+    "order_id": "ORD-10135",
+    "customer_id": "CUST-013",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-013",
+        "name": "Running Shoes (Neutral)",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 132.0,
+        "line_total": 132.0
+      },
+      {
+        "product_id": "PROD-024",
+        "name": "Designing Data-Intensive Applications",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 54.99,
+        "line_total": 54.99
+      }
+    ],
+    "subtotal": 186.99,
+    "shipping_cost": 12.99,
+    "total": 199.98,
+    "order_date": "2026-06-08",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "7708 Juniper Dr",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "32279"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX5654995189",
+    "ship_date": "2026-06-09",
+    "estimated_delivery": "2026-06-12",
+    "delivered_date": "2026-06-12"
+  },
+  {
+    "order_id": "ORD-10136",
+    "customer_id": "CUST-039",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      },
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      }
+    ],
+    "subtotal": 194.99,
+    "shipping_cost": 0.0,
+    "total": 194.99,
+    "order_date": "2026-07-22",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "9453 Maple Ave",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "39381"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z7903378338",
+    "ship_date": "2026-07-23",
+    "estimated_delivery": "2026-08-03",
+    "delivered_date": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10137",
+    "customer_id": "CUST-031",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 189.0,
+        "line_total": 189.0
+      }
+    ],
+    "subtotal": 189.0,
+    "shipping_cost": 24.99,
+    "total": 213.99,
+    "order_date": "2026-07-21",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "4120 Poplar Rd",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "85750"
+    },
+    "carrier": "USPS",
+    "tracking_number": "942736310558",
+    "ship_date": "2026-07-22",
+    "estimated_delivery": "2026-07-23",
+    "delivered_date": "2026-07-22"
+  },
+  {
+    "order_id": "ORD-10138",
+    "customer_id": "CUST-019",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 189.0,
+        "line_total": 189.0
+      }
+    ],
+    "subtotal": 189.0,
+    "shipping_cost": 12.99,
+    "total": 201.99,
+    "order_date": "2026-06-27",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4054 Aspen Ct",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "38221"
+    },
+    "carrier": "USPS",
+    "tracking_number": "943879995795",
+    "ship_date": "2026-06-28",
+    "estimated_delivery": "2026-06-30",
+    "delivered_date": "2026-06-30"
+  },
+  {
+    "order_id": "ORD-10139",
+    "customer_id": "CUST-014",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-020",
+        "name": "Standing Desk Converter",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 245.0,
+        "line_total": 245.0
+      },
+      {
+        "product_id": "PROD-001",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 179.99,
+        "line_total": 179.99
+      }
+    ],
+    "subtotal": 424.99,
+    "shipping_cost": 24.99,
+    "total": 449.98,
+    "order_date": "2026-06-08",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "4637 Maple Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "53443"
+    },
+    "estimated_delivery": "2026-06-10",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10140",
+    "customer_id": "CUST-039",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 289.0,
+        "line_total": 289.0
+      },
+      {
+        "product_id": "PROD-001",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 179.99,
+        "line_total": 179.99
+      }
+    ],
+    "subtotal": 468.99,
+    "shipping_cost": 0.0,
+    "total": 468.99,
+    "order_date": "2026-06-19",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "9453 Maple Ave",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "39381"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z2855420877",
+    "ship_date": "2026-06-20",
+    "estimated_delivery": "2026-06-30",
+    "delivered_date": "2026-06-30"
+  },
+  {
+    "order_id": "ORD-10141",
+    "customer_id": "CUST-046",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      },
+      {
+        "product_id": "PROD-009",
+        "name": "Merino Wool Crew Sweater",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 98.0,
+        "line_total": 98.0
+      },
+      {
+        "product_id": "PROD-029",
+        "name": "Seeing Like a State",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 29.95,
+        "line_total": 29.95
+      }
+    ],
+    "subtotal": 147.94,
+    "shipping_cost": 24.99,
+    "total": 172.93,
+    "order_date": "2026-06-18",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "3540 Willow Way",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "99468"
+    },
+    "carrier": "USPS",
+    "tracking_number": "943751374633",
+    "ship_date": "2026-06-19",
+    "estimated_delivery": "2026-06-22"
+  },
+  {
+    "order_id": "ORD-10142",
+    "customer_id": "CUST-045",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      }
+    ],
+    "subtotal": 175.0,
+    "shipping_cost": 12.99,
+    "total": 187.99,
+    "order_date": "2026-05-30",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "1712 Birch Ln",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "81656"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX2396651699",
+    "ship_date": "2026-05-31",
+    "estimated_delivery": "2026-06-03",
+    "delivered_date": "2026-06-02"
+  },
+  {
+    "order_id": "ORD-10143",
+    "customer_id": "CUST-040",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-006",
+        "name": "Smart Doorbell Camera",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 159.0,
+        "line_total": 159.0
+      },
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      }
+    ],
+    "subtotal": 191.0,
+    "shipping_cost": 24.99,
+    "total": 215.99,
+    "order_date": "2026-07-08",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "3299 Maple Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "28011"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX5101753798",
+    "ship_date": "2026-07-09",
+    "estimated_delivery": "2026-07-10"
+  },
+  {
+    "order_id": "ORD-10144",
+    "customer_id": "CUST-026",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      }
+    ],
+    "subtotal": 32.0,
+    "shipping_cost": 4.99,
+    "total": 36.99,
+    "order_date": "2026-06-07",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "1187 Birch Ln",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "83421"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z6774992743",
+    "ship_date": "2026-06-08",
+    "estimated_delivery": "2026-06-19"
+  },
+  {
+    "order_id": "ORD-10145",
+    "customer_id": "CUST-008",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-007",
+        "name": "Bluetooth Speaker (Waterproof)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 64.99,
+        "line_total": 64.99
+      }
+    ],
+    "subtotal": 64.99,
+    "shipping_cost": 0.0,
+    "total": 64.99,
+    "order_date": "2026-07-07",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "4202 Hawthorn Ter",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "51231"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z7387909389",
+    "ship_date": "2026-07-08",
+    "estimated_delivery": "2026-07-16",
+    "delivered_date": "2026-07-15"
+  },
+  {
+    "order_id": "ORD-10146",
+    "customer_id": "CUST-024",
+    "status": "Returned",
+    "items": [
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 289.0,
+        "line_total": 578.0
+      }
+    ],
+    "subtotal": 578.0,
+    "shipping_cost": 12.99,
+    "total": 590.99,
+    "order_date": "2026-06-11",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "9101 Birch Ln",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "15368"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX6060701115",
+    "ship_date": "2026-06-12",
+    "estimated_delivery": "2026-06-16",
+    "delivered_date": "2026-06-16",
+    "return_status": "Return Received"
+  },
+  {
+    "order_id": "ORD-10147",
+    "customer_id": "CUST-007",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-011",
+        "name": "Selvedge Denim Jeans",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 138.0,
+        "line_total": 138.0
+      }
+    ],
+    "subtotal": 138.0,
+    "shipping_cost": 12.99,
+    "total": 150.99,
+    "order_date": "2026-07-25",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "8914 Chestnut Pl",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "57464"
+    },
+    "carrier": "USPS",
+    "tracking_number": "948884218546",
+    "ship_date": "2026-07-26",
+    "estimated_delivery": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10148",
+    "customer_id": "CUST-044",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 32.0,
+        "line_total": 64.0
+      }
+    ],
+    "subtotal": 64.0,
+    "shipping_cost": 24.99,
+    "total": 88.99,
+    "order_date": "2026-06-13",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "9383 Cedar St",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "28272"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX2781159312",
+    "ship_date": "2026-06-14",
+    "estimated_delivery": "2026-06-15",
+    "delivered_date": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10149",
+    "customer_id": "CUST-039",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-024",
+        "name": "Designing Data-Intensive Applications",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 54.99,
+        "line_total": 109.98
+      }
+    ],
+    "subtotal": 109.98,
+    "shipping_cost": 24.99,
+    "total": 134.97,
+    "order_date": "2026-07-15",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "9453 Maple Ave",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "39381"
+    },
+    "estimated_delivery": "2026-07-17",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10150",
+    "customer_id": "CUST-037",
+    "status": "Cancelled",
+    "items": [
+      {
+        "product_id": "PROD-011",
+        "name": "Selvedge Denim Jeans",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 138.0,
+        "line_total": 138.0
+      }
+    ],
+    "subtotal": 138.0,
+    "shipping_cost": 24.99,
+    "total": 162.99,
+    "order_date": "2026-07-27",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "6892 Hawthorn Ter",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "36847"
+    },
+    "estimated_delivery": "2026-07-29",
+    "tracking_number": null,
+    "carrier": null,
+    "cancelled_date": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10151",
+    "customer_id": "CUST-017",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-003",
+        "name": "27-inch 4K Monitor",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 349.99,
+        "line_total": 349.99
+      }
+    ],
+    "subtotal": 349.99,
+    "shipping_cost": 24.99,
+    "total": 374.98,
+    "order_date": "2026-07-13",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "1889 Willow Way",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "35238"
+    },
+    "carrier": "USPS",
+    "tracking_number": "948570411127",
+    "ship_date": "2026-07-14",
+    "estimated_delivery": "2026-07-15",
+    "delivered_date": "2026-07-15"
+  },
+  {
+    "order_id": "ORD-10152",
+    "customer_id": "CUST-046",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      }
+    ],
+    "subtotal": 215.0,
+    "shipping_cost": 12.99,
+    "total": 227.99,
+    "order_date": "2026-07-24",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "3540 Willow Way",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "99468"
+    },
+    "carrier": "USPS",
+    "tracking_number": "946827078409",
+    "ship_date": "2026-07-25",
+    "estimated_delivery": "2026-07-28",
+    "delivered_date": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10153",
+    "customer_id": "CUST-042",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-020",
+        "name": "Standing Desk Converter",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 245.0,
+        "line_total": 245.0
+      },
+      {
+        "product_id": "PROD-022",
+        "name": "Blackout Curtains (Pair)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 72.0,
+        "line_total": 72.0
+      }
+    ],
+    "subtotal": 317.0,
+    "shipping_cost": 0.0,
+    "total": 317.0,
+    "order_date": "2026-06-05",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "5733 Sycamore Blvd",
+      "city": "Miami",
+      "state": "FL",
+      "zip": "32954"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z2652072092",
+    "ship_date": "2026-06-06",
+    "estimated_delivery": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10154",
+    "customer_id": "CUST-013",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      },
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 89.5,
+        "line_total": 179.0
+      }
+    ],
+    "subtotal": 394.0,
+    "shipping_cost": 24.99,
+    "total": 418.99,
+    "order_date": "2026-07-26",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "7708 Juniper Dr",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "32279"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX6013974833",
+    "ship_date": "2026-07-27",
+    "estimated_delivery": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10155",
+    "customer_id": "CUST-001",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 175.0,
+        "line_total": 350.0
+      },
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      },
+      {
+        "product_id": "PROD-024",
+        "name": "Designing Data-Intensive Applications",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 54.99,
+        "line_total": 54.99
+      }
+    ],
+    "subtotal": 436.99,
+    "shipping_cost": 0.0,
+    "total": 436.99,
+    "order_date": "2026-06-18",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "4716 Willow Way",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "32604"
+    },
+    "estimated_delivery": "2026-06-30",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10156",
+    "customer_id": "CUST-002",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-011",
+        "name": "Selvedge Denim Jeans",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 138.0,
+        "line_total": 138.0
+      },
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 28.0,
+        "line_total": 28.0
+      }
+    ],
+    "subtotal": 166.0,
+    "shipping_cost": 0.0,
+    "total": 166.0,
+    "order_date": "2026-06-10",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "2182 Poplar Rd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "51944"
+    },
+    "carrier": "USPS",
+    "tracking_number": "942002625910",
+    "ship_date": "2026-06-11",
+    "estimated_delivery": "2026-06-18"
+  },
+  {
+    "order_id": "ORD-10157",
+    "customer_id": "CUST-041",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-023",
+        "name": "The Pragmatic Programmer",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 44.99,
+        "line_total": 44.99
+      },
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 19.99,
+        "line_total": 39.98
+      }
+    ],
+    "subtotal": 84.97,
+    "shipping_cost": 12.99,
+    "total": 97.96,
+    "order_date": "2026-07-20",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "7873 Hawthorn Ter",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "66097"
+    },
+    "carrier": "USPS",
+    "tracking_number": "949125761079",
+    "ship_date": "2026-07-21",
+    "estimated_delivery": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10158",
+    "customer_id": "CUST-003",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-007",
+        "name": "Bluetooth Speaker (Waterproof)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 64.99,
+        "line_total": 64.99
+      }
+    ],
+    "subtotal": 64.99,
+    "shipping_cost": 0.0,
+    "total": 64.99,
+    "order_date": "2026-07-21",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "576 Cedar St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "64005"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z3235234495",
+    "ship_date": "2026-07-22",
+    "estimated_delivery": "2026-07-29",
+    "delivered_date": "2026-07-29"
+  },
+  {
+    "order_id": "ORD-10159",
+    "customer_id": "CUST-035",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      },
+      {
+        "product_id": "PROD-029",
+        "name": "Seeing Like a State",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 29.95,
+        "line_total": 29.95
+      }
+    ],
+    "subtotal": 204.95,
+    "shipping_cost": 24.99,
+    "total": 229.94,
+    "order_date": "2026-07-25",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "8407 Hawthorn Ter",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "15872"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z6035361412",
+    "ship_date": "2026-07-26",
+    "estimated_delivery": "2026-07-27"
+  },
+  {
+    "order_id": "ORD-10160",
+    "customer_id": "CUST-028",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-016",
+        "name": "Cast Iron Dutch Oven 5.5qt",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 145.0,
+        "line_total": 145.0
+      },
+      {
+        "product_id": "PROD-009",
+        "name": "Merino Wool Crew Sweater",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 98.0,
+        "line_total": 98.0
+      },
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 28.0,
+        "line_total": 56.0
+      }
+    ],
+    "subtotal": 299.0,
+    "shipping_cost": 0.0,
+    "total": 299.0,
+    "order_date": "2026-06-25",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "226 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "79738"
+    },
+    "estimated_delivery": "2026-07-07",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10161",
+    "customer_id": "CUST-013",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-016",
+        "name": "Cast Iron Dutch Oven 5.5qt",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 145.0,
+        "line_total": 145.0
+      },
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      }
+    ],
+    "subtotal": 177.0,
+    "shipping_cost": 0.0,
+    "total": 177.0,
+    "order_date": "2026-07-18",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "7708 Juniper Dr",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "32279"
+    },
+    "carrier": "USPS",
+    "tracking_number": "941453383748",
+    "ship_date": "2026-07-19",
+    "estimated_delivery": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10162",
+    "customer_id": "CUST-047",
+    "status": "Returned",
+    "items": [
+      {
+        "product_id": "PROD-030",
+        "name": "The Soul of a New Machine",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 21.0,
+        "line_total": 42.0
+      }
+    ],
+    "subtotal": 42.0,
+    "shipping_cost": 0.0,
+    "total": 42.0,
+    "order_date": "2026-07-23",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6569 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "42811"
+    },
+    "carrier": "USPS",
+    "tracking_number": "947928875855",
+    "ship_date": "2026-07-24",
+    "estimated_delivery": "2026-08-03",
+    "delivered_date": "2026-07-13",
+    "return_status": "Refund Processing"
+  },
+  {
+    "order_id": "ORD-10163",
+    "customer_id": "CUST-010",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-028",
+        "name": "Thinking in Systems",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 24.5,
+        "line_total": 24.5
+      }
+    ],
+    "subtotal": 24.5,
+    "shipping_cost": 24.99,
+    "total": 49.49,
+    "order_date": "2026-06-10",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "8177 Hawthorn Ter",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "24746"
+    },
+    "carrier": "USPS",
+    "tracking_number": "947165683345",
+    "ship_date": "2026-06-11",
+    "estimated_delivery": "2026-06-12"
+  },
+  {
+    "order_id": "ORD-10164",
+    "customer_id": "CUST-017",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-016",
+        "name": "Cast Iron Dutch Oven 5.5qt",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 145.0,
+        "line_total": 290.0
+      }
+    ],
+    "subtotal": 290.0,
+    "shipping_cost": 0.0,
+    "total": 290.0,
+    "order_date": "2026-07-12",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "1889 Willow Way",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "35238"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z1230127039",
+    "ship_date": "2026-07-13",
+    "estimated_delivery": "2026-07-22",
+    "delivered_date": "2026-07-21"
+  },
+  {
+    "order_id": "ORD-10165",
+    "customer_id": "CUST-033",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 2,
+        "unit_price": 189.0,
+        "line_total": 378.0
+      }
+    ],
+    "subtotal": 378.0,
+    "shipping_cost": 0.0,
+    "total": 378.0,
+    "order_date": "2026-05-30",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "476 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "58508"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX4534897192",
+    "ship_date": "2026-05-31",
+    "estimated_delivery": "2026-06-05",
+    "delivered_date": "2026-06-04"
+  },
+  {
+    "order_id": "ORD-10166",
+    "customer_id": "CUST-048",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-007",
+        "name": "Bluetooth Speaker (Waterproof)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 64.99,
+        "line_total": 64.99
+      }
+    ],
+    "subtotal": 64.99,
+    "shipping_cost": 0.0,
+    "total": 64.99,
+    "order_date": "2026-07-28",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "3920 Willow Way",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "37038"
+    },
+    "carrier": "USPS",
+    "tracking_number": "945572524374",
+    "ship_date": "2026-07-29",
+    "estimated_delivery": "2026-08-07",
+    "delivered_date": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10167",
+    "customer_id": "CUST-050",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-024",
+        "name": "Designing Data-Intensive Applications",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 54.99,
+        "line_total": 109.98
+      }
+    ],
+    "subtotal": 109.98,
+    "shipping_cost": 12.99,
+    "total": 122.97,
+    "order_date": "2026-06-28",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "6772 Sycamore Blvd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "26726"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX2419268616",
+    "ship_date": "2026-06-29",
+    "estimated_delivery": "2026-07-01"
+  },
+  {
+    "order_id": "ORD-10168",
+    "customer_id": "CUST-012",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-024",
+        "name": "Designing Data-Intensive Applications",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 54.99,
+        "line_total": 109.98
+      }
+    ],
+    "subtotal": 109.98,
+    "shipping_cost": 0.0,
+    "total": 109.98,
+    "order_date": "2026-06-24",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "8550 Aspen Ct",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "42736"
+    },
+    "carrier": "USPS",
+    "tracking_number": "942497247345",
+    "ship_date": "2026-06-25",
+    "estimated_delivery": "2026-07-02"
+  },
+  {
+    "order_id": "ORD-10169",
+    "customer_id": "CUST-018",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-017",
+        "name": "Linen Duvet Cover (Queen)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 175.0,
+        "line_total": 175.0
+      }
+    ],
+    "subtotal": 175.0,
+    "shipping_cost": 12.99,
+    "total": 187.99,
+    "order_date": "2026-06-24",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "9025 Hawthorn Ter",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "41965"
+    },
+    "estimated_delivery": "2026-06-30",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10170",
+    "customer_id": "CUST-033",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 32.0,
+        "line_total": 32.0
+      },
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 289.0,
+        "line_total": 578.0
+      },
+      {
+        "product_id": "PROD-013",
+        "name": "Running Shoes (Neutral)",
+        "category": "Clothing",
+        "quantity": 2,
+        "unit_price": 132.0,
+        "line_total": 264.0
+      }
+    ],
+    "subtotal": 874.0,
+    "shipping_cost": 0.0,
+    "total": 874.0,
+    "order_date": "2026-07-12",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "476 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "58508"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX1904245874",
+    "ship_date": "2026-07-13",
+    "estimated_delivery": "2026-07-20",
+    "delivered_date": "2026-07-20"
+  },
+  {
+    "order_id": "ORD-10171",
+    "customer_id": "CUST-028",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "USB-C Docking Station",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 89.5,
+        "line_total": 89.5
+      }
+    ],
+    "subtotal": 89.5,
+    "shipping_cost": 0.0,
+    "total": 89.5,
+    "order_date": "2026-06-29",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "226 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "79738"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z7531300597",
+    "ship_date": "2026-06-30",
+    "estimated_delivery": "2026-07-09"
+  },
+  {
+    "order_id": "ORD-10172",
+    "customer_id": "CUST-044",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-008",
+        "name": "Ergonomic Vertical Mouse",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 42.0,
+        "line_total": 42.0
+      }
+    ],
+    "subtotal": 42.0,
+    "shipping_cost": 0.0,
+    "total": 42.0,
+    "order_date": "2026-07-25",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "9383 Cedar St",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "28272"
+    },
+    "carrier": "USPS",
+    "tracking_number": "942405405571",
+    "ship_date": "2026-07-26",
+    "estimated_delivery": "2026-08-03",
+    "delivered_date": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10173",
+    "customer_id": "CUST-028",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-008",
+        "name": "Ergonomic Vertical Mouse",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 42.0,
+        "line_total": 84.0
+      },
+      {
+        "product_id": "PROD-007",
+        "name": "Bluetooth Speaker (Waterproof)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 64.99,
+        "line_total": 64.99
+      }
+    ],
+    "subtotal": 148.99,
+    "shipping_cost": 24.99,
+    "total": 173.98,
+    "order_date": "2026-07-28",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "226 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "79738"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z9063334995",
+    "ship_date": "2026-07-29",
+    "estimated_delivery": "2026-07-30"
+  },
+  {
+    "order_id": "ORD-10174",
+    "customer_id": "CUST-003",
+    "status": "Cancelled",
+    "items": [
+      {
+        "product_id": "PROD-012",
+        "name": "Cotton Oxford Shirt",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 68.0,
+        "line_total": 68.0
+      },
+      {
+        "product_id": "PROD-007",
+        "name": "Bluetooth Speaker (Waterproof)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 64.99,
+        "line_total": 64.99
+      }
+    ],
+    "subtotal": 132.99,
+    "shipping_cost": 24.99,
+    "total": 157.98,
+    "order_date": "2026-06-30",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "576 Cedar St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "64005"
+    },
+    "estimated_delivery": "2026-07-02",
+    "tracking_number": null,
+    "carrier": null,
+    "cancelled_date": "2026-07-02"
+  },
+  {
+    "order_id": "ORD-10175",
+    "customer_id": "CUST-017",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      }
+    ],
+    "subtotal": 215.0,
+    "shipping_cost": 0.0,
+    "total": 215.0,
+    "order_date": "2026-07-27",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "1889 Willow Way",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "35238"
+    },
+    "carrier": "USPS",
+    "tracking_number": "945416160426",
+    "ship_date": "2026-07-28",
+    "estimated_delivery": "2026-08-04",
+    "delivered_date": "2026-07-28"
+  },
+  {
+    "order_id": "ORD-10176",
+    "customer_id": "CUST-014",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-016",
+        "name": "Cast Iron Dutch Oven 5.5qt",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 145.0,
+        "line_total": 145.0
+      },
+      {
+        "product_id": "PROD-018",
+        "name": "Air Purifier (Medium Room)",
+        "category": "Home",
+        "quantity": 2,
+        "unit_price": 219.99,
+        "line_total": 439.98
+      },
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      }
+    ],
+    "subtotal": 604.97,
+    "shipping_cost": 0.0,
+    "total": 604.97,
+    "order_date": "2026-07-26",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "4637 Maple Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "53443"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX9964035317",
+    "ship_date": "2026-07-27",
+    "estimated_delivery": "2026-08-05"
+  },
+  {
+    "order_id": "ORD-10177",
+    "customer_id": "CUST-016",
+    "status": "Cancelled",
+    "items": [
+      {
+        "product_id": "PROD-010",
+        "name": "Waterproof Hiking Jacket",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 189.0,
+        "line_total": 189.0
+      },
+      {
+        "product_id": "PROD-013",
+        "name": "Running Shoes (Neutral)",
+        "category": "Clothing",
+        "quantity": 2,
+        "unit_price": 132.0,
+        "line_total": 264.0
+      }
+    ],
+    "subtotal": 453.0,
+    "shipping_cost": 12.99,
+    "total": 465.99,
+    "order_date": "2026-06-17",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4188 Chestnut Pl",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "68191"
+    },
+    "estimated_delivery": "2026-06-23",
+    "tracking_number": null,
+    "carrier": null,
+    "cancelled_date": "2026-06-19"
+  },
+  {
+    "order_id": "ORD-10178",
+    "customer_id": "CUST-005",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-012",
+        "name": "Cotton Oxford Shirt",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 68.0,
+        "line_total": 68.0
+      }
+    ],
+    "subtotal": 68.0,
+    "shipping_cost": 24.99,
+    "total": 92.99,
+    "order_date": "2026-07-20",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "4116 Cedar St",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "91709"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX3228786911",
+    "ship_date": "2026-07-21",
+    "estimated_delivery": "2026-07-27"
+  },
+  {
+    "order_id": "ORD-10179",
+    "customer_id": "CUST-050",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-028",
+        "name": "Thinking in Systems",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 24.5,
+        "line_total": 24.5
+      }
+    ],
+    "subtotal": 24.5,
+    "shipping_cost": 24.99,
+    "total": 49.49,
+    "order_date": "2026-06-22",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "6772 Sycamore Blvd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "26726"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX9175864077",
+    "ship_date": "2026-06-23",
+    "estimated_delivery": "2026-06-24",
+    "delivered_date": "2026-06-24"
+  },
+  {
+    "order_id": "ORD-10180",
+    "customer_id": "CUST-001",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 289.0,
+        "line_total": 289.0
+      }
+    ],
+    "subtotal": 289.0,
+    "shipping_cost": 12.99,
+    "total": 301.99,
+    "order_date": "2026-06-23",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4716 Willow Way",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "32604"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX4432285787",
+    "ship_date": "2026-06-24",
+    "estimated_delivery": "2026-07-01",
+    "delivered_date": "2026-07-01"
+  },
+  {
+    "order_id": "ORD-10181",
+    "customer_id": "CUST-007",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 289.0,
+        "line_total": 289.0
+      },
+      {
+        "product_id": "PROD-002",
+        "name": "Mechanical Keyboard (Tactile)",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 129.0,
+        "line_total": 258.0
+      }
+    ],
+    "subtotal": 547.0,
+    "shipping_cost": 24.99,
+    "total": 571.99,
+    "order_date": "2026-06-02",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "8914 Chestnut Pl",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "57464"
+    },
+    "carrier": "USPS",
+    "tracking_number": "947600930863",
+    "ship_date": "2026-06-03",
+    "estimated_delivery": "2026-06-04"
+  },
+  {
+    "order_id": "ORD-10182",
+    "customer_id": "CUST-007",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-012",
+        "name": "Cotton Oxford Shirt",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 68.0,
+        "line_total": 68.0
+      },
+      {
+        "product_id": "PROD-018",
+        "name": "Air Purifier (Medium Room)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 219.99,
+        "line_total": 219.99
+      },
+      {
+        "product_id": "PROD-005",
+        "name": "Portable SSD 1TB",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 114.99,
+        "line_total": 229.98
+      }
+    ],
+    "subtotal": 517.97,
+    "shipping_cost": 24.99,
+    "total": 542.96,
+    "order_date": "2026-06-04",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "8914 Chestnut Pl",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "57464"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z8259870540",
+    "ship_date": "2026-06-05",
+    "estimated_delivery": "2026-06-08"
+  },
+  {
+    "order_id": "ORD-10183",
+    "customer_id": "CUST-009",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-005",
+        "name": "Portable SSD 1TB",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 114.99,
+        "line_total": 114.99
+      }
+    ],
+    "subtotal": 114.99,
+    "shipping_cost": 24.99,
+    "total": 139.98,
+    "order_date": "2026-07-06",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "1204 Sycamore Blvd",
+      "city": "New York",
+      "state": "NY",
+      "zip": "93813"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX1612005877",
+    "ship_date": "2026-07-07",
+    "estimated_delivery": "2026-07-08",
+    "delivered_date": "2026-07-08"
+  },
+  {
+    "order_id": "ORD-10184",
+    "customer_id": "CUST-011",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 19.99,
+        "line_total": 39.98
+      },
+      {
+        "product_id": "PROD-007",
+        "name": "Bluetooth Speaker (Waterproof)",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 64.99,
+        "line_total": 129.98
+      }
+    ],
+    "subtotal": 169.96,
+    "shipping_cost": 24.99,
+    "total": 194.95,
+    "order_date": "2026-06-10",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "9643 Hawthorn Ter",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "72641"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX3962036195",
+    "ship_date": "2026-06-11",
+    "estimated_delivery": "2026-06-12",
+    "delivered_date": "2026-06-12"
+  },
+  {
+    "order_id": "ORD-10185",
+    "customer_id": "CUST-023",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      },
+      {
+        "product_id": "PROD-027",
+        "name": "The Making of Prince of Persia",
+        "category": "Books",
+        "quantity": 2,
+        "unit_price": 32.0,
+        "line_total": 64.0
+      },
+      {
+        "product_id": "PROD-020",
+        "name": "Standing Desk Converter",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 245.0,
+        "line_total": 245.0
+      }
+    ],
+    "subtotal": 328.99,
+    "shipping_cost": 12.99,
+    "total": 341.98,
+    "order_date": "2026-06-07",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "3510 Aspen Ct",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "42004"
+    },
+    "carrier": "USPS",
+    "tracking_number": "946028827216",
+    "ship_date": "2026-06-08",
+    "estimated_delivery": "2026-06-11"
+  },
+  {
+    "order_id": "ORD-10186",
+    "customer_id": "CUST-019",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-008",
+        "name": "Ergonomic Vertical Mouse",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 42.0,
+        "line_total": 42.0
+      }
+    ],
+    "subtotal": 42.0,
+    "shipping_cost": 12.99,
+    "total": 54.99,
+    "order_date": "2026-07-17",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4054 Aspen Ct",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "38221"
+    },
+    "estimated_delivery": "2026-07-22",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10187",
+    "customer_id": "CUST-009",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-002",
+        "name": "Mechanical Keyboard (Tactile)",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 129.0,
+        "line_total": 129.0
+      },
+      {
+        "product_id": "PROD-012",
+        "name": "Cotton Oxford Shirt",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 68.0,
+        "line_total": 68.0
+      }
+    ],
+    "subtotal": 197.0,
+    "shipping_cost": 24.99,
+    "total": 221.99,
+    "order_date": "2026-06-16",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "1204 Sycamore Blvd",
+      "city": "New York",
+      "state": "NY",
+      "zip": "93813"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX4152637160",
+    "ship_date": "2026-06-17",
+    "estimated_delivery": "2026-06-18"
+  },
+  {
+    "order_id": "ORD-10188",
+    "customer_id": "CUST-021",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-026",
+        "name": "Atlas of Remote Islands",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 28.0,
+        "line_total": 28.0
+      }
+    ],
+    "subtotal": 28.0,
+    "shipping_cost": 24.99,
+    "total": 52.99,
+    "order_date": "2026-07-07",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "6853 Sycamore Blvd",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "54310"
+    },
+    "carrier": "USPS",
+    "tracking_number": "949116783130",
+    "ship_date": "2026-07-08",
+    "estimated_delivery": "2026-07-14"
+  },
+  {
+    "order_id": "ORD-10189",
+    "customer_id": "CUST-032",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 215.0,
+        "line_total": 215.0
+      }
+    ],
+    "subtotal": 215.0,
+    "shipping_cost": 0.0,
+    "total": 215.0,
+    "order_date": "2026-06-27",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "6646 Maple Ave",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "46889"
+    },
+    "estimated_delivery": "2026-07-07",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10190",
+    "customer_id": "CUST-002",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-018",
+        "name": "Air Purifier (Medium Room)",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 219.99,
+        "line_total": 219.99
+      },
+      {
+        "product_id": "PROD-021",
+        "name": "Wool Area Rug 5x7",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 289.0,
+        "line_total": 289.0
+      },
+      {
+        "product_id": "PROD-029",
+        "name": "Seeing Like a State",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 29.95,
+        "line_total": 29.95
+      }
+    ],
+    "subtotal": 538.94,
+    "shipping_cost": 12.99,
+    "total": 551.93,
+    "order_date": "2026-06-05",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "2182 Poplar Rd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "51944"
+    },
+    "carrier": "FedEx",
+    "tracking_number": "FX6347677950",
+    "ship_date": "2026-06-06",
+    "estimated_delivery": "2026-06-10",
+    "delivered_date": "2026-06-09"
+  },
+  {
+    "order_id": "ORD-10191",
+    "customer_id": "CUST-017",
+    "status": "Cancelled",
+    "items": [
+      {
+        "product_id": "PROD-001",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 179.99,
+        "line_total": 179.99
+      },
+      {
+        "product_id": "PROD-023",
+        "name": "The Pragmatic Programmer",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 44.99,
+        "line_total": 44.99
+      }
+    ],
+    "subtotal": 224.98,
+    "shipping_cost": 0.0,
+    "total": 224.98,
+    "order_date": "2026-06-23",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "1889 Willow Way",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "35238"
+    },
+    "estimated_delivery": "2026-07-03",
+    "tracking_number": null,
+    "carrier": null,
+    "cancelled_date": "2026-06-25"
+  },
+  {
+    "order_id": "ORD-10192",
+    "customer_id": "CUST-029",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-028",
+        "name": "Thinking in Systems",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 24.5,
+        "line_total": 24.5
+      }
+    ],
+    "subtotal": 24.5,
+    "shipping_cost": 24.99,
+    "total": 49.49,
+    "order_date": "2026-06-12",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "795 Juniper Dr",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "92759"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z5204939585",
+    "ship_date": "2026-06-13",
+    "estimated_delivery": "2026-06-15"
+  },
+  {
+    "order_id": "ORD-10193",
+    "customer_id": "CUST-024",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-015",
+        "name": "Leather Chelsea Boots",
+        "category": "Clothing",
+        "quantity": 2,
+        "unit_price": 215.0,
+        "line_total": 430.0
+      }
+    ],
+    "subtotal": 430.0,
+    "shipping_cost": 24.99,
+    "total": 454.99,
+    "order_date": "2026-06-02",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "9101 Birch Ln",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "15368"
+    },
+    "carrier": "USPS",
+    "tracking_number": "949161038733",
+    "ship_date": "2026-06-03",
+    "estimated_delivery": "2026-06-04",
+    "delivered_date": "2026-06-03"
+  },
+  {
+    "order_id": "ORD-10194",
+    "customer_id": "CUST-011",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-011",
+        "name": "Selvedge Denim Jeans",
+        "category": "Clothing",
+        "quantity": 1,
+        "unit_price": 138.0,
+        "line_total": 138.0
+      }
+    ],
+    "subtotal": 138.0,
+    "shipping_cost": 0.0,
+    "total": 138.0,
+    "order_date": "2026-06-14",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "9643 Hawthorn Ter",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "72641"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z5511292430",
+    "ship_date": "2026-06-15",
+    "estimated_delivery": "2026-06-22"
+  },
+  {
+    "order_id": "ORD-10195",
+    "customer_id": "CUST-002",
+    "status": "In Transit",
+    "items": [
+      {
+        "product_id": "PROD-020",
+        "name": "Standing Desk Converter",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 245.0,
+        "line_total": 245.0
+      }
+    ],
+    "subtotal": 245.0,
+    "shipping_cost": 24.99,
+    "total": 269.99,
+    "order_date": "2026-07-28",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "2182 Poplar Rd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "51944"
+    },
+    "carrier": "USPS",
+    "tracking_number": "944429747831",
+    "ship_date": "2026-07-29",
+    "estimated_delivery": "2026-07-30"
+  },
+  {
+    "order_id": "ORD-10196",
+    "customer_id": "CUST-047",
+    "status": "Processing",
+    "items": [
+      {
+        "product_id": "PROD-001",
+        "name": "Wireless Noise-Cancelling Headphones",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 179.99,
+        "line_total": 179.99
+      }
+    ],
+    "subtotal": 179.99,
+    "shipping_cost": 24.99,
+    "total": 204.98,
+    "order_date": "2026-06-06",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "6569 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "42811"
+    },
+    "estimated_delivery": "2026-06-08",
+    "tracking_number": null,
+    "carrier": null
+  },
+  {
+    "order_id": "ORD-10197",
+    "customer_id": "CUST-017",
+    "status": "Shipped",
+    "items": [
+      {
+        "product_id": "PROD-006",
+        "name": "Smart Doorbell Camera",
+        "category": "Electronics",
+        "quantity": 1,
+        "unit_price": 159.0,
+        "line_total": 159.0
+      }
+    ],
+    "subtotal": 159.0,
+    "shipping_cost": 24.99,
+    "total": 183.99,
+    "order_date": "2026-06-25",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "1889 Willow Way",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "35238"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z8629028013",
+    "ship_date": "2026-06-26",
+    "estimated_delivery": "2026-06-29"
+  },
+  {
+    "order_id": "ORD-10198",
+    "customer_id": "CUST-014",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-019",
+        "name": "Ceramic Pour-Over Coffee Set",
+        "category": "Home",
+        "quantity": 1,
+        "unit_price": 54.0,
+        "line_total": 54.0
+      }
+    ],
+    "subtotal": 54.0,
+    "shipping_cost": 0.0,
+    "total": 54.0,
+    "order_date": "2026-07-12",
+    "shipping_method": "Standard",
+    "shipping_address": {
+      "street": "4637 Maple Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "53443"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z9951697773",
+    "ship_date": "2026-07-13",
+    "estimated_delivery": "2026-07-20",
+    "delivered_date": "2026-07-20"
+  },
+  {
+    "order_id": "ORD-10199",
+    "customer_id": "CUST-017",
+    "status": "Returned",
+    "items": [
+      {
+        "product_id": "PROD-028",
+        "name": "Thinking in Systems",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 24.5,
+        "line_total": 24.5
+      }
+    ],
+    "subtotal": 24.5,
+    "shipping_cost": 24.99,
+    "total": 49.49,
+    "order_date": "2026-07-16",
+    "shipping_method": "Overnight",
+    "shipping_address": {
+      "street": "1889 Willow Way",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "35238"
+    },
+    "carrier": "USPS",
+    "tracking_number": "947747165311",
+    "ship_date": "2026-07-17",
+    "estimated_delivery": "2026-07-20",
+    "delivered_date": "2026-07-20",
+    "return_status": "Refunded"
+  },
+  {
+    "order_id": "ORD-10200",
+    "customer_id": "CUST-031",
+    "status": "Delivered",
+    "items": [
+      {
+        "product_id": "PROD-025",
+        "name": "A Short History of Nearly Everything",
+        "category": "Books",
+        "quantity": 1,
+        "unit_price": 19.99,
+        "line_total": 19.99
+      }
+    ],
+    "subtotal": 19.99,
+    "shipping_cost": 12.99,
+    "total": 32.98,
+    "order_date": "2026-06-06",
+    "shipping_method": "Express",
+    "shipping_address": {
+      "street": "4120 Poplar Rd",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "85750"
+    },
+    "carrier": "UPS",
+    "tracking_number": "1Z2804935514",
+    "ship_date": "2026-06-07",
+    "estimated_delivery": "2026-06-10",
+    "delivered_date": "2026-06-10"
+  }
+]

@@ -1,0 +1,602 @@
+[
+  {
+    "customer_id": "CUST-001",
+    "name": "Elena Rossi",
+    "email": "elena.rossi@example.com",
+    "phone": "555-489-4311",
+    "address": {
+      "street": "4716 Willow Way",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "32604"
+    }
+  },
+  {
+    "customer_id": "CUST-002",
+    "name": "Fatima Petrov",
+    "email": "fatima.petrov@example.com",
+    "phone": "555-899-9461",
+    "address": {
+      "street": "2182 Poplar Rd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "51944"
+    }
+  },
+  {
+    "customer_id": "CUST-003",
+    "name": "Hassan Osei",
+    "email": "hassan.osei@example.com",
+    "phone": "555-313-5591",
+    "address": {
+      "street": "576 Cedar St",
+      "city": "New York",
+      "state": "NY",
+      "zip": "64005"
+    }
+  },
+  {
+    "customer_id": "CUST-004",
+    "name": "Clara Chen",
+    "email": "clara.chen@example.com",
+    "phone": "555-407-9589",
+    "address": {
+      "street": "5918 Sycamore Blvd",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "42527"
+    }
+  },
+  {
+    "customer_id": "CUST-005",
+    "name": "Jonas Mensah",
+    "email": "jonas.mensah@example.com",
+    "phone": "555-975-9230",
+    "address": {
+      "street": "4116 Cedar St",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "91709"
+    }
+  },
+  {
+    "customer_id": "CUST-006",
+    "name": "Mei Okafor",
+    "email": "mei.okafor@example.com",
+    "phone": "555-761-1542",
+    "address": {
+      "street": "2744 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "45571"
+    }
+  },
+  {
+    "customer_id": "CUST-007",
+    "name": "Maya Haddad",
+    "email": "maya.haddad@example.com",
+    "phone": "555-765-8194",
+    "address": {
+      "street": "8914 Chestnut Pl",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "57464"
+    }
+  },
+  {
+    "customer_id": "CUST-008",
+    "name": "Alice Rivera",
+    "email": "alice.rivera@example.com",
+    "phone": "555-719-7158",
+    "address": {
+      "street": "4202 Hawthorn Ter",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "51231"
+    }
+  },
+  {
+    "customer_id": "CUST-009",
+    "name": "Rafael Chen",
+    "email": "rafael.chen@example.com",
+    "phone": "555-969-6090",
+    "address": {
+      "street": "1204 Sycamore Blvd",
+      "city": "New York",
+      "state": "NY",
+      "zip": "93813"
+    }
+  },
+  {
+    "customer_id": "CUST-010",
+    "name": "Lena Dubois",
+    "email": "lena.dubois@example.com",
+    "phone": "555-117-3774",
+    "address": {
+      "street": "8177 Hawthorn Ter",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "24746"
+    }
+  },
+  {
+    "customer_id": "CUST-011",
+    "name": "Rafael Ibrahim",
+    "email": "rafael.ibrahim@example.com",
+    "phone": "555-626-4946",
+    "address": {
+      "street": "9643 Hawthorn Ter",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "72641"
+    }
+  },
+  {
+    "customer_id": "CUST-012",
+    "name": "Clara Farrell",
+    "email": "clara.farrell@example.com",
+    "phone": "555-597-6039",
+    "address": {
+      "street": "8550 Aspen Ct",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "42736"
+    }
+  },
+  {
+    "customer_id": "CUST-013",
+    "name": "Amara Okafor",
+    "email": "amara.okafor@example.com",
+    "phone": "555-164-9498",
+    "address": {
+      "street": "7708 Juniper Dr",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "32279"
+    }
+  },
+  {
+    "customer_id": "CUST-014",
+    "name": "Clara Lindqvist",
+    "email": "clara.lindqvist@example.com",
+    "phone": "555-493-7701",
+    "address": {
+      "street": "4637 Maple Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "53443"
+    }
+  },
+  {
+    "customer_id": "CUST-015",
+    "name": "Marcus Watanabe",
+    "email": "marcus.watanabe@example.com",
+    "phone": "555-532-8055",
+    "address": {
+      "street": "8808 Chestnut Pl",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "42070"
+    }
+  },
+  {
+    "customer_id": "CUST-016",
+    "name": "Elena Osei",
+    "email": "elena.osei@example.com",
+    "phone": "555-875-9247",
+    "address": {
+      "street": "4188 Chestnut Pl",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "68191"
+    }
+  },
+  {
+    "customer_id": "CUST-017",
+    "name": "Fatima Haddad",
+    "email": "fatima.haddad@example.com",
+    "phone": "555-237-6325",
+    "address": {
+      "street": "1889 Willow Way",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "35238"
+    }
+  },
+  {
+    "customer_id": "CUST-018",
+    "name": "Yuki Bauer",
+    "email": "yuki.bauer@example.com",
+    "phone": "555-843-4926",
+    "address": {
+      "street": "9025 Hawthorn Ter",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "41965"
+    }
+  },
+  {
+    "customer_id": "CUST-019",
+    "name": "Zoe Silva",
+    "email": "zoe.silva@example.com",
+    "phone": "555-992-9731",
+    "address": {
+      "street": "4054 Aspen Ct",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "38221"
+    }
+  },
+  {
+    "customer_id": "CUST-020",
+    "name": "Yuki Moreau",
+    "email": "yuki.moreau@example.com",
+    "phone": "555-769-7300",
+    "address": {
+      "street": "7121 Chestnut Pl",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "54193"
+    }
+  },
+  {
+    "customer_id": "CUST-021",
+    "name": "Mei Haddad",
+    "email": "mei.haddad@example.com",
+    "phone": "555-467-3123",
+    "address": {
+      "street": "6853 Sycamore Blvd",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "54310"
+    }
+  },
+  {
+    "customer_id": "CUST-022",
+    "name": "Marcus Rivera",
+    "email": "marcus.rivera@example.com",
+    "phone": "555-174-6735",
+    "address": {
+      "street": "1026 Cedar St",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "71673"
+    }
+  },
+  {
+    "customer_id": "CUST-023",
+    "name": "Marcus Bauer",
+    "email": "marcus.bauer@example.com",
+    "phone": "555-944-5292",
+    "address": {
+      "street": "3510 Aspen Ct",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "42004"
+    }
+  },
+  {
+    "customer_id": "CUST-024",
+    "name": "Theo Petrov",
+    "email": "theo.petrov@example.com",
+    "phone": "555-390-7323",
+    "address": {
+      "street": "9101 Birch Ln",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "15368"
+    }
+  },
+  {
+    "customer_id": "CUST-025",
+    "name": "Lena Petrov",
+    "email": "lena.petrov@example.com",
+    "phone": "555-560-8150",
+    "address": {
+      "street": "547 Hawthorn Ter",
+      "city": "Atlanta",
+      "state": "GA",
+      "zip": "41572"
+    }
+  },
+  {
+    "customer_id": "CUST-026",
+    "name": "Ethan Dubois",
+    "email": "ethan.dubois@example.com",
+    "phone": "555-973-1804",
+    "address": {
+      "street": "1187 Birch Ln",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "83421"
+    }
+  },
+  {
+    "customer_id": "CUST-027",
+    "name": "Owen Petrov",
+    "email": "owen.petrov@example.com",
+    "phone": "555-401-6062",
+    "address": {
+      "street": "2366 Aspen Ct",
+      "city": "New York",
+      "state": "NY",
+      "zip": "68463"
+    }
+  },
+  {
+    "customer_id": "CUST-028",
+    "name": "Hassan Watanabe",
+    "email": "hassan.watanabe@example.com",
+    "phone": "555-152-9179",
+    "address": {
+      "street": "226 Poplar Rd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "79738"
+    }
+  },
+  {
+    "customer_id": "CUST-029",
+    "name": "Diego Kelly",
+    "email": "diego.kelly@example.com",
+    "phone": "555-731-7589",
+    "address": {
+      "street": "795 Juniper Dr",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "92759"
+    }
+  },
+  {
+    "customer_id": "CUST-030",
+    "name": "Maya Nguyen",
+    "email": "maya.nguyen@example.com",
+    "phone": "555-684-9915",
+    "address": {
+      "street": "2548 Juniper Dr",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "46214"
+    }
+  },
+  {
+    "customer_id": "CUST-031",
+    "name": "Mei Osei",
+    "email": "mei.osei@example.com",
+    "phone": "555-825-3701",
+    "address": {
+      "street": "4120 Poplar Rd",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "85750"
+    }
+  },
+  {
+    "customer_id": "CUST-032",
+    "name": "Lena Tanaka",
+    "email": "lena.tanaka@example.com",
+    "phone": "555-164-5983",
+    "address": {
+      "street": "6646 Maple Ave",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "46889"
+    }
+  },
+  {
+    "customer_id": "CUST-033",
+    "name": "Yuki Rossi",
+    "email": "yuki.rossi@example.com",
+    "phone": "555-767-5057",
+    "address": {
+      "street": "476 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "58508"
+    }
+  },
+  {
+    "customer_id": "CUST-034",
+    "name": "Liam Silva",
+    "email": "liam.silva@example.com",
+    "phone": "555-875-4573",
+    "address": {
+      "street": "9606 Hawthorn Ter",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "28292"
+    }
+  },
+  {
+    "customer_id": "CUST-035",
+    "name": "Jonas Tanaka",
+    "email": "jonas.tanaka@example.com",
+    "phone": "555-337-2726",
+    "address": {
+      "street": "8407 Hawthorn Ter",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "15872"
+    }
+  },
+  {
+    "customer_id": "CUST-036",
+    "name": "Ines Osei",
+    "email": "ines.osei@example.com",
+    "phone": "555-968-1526",
+    "address": {
+      "street": "7610 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "72419"
+    }
+  },
+  {
+    "customer_id": "CUST-037",
+    "name": "Lena Rivera",
+    "email": "lena.rivera@example.com",
+    "phone": "555-731-3017",
+    "address": {
+      "street": "6892 Hawthorn Ter",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "36847"
+    }
+  },
+  {
+    "customer_id": "CUST-038",
+    "name": "Lena Watanabe",
+    "email": "lena.watanabe@example.com",
+    "phone": "555-391-5082",
+    "address": {
+      "street": "1847 Juniper Dr",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "87830"
+    }
+  },
+  {
+    "customer_id": "CUST-039",
+    "name": "Ines Silva",
+    "email": "ines.silva@example.com",
+    "phone": "555-990-1181",
+    "address": {
+      "street": "9453 Maple Ave",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "39381"
+    }
+  },
+  {
+    "customer_id": "CUST-040",
+    "name": "Liam Haddad",
+    "email": "liam.haddad@example.com",
+    "phone": "555-243-5028",
+    "address": {
+      "street": "3299 Maple Ave",
+      "city": "Nashville",
+      "state": "TN",
+      "zip": "28011"
+    }
+  },
+  {
+    "customer_id": "CUST-041",
+    "name": "Priya Ibrahim",
+    "email": "priya.ibrahim@example.com",
+    "phone": "555-256-5037",
+    "address": {
+      "street": "7873 Hawthorn Ter",
+      "city": "Anchorage",
+      "state": "AK",
+      "zip": "66097"
+    }
+  },
+  {
+    "customer_id": "CUST-042",
+    "name": "Mei Rivera",
+    "email": "mei.rivera@example.com",
+    "phone": "555-731-6424",
+    "address": {
+      "street": "5733 Sycamore Blvd",
+      "city": "Miami",
+      "state": "FL",
+      "zip": "32954"
+    }
+  },
+  {
+    "customer_id": "CUST-043",
+    "name": "Zoe Farrell",
+    "email": "zoe.farrell@example.com",
+    "phone": "555-488-4206",
+    "address": {
+      "street": "3535 Maple Ave",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "25335"
+    }
+  },
+  {
+    "customer_id": "CUST-044",
+    "name": "Owen Moreau",
+    "email": "owen.moreau@example.com",
+    "phone": "555-303-5309",
+    "address": {
+      "street": "9383 Cedar St",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "28272"
+    }
+  },
+  {
+    "customer_id": "CUST-045",
+    "name": "Zoe Haddad",
+    "email": "zoe.haddad@example.com",
+    "phone": "555-435-2245",
+    "address": {
+      "street": "1712 Birch Ln",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "81656"
+    }
+  },
+  {
+    "customer_id": "CUST-046",
+    "name": "Yuki Novak",
+    "email": "yuki.novak@example.com",
+    "phone": "555-336-1624",
+    "address": {
+      "street": "3540 Willow Way",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "99468"
+    }
+  },
+  {
+    "customer_id": "CUST-047",
+    "name": "Diego Brooks",
+    "email": "diego.brooks@example.com",
+    "phone": "555-883-7411",
+    "address": {
+      "street": "6569 Juniper Dr",
+      "city": "Reno",
+      "state": "NV",
+      "zip": "42811"
+    }
+  },
+  {
+    "customer_id": "CUST-048",
+    "name": "Fatima Lindqvist",
+    "email": "fatima.lindqvist@example.com",
+    "phone": "555-948-9811",
+    "address": {
+      "street": "3920 Willow Way",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "37038"
+    }
+  },
+  {
+    "customer_id": "CUST-049",
+    "name": "Yuki Dubois",
+    "email": "yuki.dubois@example.com",
+    "phone": "555-566-7232",
+    "address": {
+      "street": "7357 Sycamore Blvd",
+      "city": "Honolulu",
+      "state": "HI",
+      "zip": "38134"
+    }
+  },
+  {
+    "customer_id": "CUST-050",
+    "name": "Sofia Haddad",
+    "email": "sofia.haddad@example.com",
+    "phone": "555-663-3023",
+    "address": {
+      "street": "6772 Sycamore Blvd",
+      "city": "Boston",
+      "state": "MA",
+      "zip": "26726"
+    }
+  }
+]

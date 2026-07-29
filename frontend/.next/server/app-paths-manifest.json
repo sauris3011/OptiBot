@@ -1,0 +1,6 @@
+{
+  "/governance/page": "app/governance/page.js",
+  "/comparison/page": "app/comparison/page.js",
+  "/page": "app/page.js",
+  "/dashboard/page": "app/dashboard/page.js"
+}
