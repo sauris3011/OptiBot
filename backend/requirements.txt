@@ -1,12 +1,23 @@
 fastapi==0.115.6
 uvicorn[standard]==0.34.0
 pydantic==2.10.4
-pydantic-settings==2.7.0
 litellm==1.57.0
 python-dotenv==1.0.1
 numpy==2.2.1
 
+# Called directly for GET /v1/models on the LiteLLM gateway and for the TLS
+# bootstrap (litellm.client_session), so it is no longer a transitive-only dep.
+# Pinned inside litellm 1.57.0's declared window (httpx>=0.23.0,<0.28.0).
+httpx==0.27.2
+
+# Note: litellm pulls in `openai` unpinned. Every call now goes through
+# litellm's openai-compatible route, which constructs openai.OpenAI(...), so
+# that version matters. Verified working with openai 2.50.0. If a fresh install
+# starts raising unexpected-keyword errors from the OpenAI SDK, pin openai to
+# the 1.59.x line litellm 1.57.0 was released against.
+
 # Optional but recommended: real semantic embeddings for RAG + semantic cache.
-# The app falls back to a lightweight lexical embedder if this is not installed,
-# so `pip install -r requirements.txt` works even without it.
+# These are computed locally and never go through the LiteLLM gateway. The app
+# falls back to a lightweight lexical embedder if this is not installed, so
+# `pip install -r requirements.txt` works even without it.
 sentence-transformers==3.3.1

@@ -1,0 +1,5 @@
+-r requirements.txt
+
+# Tests for the LiteLLM gateway layer. Run with: cd backend && python -m pytest
+pytest==8.3.4
+respx==0.22.0

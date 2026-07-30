@@ -100,8 +100,110 @@ export interface AuditRow {
 
 export interface HealthResponse {
   status: string;
+  provider: "litellm";
+  /** Refers to the LiteLLM gateway key (LITELLM_API_KEY or the settings panel). */
   api_key_configured: boolean;
+  api_key_source: "runtime" | "env" | "none";
+  litellm_base_url: string;
+  /** null when the request did not ask for a gateway probe. */
+  litellm_reachable: boolean | null;
   embedding_backend: string;
   rag_index: { chunks: number; dimensions: number; sources: Record<string, number> };
   models: Record<string, string>;
+}
+
+/* ---------------- LiteLLM gateway configuration ---------------- */
+/* Mirrors backend/app/models/schemas.py — keep the two in step. */
+
+export type ModelSlot = "baseline" | "simple" | "complex";
+
+export interface ApiKeyStatus {
+  env_var: string;
+  is_set: boolean;
+  source: "runtime" | "env" | "none";
+  masked_value: string;
+}
+
+export interface TlsStatus {
+  verify: boolean;
+  ca_bundle: string | null;
+  source: "default" | "LITELLM_CA_BUNDLE" | "LITELLM_SSL_VERIFY";
+  /** Set when LITELLM_CA_BUNDLE points at a file that cannot be read. */
+  warning: string | null;
+  note: string;
+}
+
+export interface SlotConfig {
+  slot: ModelSlot;
+  label: string;
+  description: string;
+  model: string;
+  source: "runtime" | "env" | "fallback";
+  price_in_per_mtok: number;
+  price_out_per_mtok: number;
+  price_source: "exact" | "prefix" | "default";
+}
+
+export interface LlmConfig {
+  provider: "litellm";
+  base_url: string;
+  chat_url: string;
+  models_url: string;
+  slots: SlotConfig[];
+  api_key_status: ApiKeyStatus;
+  tls: TlsStatus;
+  request_timeout_s: number;
+  max_attempts: number;
+  runtime_config_path: string;
+  persisted: boolean;
+}
+
+export interface LlmModelsResponse {
+  status: "success" | "error";
+  models: string[];
+  models_source: "litellm" | "fallback";
+  warning: string | null;
+}
+
+export interface LlmConfigResponse extends LlmModelsResponse {
+  config: LlmConfig;
+}
+
+export interface LlmConfigUpdate {
+  models?: Partial<Record<ModelSlot, string>>;
+  base_url?: string;
+  api_key?: string;
+}
+
+export interface LlmConfigSaveResponse {
+  status: "success" | "error";
+  message: string;
+  config: LlmConfig | null;
+}
+
+export interface LlmTestRequest {
+  slot?: ModelSlot;
+  model_id?: string;
+  /** Unsaved overrides, so a pending key or URL can be tested before saving. */
+  api_key?: string;
+  base_url?: string;
+}
+
+export interface LlmUsage {
+  prompt_tokens: number;
+  completion_tokens: number;
+  total_tokens: number;
+  cost_usd: number;
+  cost_basis: string | null;
+}
+
+export interface LlmTestResponse {
+  status: "success" | "error";
+  message: string;
+  slot: ModelSlot | null;
+  model: string | null;
+  latency_ms: number | null;
+  response: string | null;
+  usage: LlmUsage | null;
+  config_used: Record<string, string>;
 }

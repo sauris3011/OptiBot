@@ -1,33 +1,67 @@
-"""LiteLLM wrapper — Layer 1's execution half, plus token/cost accounting.
+"""Layer 1's execution half — model routing, plus token/cost accounting.
 
-Prices are declared locally rather than read from LiteLLM's cost map. The map
-lags new model releases, and a demo whose headline metric is cost reduction
-cannot have its cost numbers silently fall back to zero for an unrecognised
-model ID. Rates are Anthropic list prices in USD per million tokens.
+The transport lives in ``services/gateway.py``; this module owns the domain: which
+model a given (mode, tier) should use, and what the call cost.
+
+Prices are declared locally rather than read from the gateway or from LiteLLM's
+cost map. Both lag new model releases, and a demo whose headline metric is cost
+reduction cannot have its cost numbers silently fall back to something plausible
+but wrong. Rates are provider list prices in USD per million tokens.
+
+Note the deliberate policy in ``complete()``: the local table *outranks* the
+gateway's own ``response_cost``. A corporate gateway commonly prices some aliases
+and reports 0.0 for others, and mixing sources across the baseline and optimized
+arms would corrupt the comparison in a way nothing in the dashboard could show.
 """
 
 from __future__ import annotations
 
 import json
 import re
-import time
 from dataclasses import dataclass
 
-import litellm
-
-from app.config import settings
-
-litellm.drop_params = True
-litellm.suppress_debug_info = True
+from app import llm_settings
+from app.services import gateway  # noqa: F401 - importing it runs the TLS bootstrap
 
 # USD per 1M tokens (input, output).
 PRICING: dict[str, tuple[float, float]] = {
+    # Anthropic
     "claude-haiku-4-5": (1.00, 5.00),
     "claude-sonnet-5": (3.00, 15.00),
     "claude-sonnet-4-6": (3.00, 15.00),
     "claude-opus-5": (5.00, 25.00),
     "claude-opus-4-8": (5.00, 25.00),
+    # Google Gemini
+    "gemini-2.5-flash-lite": (0.10, 0.40),
+    "gemini-2.5-flash": (0.30, 2.50),
+    "gemini-flash": (0.30, 2.50),
+    "gemini-2.5-pro": (1.25, 10.00),
+    # OpenAI, including the TCS GenAI Lab MaaS alias
+    "gpt-4o": (2.50, 10.00),
+    "gpt-4o-mini": (0.15, 0.60),
+    "genailab-maas-gpt-4o": (2.50, 10.00),
 }
+
+# Substring fallbacks, longest first, for the lab-prefixed and version-suffixed
+# aliases a gateway exposes (genailab-maas-gpt-4o, vertex-gemini-2.5-pro,
+# gemini-2.5-flash-002). Order matters: "gemini-2.5-flash-lite" must be tested
+# before "gemini-2.5-flash" or the lite tier gets priced 3x too high.
+_PRICING_PATTERNS: tuple[tuple[str, tuple[float, float]], ...] = tuple(
+    sorted(
+        {
+            "gemini-2.5-flash-lite": (0.10, 0.40),
+            "gemini-2.5-flash": (0.30, 2.50),
+            "gemini-2.5-pro": (1.25, 10.00),
+            "gemini-3": (1.25, 10.00),
+            "gpt-4o-mini": (0.15, 0.60),
+            "gpt-4o": (2.50, 10.00),
+            "claude-haiku": (1.00, 5.00),
+            "claude-sonnet": (3.00, 15.00),
+            "claude-opus": (5.00, 25.00),
+        }.items(),
+        key=lambda item: -len(item[0]),
+    )
+)
 
 _DEFAULT_PRICE = (3.00, 15.00)
 
@@ -45,11 +79,25 @@ class LLMResult:
     latency_ms: int
     cost_usd: float
     stop_reason: str | None = None
+    # How cost_usd was derived: local-exact, local-prefix, local-default or
+    # gateway. Surfaced in the settings panel so a mispriced alias is visible.
+    cost_basis: str = "local-exact"
+
+
+def price_for_with_source(model: str) -> tuple[tuple[float, float], str]:
+    """``((input_rate, output_rate), "exact" | "prefix" | "default")``."""
+    key = model.split("/")[-1].strip().lower()
+    if key in PRICING:
+        return PRICING[key], "exact"
+    for needle, rate in _PRICING_PATTERNS:
+        if needle in key:
+            return rate, "prefix"
+    return _DEFAULT_PRICE, "default"
 
 
 def price_for(model: str) -> tuple[float, float]:
-    key = model.split("/")[-1]
-    return PRICING.get(key, _DEFAULT_PRICE)
+    rate, _ = price_for_with_source(model)
+    return rate
 
 
 def estimate_cost(model: str, input_tokens: int, output_tokens: int) -> float:
@@ -67,8 +115,22 @@ def select_model(mode: str, tier: str) -> str:
     which is the behaviour being measured against.
     """
     if mode == "baseline":
-        return settings.model_baseline
-    return settings.model_simple if tier == "simple" else settings.model_complex
+        return llm_settings.model_for("baseline")
+    return llm_settings.model_for("simple" if tier == "simple" else "complex")
+
+
+def resolve_cost(
+    model: str, input_tokens: int, output_tokens: int, reported_cost: float | None
+) -> tuple[float, str]:
+    """Local price table first; the gateway's figure only for unknown aliases.
+
+    See the module docstring for why this order is deliberate rather than a
+    missed optimisation.
+    """
+    _, price_source = price_for_with_source(model)
+    if price_source == "default" and reported_cost is not None:
+        return reported_cost, "gateway"
+    return estimate_cost(model, input_tokens, output_tokens), f"local-{price_source}"
 
 
 def complete(
@@ -78,40 +140,27 @@ def complete(
     messages: list[dict],
     max_tokens: int,
 ) -> LLMResult:
-    if not settings.has_api_key:
-        raise LLMError(
-            "ANTHROPIC_API_KEY is not set. Copy backend/.env.example to "
-            "backend/.env and add your key."
-        )
-
     payload = [{"role": "system", "content": system}, *messages]
-    started = time.perf_counter()
     try:
-        response = litellm.completion(
-            model=f"anthropic/{model}",
-            messages=payload,
-            max_tokens=max_tokens,
-            api_key=settings.api_key,
-        )
-    except Exception as exc:  # noqa: BLE001 - surfaced to the caller as one type
-        raise LLMError(f"{model}: {exc}") from exc
+        result = gateway.chat(model=model, messages=payload, max_tokens=max_tokens)
+    except gateway.GatewayError as exc:
+        # LLMError stays the only exception type crossing into chat_service, so
+        # its two handlers (and the audit trail they write) keep working.
+        raise LLMError(str(exc)) from exc
 
-    latency_ms = int((time.perf_counter() - started) * 1000)
-
-    choice = response.choices[0]
-    text = (choice.message.content or "").strip()
-    usage = response.usage
-    input_tokens = int(getattr(usage, "prompt_tokens", 0) or 0)
-    output_tokens = int(getattr(usage, "completion_tokens", 0) or 0)
+    cost_usd, cost_basis = resolve_cost(
+        model, result.input_tokens, result.output_tokens, result.reported_cost_usd
+    )
 
     return LLMResult(
-        text=text,
+        text=result.text,
         model=model,
-        input_tokens=input_tokens,
-        output_tokens=output_tokens,
-        latency_ms=latency_ms,
-        cost_usd=estimate_cost(model, input_tokens, output_tokens),
-        stop_reason=getattr(choice, "finish_reason", None),
+        input_tokens=result.input_tokens,
+        output_tokens=result.output_tokens,
+        latency_ms=result.latency_ms,
+        cost_usd=cost_usd,
+        stop_reason=result.stop_reason,
+        cost_basis=cost_basis,
     )
 
 

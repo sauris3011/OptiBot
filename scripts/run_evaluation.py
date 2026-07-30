@@ -1,5 +1,9 @@
 """Run the golden dataset through both pipelines and report the before/after.
 
+Needs a reachable LiteLLM gateway: set LITELLM_BASE_URL and LITELLM_API_KEY in
+backend/.env. Model aliases resolve exactly as the app resolves them, so if you
+picked models in the settings panel this measures those.
+
 Usage (from the repo root, with backend/.env configured):
 
     python scripts/run_evaluation.py                 # both modes, full set
@@ -21,8 +25,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "backend"))
 
+from app import llm_settings  # noqa: E402
 from app.config import DATA_DIR  # noqa: E402
-from app.services import chat_service, metrics_service, order_service  # noqa: E402
+from app.services import chat_service, llm_client, metrics_service, order_service  # noqa: E402
 from app.services.cache_service import semantic_cache  # noqa: E402
 from app.services.embeddings import backend_name  # noqa: E402
 
@@ -214,6 +219,18 @@ def main() -> int:
                         help="clear stored metrics before running")
     args = parser.parse_args()
 
+    # Fail fast. Without a key every case returns an error row after a full
+    # timeout, and the report looks like a measurement rather than a
+    # misconfiguration.
+    if not llm_settings.has_api_key():
+        print(
+            f"{llm_settings.API_KEY_ENV_VAR} is not set. Add it to backend/.env "
+            "(the settings panel applies keys in-process only, which this script "
+            "cannot see).",
+            file=sys.stderr,
+        )
+        return 2
+
     if args.reset:
         metrics_service.init_db()
         metrics_service.reset()
@@ -223,6 +240,16 @@ def main() -> int:
     metrics_service.init_db()
     cases = load_cases(args.limit)
     print(f"embedding backend : {backend_name()}")
+    print(f"litellm gateway   : {llm_settings.base_url()}")
+    # Echo the resolved aliases and price sources so the report is never ambiguous
+    # about which models produced it, or whether their costs were real.
+    for slot, alias in llm_settings.all_models().items():
+        (price_in, price_out), source = llm_client.price_for_with_source(alias)
+        note = "  <-- unpriced, cost figures are a fallback" if source == "default" else ""
+        print(
+            f"model {slot:<9} : {alias} "
+            f"(${price_in:.2f}/${price_out:.2f} per Mtok, {source}){note}"
+        )
     print(f"golden cases      : {len(cases)}")
 
     results: dict[str, list[dict]] = {}

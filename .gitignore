@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets and local state. backend/llm_runtime.json holds the model slots
+# picked in the settings panel; the LiteLLM key is never written to it, but the
+# file is still local state and does not belong in the repo.
+backend/.env
+backend/llm_runtime.json
+backend/llm_runtime.json.tmp
+backend/optibot.db
+
+# Generated artefacts
+reports/
+
+# Frontend
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# Reference implementation dropped in for the LiteLLM lab port — not ours.
+usecase3-main/

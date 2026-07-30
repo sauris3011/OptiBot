@@ -294,3 +294,181 @@ a { color: inherit; text-decoration: none; }
 .empty { text-align: center; padding: 44px 20px; color: var(--muted); font-size: 14px; }
 .spin { display: inline-block; animation: spin 0.9s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------------- settings modal (LiteLLM gateway) ---------------- */
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  cursor: pointer;
+  font-family: inherit;
+}
+.icon-btn:hover { background: var(--surface-2); color: var(--accent); }
+
+/* A .pill that is actually a <button>. */
+.pill-btn { cursor: pointer; font-family: inherit; }
+.pill-btn:hover { filter: brightness(1.15); }
+
+.modal-layer {
+  position: fixed;
+  inset: 0;
+  /* Above .nav (z-index 20). */
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: rgba(5, 8, 18, 0.66);
+  cursor: pointer;
+}
+
+.modal {
+  position: relative;
+  z-index: 1;
+  width: min(780px, 100%);
+  max-height: min(880px, calc(100vh - 40px));
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-align: left;
+}
+
+.modal-head, .modal-foot {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+}
+.modal-head { justify-content: space-between; border-bottom: 1px solid var(--border); }
+.modal-foot {
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.modal-foot-note { flex: 1; min-width: 0; overflow-wrap: anywhere; font-size: 11px; }
+
+.modal-title h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+.modal-title p { margin: 3px 0 0; color: var(--muted); font-size: 12.5px; }
+
+.modal-body {
+  padding: 18px;
+  overflow-y: auto;
+  min-height: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.modal-loading {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.field { display: grid; gap: 7px; min-width: 0; }
+.field label { font-size: 12.5px; font-weight: 600; color: var(--text); }
+.field input, .field select {
+  width: 100%;
+  height: 38px;
+  padding: 0 11px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13.5px;
+}
+.field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+
+.form-help { display: block; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
+.form-help code { font-size: 11px; }
+
+.form-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+.slot-list { display: grid; gap: 12px; }
+
+.slot-row {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px;
+  display: grid;
+  gap: 10px;
+  background: var(--surface-2);
+}
+.slot-row-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.slot-row-head strong { font-size: 13.5px; }
+.slot-desc { font-size: 12px; line-height: 1.45; }
+
+.slot-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.slot-actions .btn { padding: 7px 14px; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+
+.key-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 11px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 12.5px;
+}
+.key-status svg { flex: 0 0 auto; }
+
+.result-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 10px 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 12.5px;
+}
+.result-box svg { flex: 0 0 auto; margin-top: 1px; }
+.result-box > div { display: grid; gap: 4px; min-width: 0; }
+.result-box code { font-family: var(--mono); font-size: 11px; overflow-wrap: anywhere; }
+.result-box.ok { background: rgba(63,209,139,0.1); border-color: rgba(63,209,139,0.42); color: #a8ecc9; }
+.result-box.bad { background: rgba(239,95,107,0.1); border-color: rgba(239,95,107,0.42); color: #f5b3b9; }
+
+.modal-foot .btn { display: inline-flex; align-items: center; gap: 6px; }
+
+@media (max-width: 720px) {
+  .modal-layer { padding: 0; place-items: stretch; }
+  .modal { width: 100%; max-height: 100vh; border-radius: 0; border: none; }
+  .form-grid-2 { grid-template-columns: 1fr; }
+  .modal-foot { flex-direction: column; align-items: stretch; }
+  .modal-foot .btn { width: 100%; justify-content: center; }
+}

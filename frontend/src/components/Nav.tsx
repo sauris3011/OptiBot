@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getHealth } from "@/lib/api";
 import type { HealthResponse } from "@/lib/types";
+import { GearIcon } from "./icons";
+import SettingsPanel from "./SettingsPanel";
 
 const LINKS = [
   { href: "/", label: "Chat" },
@@ -17,12 +19,20 @@ export default function Nav() {
   const pathname = usePathname();
   const [health, setHealth] = useState<HealthResponse | null>(null);
   const [down, setDown] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
-  useEffect(() => {
+  const load = useCallback(() => {
     getHealth()
-      .then(setHealth)
+      .then((h) => {
+        setHealth(h);
+        setDown(false);
+      })
       .catch(() => setDown(true));
   }, []);
+
+  useEffect(() => {
+    load();
+  }, [load]);
 
   return (
     <nav className="nav">
@@ -43,7 +53,15 @@ export default function Nav() {
         {health && (
           <>
             {!health.api_key_configured && (
-              <span className="pill warn">No API key</span>
+              // Clickable: the shortest path from "something is wrong" to the fix.
+              <button
+                className="pill warn pill-btn"
+                onClick={() => setSettingsOpen(true)}
+                type="button"
+                title="No LiteLLM gateway key configured — click to set one"
+              >
+                No LiteLLM key
+              </button>
             )}
             <span
               className="pill"
@@ -56,7 +74,19 @@ export default function Nav() {
             <span className="pill info">{health.rag_index.chunks} policy chunks</span>
           </>
         )}
+        <button
+          className="icon-btn"
+          onClick={() => setSettingsOpen(true)}
+          type="button"
+          aria-label="LiteLLM gateway settings"
+          title="LiteLLM gateway settings"
+        >
+          <GearIcon size={17} />
+        </button>
       </div>
+      {settingsOpen && (
+        <SettingsPanel onClose={() => setSettingsOpen(false)} onSaved={load} />
+      )}
     </nav>
   );
 }

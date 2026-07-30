@@ -72,15 +72,26 @@ compare against byte-identical data):
 python scripts/generate_data.py
 ```
 
-Add your API key:
+Point OptiBot at a LiteLLM gateway:
 
 ```bash
 cp backend/.env.example backend/.env
 ```
 
-Then edit `backend/.env` and set `ANTHROPIC_API_KEY`.
+Then edit `backend/.env` and set `LITELLM_BASE_URL` and `LITELLM_API_KEY`. You can
+also set the key and pick models from the gear icon in the UI, which needs no
+restart — see [Pointing at the LiteLLM gateway](#pointing-at-the-litellm-gateway).
 
 ## Running
+
+**Windows one-click:** double-click [`start-up.bat`](start-up.bat) (or run it from a
+terminal) in the repo root. It checks Python/Node are on PATH, creates
+`backend/.env` from the example if missing, installs backend and frontend
+dependencies only if they aren't already installed, then opens the backend and
+frontend each in their own console window and launches the browser. Close a
+window to stop that service.
+
+Or run each service manually:
 
 Backend (port 8000):
 
@@ -97,6 +108,88 @@ cd frontend && npm run dev
 Open http://localhost:3000. Check the nav bar — it shows whether real
 sentence-transformer embeddings loaded or the lexical fallback is in use, so a
 demo never silently runs on the degraded path.
+
+## Pointing at the LiteLLM gateway
+
+OptiBot sends every model call through a LiteLLM gateway. Models, providers and
+routing are managed by that gateway; OptiBot only needs its URL, a bearer token,
+and the aliases to use per routing slot.
+
+```
+LITELLM_BASE_URL=https://your-gateway.example.com/litellm
+LITELLM_API_KEY=sk-litellm-...
+```
+
+The URL may carry a mount prefix. Do not include `/v1` — OptiBot appends it (and
+strips a pasted one, because `/v1/v1/chat/completions` returns a 404 that reads
+exactly like a missing model). The key is sent as **both** `Authorization: Bearer`
+and `x-litellm-api-key`, since some corporate gateways only honour the latter.
+
+### TLS to the gateway
+
+If the gateway presents a self-signed or private-CA certificate, pick one:
+
+1. **Preferred** — trust the corporate CA without weakening verification:
+
+   ```
+   LITELLM_CA_BUNDLE=/path/to/corporate-ca.pem
+   ```
+
+2. **Escape hatch** — disable certificate verification for gateway traffic:
+
+   ```
+   LITELLM_SSL_VERIFY=false
+   ```
+
+   This sets `litellm.ssl_verify = False` *and* installs an unverified
+   `litellm.client_session`, and logs a warning at boot. Both are required: the
+   openai-compatible route litellm uses for a gateway gets its socket from
+   `client_session`, so setting only `ssl_verify` appears to do nothing.
+
+3. **Do not** set `SSL_VERIFY`. litellm reads that variable as a raw string at
+   import time and hands it to httpx as a CA *file path*, so `SSL_VERIFY=false`
+   stops litellm importing at all. OptiBot evicts it in `app/__init__.py` — before
+   litellm loads, which is the only point where that is still possible — and warns.
+
+A `LITELLM_CA_BUNDLE` that is missing or is not a valid PEM does not take the app
+down: OptiBot logs an error, falls back to the system CA store, and shows the
+problem in the settings panel, so a typo is diagnosable rather than fatal.
+
+TLS settings are restart-only and shown read-only in the UI. litellm caches its
+HTTP client per (key, base URL) and the TLS setting is not part of that cache key,
+so a live toggle would silently keep the old behaviour.
+
+### Settings panel (gear icon)
+
+The gear icon in the nav bar opens the gateway panel, available on every page:
+
+- Lists the models the gateway actually exposes, by calling `/v1/models` with the
+  hardening query flags some deployments require to avoid a 405. If that call
+  fails you get a built-in fallback list plus the real reason.
+- Sets the gateway base URL and the LiteLLM key. **The key is applied in-process
+  only and never written to disk** — put it in `backend/.env` to survive a
+  restart. Provider keys live on the gateway, not in OptiBot.
+- Selects a model for each of the three routing slots — `baseline`, `simple`,
+  `complex` — with a free-text Custom alias override per slot for anything the
+  gateway does not list. A two-model lab setup points `simple` at the fast model
+  and `baseline` + `complex` at the strong one.
+- **Tests each slot independently**, using the pending key and URL, so a value can
+  be validated before it is saved.
+
+Slot choices persist to `backend/llm_runtime.json` and take precedence over the
+`LITELLM_MODEL_*` environment defaults. Hand-editing that file needs a restart.
+
+### A local gateway for offline demos
+
+With no lab gateway reachable, run one on this host. `usecase3-main/litellm/config.yaml`
+exposes exactly the aliases OptiBot's zero-config defaults assume:
+
+```bash
+litellm --config usecase3-main/litellm/config.yaml --port 4000
+```
+
+Then set `LITELLM_BASE_URL=http://localhost:4000` and leave `LITELLM_API_KEY`
+blank — OptiBot sends a placeholder token for a loopback gateway.
 
 ## Evaluation
 
@@ -175,13 +268,23 @@ scripts/
 
 ## Configuration
 
-All tunable in `backend/.env` (see `.env.example`): model IDs per tier, cache
-threshold and TTLs, RAG top-k and relevance floor.
+All tunable in `backend/.env` (see `.env.example`): gateway URL and key, model
+aliases per slot, TLS, timeouts and retries, cache threshold and TTLs, RAG top-k
+and relevance floor. The gateway URL, key and model aliases can also be changed at
+runtime from the gear icon; everything else is read once at import.
 
-Cost figures come from a local price table in `llm_client.py` rather than
-LiteLLM's cost map, which lags new model releases — a demo whose headline metric
-is cost cannot have its numbers silently fall back to zero for an unrecognised
-model ID. Update the table if list prices change.
+Cost figures come from a local price table in `llm_client.py` covering the Claude,
+Gemini and GPT-4o aliases a gateway typically exposes, with longest-prefix
+substring matching for lab-prefixed and version-suffixed variants
+(`genailab-maas-gpt-4o`, `gemini-2.5-flash-002`). An unrecognised alias falls back
+to $3.00/$15.00 per Mtok, which is *plausible and wrong* — so the boot log and the
+settings panel both flag any slot whose price source is `default`.
+
+The local table intentionally outranks the gateway's own `response_cost`. The
+headline number here is a baseline-vs-optimized comparison, and a gateway that
+prices some aliases and reports `0.0` for others would corrupt that comparison in a
+way nothing in the dashboard could reveal. The gateway's figure is used only for an
+alias the local table does not know at all.
 
 ## Notes and limitations
 
@@ -197,3 +300,12 @@ model ID. Update the table if list prices change.
 - **Confidence in baseline mode is nominal (0.5)** — the baseline has no
   confidence contract, so the column exists only to keep the comparison table
   shaped consistently. It is not a measured value.
+- **`/api/llm-config` accepts a secret over an unauthenticated local API.** This is
+  a local demo and lab tool; keep the backend bound to loopback (the default) and
+  do not expose port 8000.
+- **litellm's own model cost map is disabled** (`LITELLM_LOCAL_MODEL_COST_MAP=True`,
+  set in `app/__init__.py`). Left on, litellm downloads it from GitHub at import,
+  which is a slow import ending in a timeout on an air-gapped lab host — and
+  OptiBot prices from its own table regardless.
+- **`OPTIBOT_CORS_ORIGINS`** (comma-separated) overrides the default
+  `http://localhost:3000,http://127.0.0.1:3000` when the UI runs elsewhere.
