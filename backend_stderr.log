@@ -449,3 +449,266 @@ LiteLLM completion() model= gemini-2.5-flash; provider = openai
 INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
 [92m22:58:55 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
 INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:09:46 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:09:53 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:09:53 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:09:56 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:09:57 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:02 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:02 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:05 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:06 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:11 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:12 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:15 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:16 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:18 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:18 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:22 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:23 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:25 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:27 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:30 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:30 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:32 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:33 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:36 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:36 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:38 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:10:39 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:10:41 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:31:41 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:31:48 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:31:48 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:31:52 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:31:52 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:31:57 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:31:57 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:01 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:32:01 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:08 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:32:08 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:13 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:32:13 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:17 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:32:17 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:21 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:32:22 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:24 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:32:28 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:30 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:32:31 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:33 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:32:33 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:37 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:32:37 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:39 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:32:40 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:32:42 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:35:04 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:35:09 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:36:00 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:36:04 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:36:04 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:36:06 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:36:07 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:36:11 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:36:12 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:36:15 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:36:16 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:36:20 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:36:21 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:36:24 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:36:25 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:36:27 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:36:27 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO httpx: HTTP Request: POST http://localhost:5000/v1/chat/completions "HTTP/1.1 200 OK"
+[92m23:36:31 - LiteLLM:INFO[0m: utils.py:917 - Wrapper: Completed Call, calling success_handler
+INFO LiteLLM: Wrapper: Completed Call, calling success_handler
+[92m23:36:31 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-flash; provider = openai

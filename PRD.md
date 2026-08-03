@@ -4,9 +4,9 @@
 
 | Field | Value |
 |-------|-------|
-| Version | 1.0 |
-| Date | 2026-07-29 |
-| Status | Draft |
+| Version | 1.1 |
+| Date | 2026-08-03 |
+| Status | Living document — reconciled against the implemented codebase |
 | Tech Stack | Python + FastAPI, Next.js, LiteLLM |
 | Timeline | 3-5 Days |
 
@@ -65,9 +65,14 @@ Online retail / eCommerce — one of the highest-volume customer service domains
 
 | Tier | Type | Examples | Routing Target |
 |------|------|----------|---------------|
-| **Tier 1 — Simple** | Direct order lookup | "Where is my order #12345?", "What's the status of order #67890?" | Haiku (fast, cheap) |
-| **Tier 2 — Medium** | Policy/FAQ questions | "What is your return policy?", "How long does shipping take to California?" | Sonnet (capable) |
-| **Tier 3 — Complex** | Multi-order, disputes, edge cases | "I received a damaged item from order #12345 and want a refund, but order #67890 hasn't shipped yet — can you help with both?" | Sonnet (enriched context) |
+| **Tier 1 — Simple** | Direct order lookup | "Where is my order #12345?", "What's the status of order #67890?" | Fast/cheap model (gateway `simple` slot) |
+| **Tier 2 — Medium** | Policy/FAQ questions | "What is your return policy?", "How long does shipping take to California?" | Capable model (gateway `complex` slot) |
+| **Tier 3 — Complex** | Multi-order, disputes, edge cases | "I received a damaged item from order #12345 and want a refund, but order #67890 hasn't shipped yet — can you help with both?" | Capable model, enriched context (gateway `complex` slot) |
+
+Model identity is not hardcoded — OptiBot talks to one LiteLLM gateway and picks per-tier
+aliases (`baseline`, `simple`, `complex`) that are configured via `backend/.env` or live from
+the gear-icon settings panel. A lab default points all three at Gemini aliases, but any
+gateway-exposed model (Claude, GPT-4o, etc.) works without a code change.
 
 ### Why eCommerce Order Tracking
 
@@ -86,42 +91,47 @@ Online retail / eCommerce — one of the highest-volume customer service domains
 
 ```mermaid
 flowchart TD
-    A[Customer Browser] --> B[Next.js Frontend<br/>Chat UI + Dashboard]
-    B --> C[FastAPI Backend<br/>API Gateway]
-    C --> D{Input Guardrails}
+    A[Customer Browser] --> B[Next.js Frontend<br/>Chat + Dashboard + Comparison + Governance]
+    B --> C[FastAPI Backend]
+    C --> D{Input Guardrails<br/>baseline: none}
     D -->|Blocked| E[Rejection Response]
-    D -->|Passed| F{Semantic Cache<br/>Check}
+    D -->|Passed| F{Semantic Cache<br/>optimized only}
     F -->|Cache Hit| G[Return Cached<br/>Response]
     F -->|Cache Miss| H[Query Classifier<br/>Complexity Routing]
-    H --> I[Prompt Optimizer<br/>Template Selection]
-    I --> J{Query Type?}
-    J -->|Policy/FAQ| K[RAG Retriever<br/>ChromaDB]
-    J -->|Order Lookup| L[Order Database<br/>SQLite]
-    K --> M[LiteLLM Router]
+    H --> I[Prompt Builder<br/>baseline vs optimized template]
+    I --> J{Needs Policy Data?}
+    J -->|Policy/FAQ| K[RAG Retriever<br/>numpy + sentence-transformers]
+    J -->|Order Lookup| L[Order Data<br/>JSON, read-only]
+    K --> M[LiteLLM Gateway]
     L --> M
-    M -->|Simple| N[Claude Haiku]
-    M -->|Complex| O[Claude Sonnet]
-    N --> P[Output Validation<br/>& PII Masking]
+    M -->|baseline| N[Single configured model]
+    M -->|simple / complex| O[Tier-routed model]
+    N --> P[Output Validation<br/>& PII Masking — optimized only]
     O --> P
-    P --> Q[Audit Logger]
+    P --> Q[Audit + Interaction Logger]
     Q --> R[Response to User]
     Q --> S[Metrics Store<br/>SQLite]
-    S --> T[Monitoring Dashboard]
+    S --> T[Dashboard / Before-After / Governance pages]
 ```
+
+Orders, customers, products, and shipments are static synthetic JSON files read directly
+by `order_service.py` — there is no SQLite order database. SQLite is used only for the
+metrics/audit tables the dashboard reads from.
 
 ### Component Breakdown
 
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
-| Frontend | Next.js (React) | Chat interface, before/after dashboard, comparison view |
-| API Gateway | FastAPI (Python) | Request handling, routing, middleware chain |
-| LLM Router | LiteLLM | Multi-model routing (Haiku/Sonnet), cost tracking, fallback |
-| Vector Store | ChromaDB | Policy/FAQ document embeddings for RAG |
-| Semantic Cache | In-memory + sentence-transformers | Cache similar queries with cosine similarity matching |
-| Order Database | SQLite | Synthetic orders, customers, products, shipments |
-| Guardrails | Custom FastAPI middleware | PII detection, injection prevention, output validation |
-| Metrics Store | SQLite | Interaction metrics, audit logs, before/after comparison data |
-| Monitoring | Next.js + Recharts | Real-time dashboard with before/after metric charts |
+| Frontend | Next.js 15 (React 19) | Chat interface, dashboard, before/after comparison, governance log, gateway settings panel |
+| API | FastAPI (Python) | Request handling, routing |
+| LLM Gateway client | LiteLLM (`litellm` SDK) → operator-supplied gateway | Model calls, token/cost accounting; per-slot alias routing decided by OptiBot, not LiteLLM's own router |
+| Vector store | In-process numpy matrix | Cosine-similarity retrieval over the embedded policy corpus — no external vector DB |
+| Embeddings | sentence-transformers (`all-MiniLM-L6-v2`), lexical fallback if not installed | Shared by RAG retrieval and the semantic cache |
+| Semantic Cache | In-memory dict, optimized pipeline only | Cache similar queries by cosine similarity, partitioned by resolved facts |
+| Order/Customer/Product/Shipment data | Static JSON files | Synthetic dataset, generated once by `scripts/generate_data.py` |
+| Guardrails | Custom Python service (`guardrails.py`), not framework middleware | Injection detection, rate limiting, output verification against order data |
+| Metrics Store | SQLite | Interaction metrics, audit log, before/after comparison data |
+| Monitoring | Next.js + Recharts | Dashboard, before/after charts, governance/audit browser |
 
 ---
 
@@ -130,21 +140,30 @@ flowchart TD
 ### Layer 1: Intelligent Model Routing (via LiteLLM)
 
 **Baseline ("Before")**
-All queries are sent to a single expensive model (Claude Sonnet) regardless of complexity. A simple "where is order #12345?" costs the same as a complex multi-order dispute resolution.
+Every query is sent to the same single, deliberately expensive model regardless of complexity — configured in the `baseline` gateway slot. A simple "where is order #12345?" costs the same as a complex multi-order dispute resolution.
 
 **Optimized ("After")**
-A query classifier categorizes incoming queries into complexity tiers and routes them to the appropriate model via LiteLLM:
+A rule-based query classifier (`app/services/classifier.py`, keyword and pattern heuristics — no LLM call, since routing with a model would spend the cost it is meant to save) sorts each query into a tier and routes it to the matching gateway slot:
 
-| Query Tier | Model | Avg Cost | Avg Latency |
-|-----------|-------|----------|-------------|
-| Simple (order status) | Claude Haiku | ~$0.0003 | ~0.5s |
-| Medium (policy Q&A) | Claude Sonnet | ~$0.002 | ~1.5s |
-| Complex (multi-issue) | Claude Sonnet + enriched context | ~$0.004 | ~2.5s |
+| Query Tier | Gateway slot | Notes |
+|-----------|-------|-------|
+| Simple (order status) | `simple` | Cheapest configured model |
+| Medium (policy Q&A) | `complex` | Same slot as complex — the split that matters here is baseline-vs-tiered, not a three-way model split |
+| Complex (multi-issue) | `complex` | Enriched context (all referenced orders resolved) |
+
+Actual cost/latency depend entirely on which models the operator points the gateway
+slots at, so this PRD does not hardcode per-tier dollar figures — the live numbers are
+whatever the Dashboard and Before/After pages measure for the models in use. Prices are
+looked up from a local table in `llm_client.py` (Anthropic, Gemini, and OpenAI aliases,
+longest-prefix matching for lab/version-suffixed names) rather than trusting the
+gateway's own cost figure, which several gateways report as `0.0` for unpriced aliases.
 
 **Implementation:**
-- LiteLLM router configuration with model definitions and fallback chains
-- FastAPI middleware classifies query complexity using keyword patterns + lightweight heuristics
-- LiteLLM provides built-in token counting and cost tracking per request
+- `app/services/classifier.py` — complexity tiering via keyword/pattern heuristics
+- `app/services/llm_client.py` — `select_model(mode, tier)` resolves (mode, tier) to a
+  gateway alias, plus token/cost accounting
+- `app/llm_settings.py` + the gear-icon settings panel — per-slot alias is operator
+  configurable at runtime (`backend/llm_runtime.json`), not baked into the code
 
 **Target Metrics:**
 - Cost per query: **40-60% reduction** (weighted average across query mix)
@@ -207,30 +226,37 @@ No RAG pipeline. The LLM answers policy questions from training data, leading to
 - Invented refund procedures and warranty terms
 
 **Optimized ("After")**
-Policy documents chunked, embedded, and stored in ChromaDB. At query time:
+Policy documents chunked, embedded, and held in an in-process numpy matrix (built once at
+startup — see `app/services/rag_service.py`). At query time:
 
-1. Query is embedded using sentence-transformers
-2. Top-k relevant chunks retrieved from vector store
-3. Chunks re-ranked by relevance score
-4. Highest-ranked chunks injected into prompt as context
+1. Query is embedded with the same backend as the corpus (`all-MiniLM-L6-v2` via
+   sentence-transformers, or a domain-aware lexical fallback if that package is not
+   installed, so the app still runs without `torch`)
+2. A wider candidate pool (top `k*3`, min 8) is pulled by cosine similarity
+3. Candidates are re-ranked with a cheap lexical pass — boosting exact query-term overlap
+   and penalizing a second chunk from a source already picked, since pure cosine over a
+   small corpus tends to return three chunks from the same document
+4. The top-k chunks above a relevance floor are injected into the prompt as context
 5. Response includes source citation (e.g., "According to our Return Policy...")
 
-**Policy Documents for RAG:**
+**Policy Documents for RAG** (actual corpus, `backend/app/data/policies/`):
 
-| Document | Content | Chunk Count |
-|----------|---------|-------------|
-| Return Policy | Return windows, conditions, process, exceptions | ~8 chunks |
-| Shipping Policy | Carriers, timeframes, regions, costs, tracking | ~10 chunks |
-| FAQ | Top 20 customer questions with answers | ~20 chunks |
-| Warranty Terms | Product warranty coverage, claims process | ~6 chunks |
-| Escalation Guide | When and how to escalate to human agents | ~4 chunks |
+| Document | Chunk Count |
+|----------|-------------|
+| Return Policy | 6 |
+| Shipping Policy | 7 |
+| FAQ | 10 |
+| Warranty Policy | 5 |
+| Escalation Guide | 5 |
+| **Total** | **33** |
 
 **Implementation:**
-- ChromaDB as the local vector store (no external API needed)
-- `all-MiniLM-L6-v2` sentence-transformer for embeddings
-- Chunk size: 300 tokens with 50-token overlap
-- Top-k retrieval: k=3, with relevance score threshold > 0.7
-- Re-ranking using cross-encoder for improved precision
+- Chunking splits on `##` markdown headings first (a chunk is a coherent rule, not an
+  arbitrary window), then subdivides any oversized section using a 300-token budget with
+  50-token overlap
+- Top-k retrieval: k=3 (`OPTIBOT_RAG_TOP_K`), relevance floor 0.15 (`OPTIBOT_RAG_MIN_SCORE`)
+- No external vector database — at ~33 chunks a numpy matrix is exact and adds no extra
+  failure mode or dependency
 
 **Target Metrics:**
 - Hallucination rate on policy questions: **~35% → <5%**
@@ -246,20 +272,31 @@ Policy documents chunked, embedded, and stored in ChromaDB. At query time:
 Every query triggers a full LLM call, even when semantically identical questions were asked recently. "Where is order 12345?" and "What's the status of order 12345?" both make separate LLM calls.
 
 **Optimized ("After")**
-Incoming queries are embedded and compared against a cache of recent query-response pairs:
+Incoming queries are embedded and compared against a cache of recent query-response pairs
+(`app/services/cache_service.py`). Baseline never consults the cache — that gap is the
+point being measured.
 
-1. Query is embedded using the same sentence-transformer as RAG
+1. Query is normalized (`ORD-10042` → `<order_id>`) and embedded with the same backend as RAG
 2. Cosine similarity computed against cached query embeddings
-3. If similarity > 0.95, return cached response (with order-specific data swapped)
-4. Cache entries have TTL (5 minutes for order queries, 30 minutes for policy queries)
-5. Order-specific data is parameterized — the query pattern is cached, not the specific order
+3. If similarity ≥ threshold, return the cached response — **but only if the resolved
+   facts also match**: the entry is additionally keyed on a hash of the resolved order
+   IDs and policy sources, so two customers asking the same question about different
+   orders can never collide
+4. Cache entries have a TTL (5 minutes for order queries, 30 minutes for policy queries)
+5. Only answers that passed output guardrails and cleared the confidence floor get stored,
+   so a bad answer is never cached and repeatedly served
 
 **Implementation:**
-- In-memory dictionary with sentence-transformer embeddings for similarity matching
-- Configurable similarity threshold (default: 0.95)
-- TTL-based expiration to prevent stale responses
-- Cache key: normalized query embedding; Cache value: response template + metadata
-- Can be upgraded to Redis for production use
+- In-memory dict, per backend process (not shared across instances — a fine tradeoff for
+  a single-instance demo, not production-grade)
+- Similarity threshold: **0.80**, calibrated (not guessed) by `scripts/calibrate_cache.py`
+  against a labelled pair set that includes deliberate near-misses ("how long does
+  standard shipping take" vs "how much does express shipping cost"); tuned for precision
+  over recall since a false hit serves one customer another customer's answer
+- TTL: 300s for order queries, 1800s for policy queries (`OPTIBOT_CACHE_TTL_ORDER` /
+  `OPTIBOT_CACHE_TTL_POLICY`)
+- Re-run the calibration script if the embedding model changes — the right threshold is
+  model-specific
 
 **Target Metrics:**
 - Cache hit rate: **25-40%** for common query patterns
@@ -275,25 +312,35 @@ No input validation, no output verification, no PII protection, no audit trail. 
 
 **Optimized ("After")**
 
+Guardrails are a plain Python service module (`app/services/guardrails.py`), applied only
+on the optimized path — baseline deliberately has zero guardrails, which is what the
+Governance page's baseline-vs-optimized columns are contrasting.
+
 #### Input Guardrails
 | Guard | Description | Action |
 |-------|------------|--------|
-| Prompt injection detection | Pattern matching for common injection patterns ("ignore previous instructions", "system prompt", role-switching attempts) | Block + log |
-| Input length limit | Max 500 characters per message | Truncate + warn |
-| Rate limiting | Max 10 requests/minute per session | Throttle + warn |
+| Prompt injection detection | Six pattern families: instruction override, system-prompt probing, role-switching/jailbreak, delimiter injection, data-exfiltration requests, credential requests | Block + log, generic refusal message |
+| Input length limit | Max 500 characters per message | Truncate, flag `input_truncated` |
+| Rate limiting | Max **20** requests/minute per session (fixed window) | Reject with a wait message |
+| Abusive language | Profanity pattern match | Logged, **not blocked** — a frustrated customer still gets an answer |
 
 #### Output Guardrails
 | Guard | Description | Action |
 |-------|------------|--------|
-| Order number validation | Verify any order ID referenced in the response actually exists in the database | Strip invalid references |
-| Confidence scoring | LLM returns confidence score; responses below 0.7 trigger disclaimer | Add uncertainty disclaimer |
-| Response length limit | Cap responses at 500 tokens | Truncate gracefully |
-| Forbidden content filter | Prevent responses containing competitor names, internal system details | Redact + rephrase |
+| Order number validation | Every order ID the model states is checked against what this request actually resolved (or, failing that, against the database) | Replace with `[unverified order number]` |
+| Tracking number validation | Same check for tracking-number-shaped strings | Replace with `[unverified tracking number]` |
+| Confidence scoring | Model-reported confidence below 0.7 (`low_confidence_threshold`) triggers a disclaimer prefix | Prepend "I'm not fully certain, but..." |
+| Forbidden content filter | Competitor names / internal-system phrasing | Redact to `[redacted]` |
+| Response length limit | Optimized calls are capped server-side at 700 output tokens (baseline: 1024) | N/A — bounded at generation time, not truncated after |
 
 #### PII Protection
-- Detect PII patterns in logs: email addresses, phone numbers, physical addresses, full names
-- Mask PII in audit logs and monitoring data: `john@email.com` → `j***@e***.com`
-- Customer data displayed in chat responses but **never persisted in logs unmasked**
+- Detect PII patterns: email addresses, phone numbers, physical addresses, full names
+  (`app/services/pii_detector.py`)
+- Mask PII **before anything is persisted** in the optimized path — masking happens on the
+  write path, not the response path, since a customer is entitled to see their own email
+  in the reply but it must never land unmasked in a log an operator can browse
+- **Baseline deliberately logs PII unmasked** — this is not an oversight, it is the exact
+  gap the "unmasked PII stored" counter on the Governance page measures
 
 #### Audit Logging
 Every interaction logged with:
@@ -328,28 +375,36 @@ Every interaction logged with:
 No visibility into chatbot performance. No way to compare cost, quality, or latency. No governance transparency.
 
 **Optimized ("After")**
-A Next.js dashboard with three views:
+Three separate Next.js pages, all reading from the same SQLite metrics/audit tables via
+`GET /api/metrics/*`:
 
-#### Real-Time Metrics View
-- Live feed of per-interaction metrics: tokens, latency, cost, model used, cache status
-- Rolling averages over last 1 hour / 24 hours
+#### `/dashboard` — Monitoring
+- Recharts comparison charts (baseline vs optimized) built from **run totals**, not a
+  rolling time window — there is no background aggregation job, every load re-queries
+  current state
+- Model routing mix for the optimized pipeline
+- A "reset" action (`POST /api/metrics/reset`) to clear accumulated data for a fresh run
 
-#### Before vs After Comparison View
-- Side-by-side bar charts comparing baseline vs optimized pipeline
-- Metrics: avg tokens/request, avg latency, avg cost, hallucination rate, accuracy score
-- Toggle to run queries through baseline vs optimized for live comparison
+#### `/comparison` — Before/After
+- Side-by-side metrics mapped to the evaluation lenses in this PRD (cost, tokens,
+  latency, hallucination/accuracy proxies)
 
-#### Governance & Audit View
-- Audit log browser with filtering and search
-- PII detection event timeline
-- Prompt injection attempt log with blocked queries
-- Guardrail trigger frequency chart
+#### `/governance` — Audit
+- Event-type breakdown (chat, cache hit, blocked input, error, etc.)
+- Audit log browser, most recent 100 entries
+- Surfaces the baseline-vs-optimized PII-masking gap directly (§Layer 5)
 
 **Implementation:**
-- FastAPI endpoints serving aggregated metrics from SQLite
-- Next.js dashboard pages with Recharts for visualization
-- WebSocket or polling for near-real-time updates
-- Export functionality for metrics data (CSV)
+- FastAPI endpoints (`app/routers/metrics.py`) serving aggregated queries from SQLite —
+  `/api/metrics/summary`, `/api/metrics/interactions`, `/api/metrics/governance`,
+  `/api/metrics/audit`, `/api/metrics/reset`
+- Plain polling where the UI needs freshness (the Play button's progress feed polls
+  `/api/simulate/status` every 800ms); the dashboard pages themselves just fetch on load —
+  no WebSocket, no CSV export
+- A separate gear-icon **settings panel** (not one of the six layers, but present on every
+  page) lists the gateway's available models, lets the operator set the LiteLLM base URL
+  and key at runtime, and assigns a model alias per routing slot — see
+  `frontend/src/components/SettingsPanel.tsx` and `app/routers/llm_config.py`
 
 ---
 
@@ -379,10 +434,13 @@ Comparison, and Governance pages already read from.
 | Trigger | "▶ Play demo" button, chat page, next to the Baseline/Optimized toggle |
 | Question set | 8 hand-picked questions (of the 23-question golden set) run through both modes — 16 chats total |
 | Selection rationale | Chosen to hit every optimization layer in one pass: a direct order lookup, the same lookup rephrased (cache hit), two policy questions (RAG), a multi-issue complaint (complex tier), a nonexistent order (hallucination resistance), a prompt injection (guardrails), and a query containing PII (masking) |
-| Reset behavior | Clears existing dashboard data and the semantic cache before starting, so the before/after numbers reflect only this run |
+| Reset behavior | Clears existing **dashboard** data and the semantic cache before starting, so the before/after numbers reflect only this run — this does not touch the chat transcript (see below) |
 | Live feedback | Each question and answer streams into the chat window as it completes, tagged "auto", with the same model / tier / cost / latency pills a manual message gets, plus a pass/fail badge against the golden answer |
 | Progress | A progress bar and "{completed}/{total}" counter; a Stop button cancels between questions (an in-flight call finishes; the next one never starts) |
 | Manual chat | Disabled while a run is in progress, re-enabled the moment it finishes or is stopped — Play augments manual chat, it does not replace it |
+| Baseline/Optimized toggle | Also filters what the chat window shows — with 16 turns from one run (8 baseline + 8 optimized) sharing the window, the toggle scopes the view to one side so they don't read as duplicates of each other |
+| Transcript persistence | Survives navigating to Dashboard/Comparison/Governance and back (cached in a module-level variable, mirrored to `sessionStorage` for a hard refresh) — the page component unmounts on route change, so without this the window would come back empty every time |
+| Clearing | Manual only — a **"Clear chat"** button next to Play/Stop. A new Play run appends to the existing transcript rather than wiping it; only Clear resets it (disabled mid-run, to avoid the next poll tick re-adding turns the run has already produced) |
 
 **Why baseline-then-optimized, not interleaved**
 
@@ -400,10 +458,11 @@ by a leftover from baseline.
   starts, polls, and cooperatively cancels a run; only one run at a time
 - `backend/app/routers/simulate.py` — `POST /api/simulate/start`,
   `GET /api/simulate/status` (polled by the UI every 800ms), `POST /api/simulate/cancel`
-- Frontend: the existing chat page, extended with the Play/Stop control, a
-  progress bar, and a poll loop that turns each completed step into an ordinary
-  chat turn — reusing the existing metric pills, "Last request" card, and
-  "Pipeline trace" panel without modification
+- Frontend (`frontend/src/app/page.tsx`): the existing chat page, extended with the
+  Play/Stop/Clear controls, a progress bar, a poll loop that turns each completed step
+  into an ordinary chat turn (reusing the existing metric pills, "Last request" card, and
+  "Pipeline trace" panel without modification), a mode filter over the rendered turns, and
+  a module-level cache backing the transcript so it outlives a route change
 
 **Also available headless:** `python scripts/run_evaluation.py` runs the same
 loader and grader against the full 23-question set (not just the curated 8) and
@@ -414,16 +473,22 @@ button is the same evaluation, just watchable.
 
 ## 5. Synthetic Data Requirements
 
+All volumes below are actual counts in `backend/app/data/`, generated once (deterministically —
+fixed seed) by `scripts/generate_data.py` so repeated before/after runs compare against
+byte-identical data.
+
 | Data Type | Description | Volume | Format |
 |-----------|------------|--------|--------|
 | Customers | Mock customer profiles (name, email, masked address, phone) | 50 | JSON |
 | Orders | Orders with status, items, dates, amounts, customer_id | 200 | JSON |
 | Products | Product catalog (name, category, price, description) | 30 | JSON |
-| Shipments | Tracking events per order (carrier, status, timestamps, location) | 200 | JSON |
-| Policy Documents | Return policy, shipping policy, FAQ, warranty, escalation guide | 5-8 docs (~500-1000 words each) | Markdown |
-| Golden Test Queries | Queries with expected answers, classification, and difficulty | 50-100 | JSON |
-| Baseline Prompts | Verbose, unoptimized prompt templates | 3-5 | Text |
-| Optimized Prompts | Compressed, structured prompt templates | 3-5 | Text |
+| Shipments | Tracking events per order (carrier, status, timestamps, location) | 164 (not every order has shipped) | JSON |
+| Policy Documents | Return, shipping, FAQ, warranty, escalation guide | 5 docs, 33 chunks total (see §Layer 3) | Markdown |
+| Golden Test Queries | Queries with expected answers, classification, and difficulty | 23 | JSON |
+
+Baseline and optimized prompts are not data files — they are template functions in
+`backend/app/services/prompts.py` (`build_baseline_messages` / `build_optimized_messages`),
+built dynamically per request from whatever order/policy context that request resolved.
 
 ### Data Generation Approach
 
@@ -491,40 +556,43 @@ Python scripts generate synthetic data with realistic patterns:
 ```
 backend/
 ├── app/
-│   ├── main.py                  # FastAPI app entry, middleware registration
-│   ├── config.py                # Model configs, thresholds, feature flags
+│   ├── main.py                  # FastAPI app entry, lifespan (builds RAG index, logs model slots)
+│   ├── __init__.py               # Loads .env and evicts SSL_VERIFY before litellm imports
+│   ├── config.py                 # Env-read-once settings: cache/RAG thresholds, rate limit, gateway timeouts
+│   ├── llm_settings.py           # Mutable runtime layer over config.py — the gear-icon panel writes here
 │   ├── routers/
-│   │   ├── chat.py              # POST /api/chat — main chat endpoint
-│   │   ├── metrics.py           # GET /api/metrics — dashboard data
-│   │   ├── health.py            # GET /api/health — health check
-│   │   └── simulate.py          # POST /api/simulate/start, GET /status, POST /cancel — Play button
+│   │   ├── chat.py               # POST /api/chat
+│   │   ├── health.py             # GET /api/health
+│   │   ├── llm_config.py         # GET/POST /api/llm-config, GET /api/llm-config/models, POST /test — settings panel
+│   │   ├── metrics.py            # GET /api/metrics/{summary,interactions,governance,audit}, POST /reset
+│   │   └── simulate.py           # POST /api/simulate/start, GET /status, POST /cancel — Play button
 │   ├── services/
-│   │   ├── chat_service.py      # Orchestrates the full optimization pipeline
-│   │   ├── classifier.py        # Query complexity classifier
-│   │   ├── prompt_optimizer.py  # Prompt template selection and rendering
-│   │   ├── rag_service.py       # ChromaDB retrieval + re-ranking
-│   │   ├── cache_service.py     # Semantic caching logic
-│   │   ├── guardrails.py        # Input/output validation
-│   │   ├── pii_detector.py      # PII detection and masking
-│   │   ├── order_service.py     # Order database queries
-│   │   ├── metrics_service.py   # Metrics collection and aggregation
-│   │   ├── evaluation.py        # Golden-query loading + grading, shared by the CLI and the Play button
-│   │   └── simulation_service.py # Play button's background runner (start/status/cancel)
-│   ├── models/                  # Pydantic request/response models
-│   ├── middleware/              # CORS, rate limiting, request logging
+│   │   ├── chat_service.py       # Orchestrates baseline vs optimized pipelines side by side
+│   │   ├── classifier.py         # Rule-based query complexity tiering (no LLM call)
+│   │   ├── prompts.py            # Baseline vs optimized message/template builders
+│   │   ├── rag_service.py        # Heading-based chunking, numpy cosine retrieval, lexical re-rank
+│   │   ├── embeddings.py         # sentence-transformers backend with lexical fallback
+│   │   ├── cache_service.py      # Semantic cache — optimized path only
+│   │   ├── guardrails.py         # Input/output validation, rate limiting
+│   │   ├── pii_detector.py       # PII detection and masking
+│   │   ├── order_service.py      # Reads the static order/customer/product/shipment JSON
+│   │   ├── metrics_service.py    # SQLite metrics + audit log read/write
+│   │   ├── llm_client.py         # Model routing decision, local price table, cost accounting
+│   │   ├── gateway.py             # LiteLLM transport + TLS bootstrap for the configured gateway
+│   │   ├── evaluation.py         # Golden-query loader + grading, shared by the CLI and the Play button
+│   │   └── simulation_service.py # Play button's background-thread runner (start/status/cancel)
+│   ├── models/
+│   │   └── schemas.py            # All Pydantic request/response models
 │   └── data/
-│       ├── orders.json          # Synthetic order data
-│       ├── customers.json       # Synthetic customer data
-│       ├── products.json        # Synthetic product catalog
-│       ├── shipments.json       # Synthetic shipment tracking
-│       ├── golden_queries.json  # Golden test questions — also the Play button's question bank
-│       └── policies/            # Policy markdown documents for RAG
+│       ├── customers.json / orders.json / products.json / shipments.json
+│       ├── golden_queries.json   # Also the Play button's question bank
+│       └── policies/             # 5 policy markdown documents for RAG
 ├── requirements.txt
 └── tests/
-    ├── test_classifier.py
-    ├── test_guardrails.py
-    ├── test_cache.py
-    ├── test_evaluation.py       # Golden dataset loading + grading
+    ├── test_evaluation.py        # Golden dataset loading + grading
+    ├── test_gateway.py           # LiteLLM transport / TLS bootstrap
+    ├── test_llm_settings.py      # Runtime model-slot persistence
+    ├── test_pricing.py           # Local price table resolution
     └── test_simulation_service.py  # Play button runner: progress, cancel, reset behavior
 ```
 
@@ -534,33 +602,33 @@ backend/
 frontend/
 ├── src/
 │   ├── app/
-│   │   ├── page.tsx             # Chat interface + Play/Stop simulation control (main page)
-│   │   ├── dashboard/
-│   │   │   └── page.tsx         # Monitoring dashboard
-│   │   └── comparison/
-│   │       └── page.tsx         # Before/after comparison view
+│   │   ├── layout.tsx            # Root layout — renders Nav + page; page state does not survive route changes
+│   │   ├── page.tsx              # Chat + Play/Stop/Clear simulation controls (main page)
+│   │   ├── dashboard/page.tsx    # Monitoring dashboard
+│   │   ├── comparison/page.tsx   # Before/after comparison view
+│   │   └── governance/page.tsx   # Audit log browser
 │   ├── components/
-│   │   ├── ChatWindow.tsx       # Chat message display
-│   │   ├── ChatInput.tsx        # Message input with send button
-│   │   ├── MetricsCard.tsx      # Individual metric display card
-│   │   ├── ComparisonChart.tsx  # Before/after bar chart
-│   │   ├── AuditLog.tsx         # Audit log table
-│   │   └── ModeToggle.tsx       # Baseline/Optimized toggle switch
+│   │   ├── Nav.tsx               # Top nav, health pill, opens SettingsPanel
+│   │   ├── SettingsPanel.tsx     # Gear-icon LiteLLM gateway/model settings panel
+│   │   └── icons.tsx
 │   └── lib/
-│       ├── api.ts               # FastAPI client, incl. startSimulation/getSimulationStatus/cancelSimulation
-│       └── types.ts             # TypeScript types, incl. SimulationState/SimulationStep
+│       ├── api.ts                # FastAPI client, incl. startSimulation/getSimulationStatus/cancelSimulation
+│       └── types.ts              # TypeScript types, incl. SimulationState/SimulationStep
 ├── package.json
 └── next.config.js
 ```
+
+Chat, dashboard, comparison, and governance are each a single page component — there is no
+separate `ChatWindow`/`ChatInput`/`MetricsCard`/`ComparisonChart`/`AuditLog`/`ModeToggle`
+component layer; each page owns its own markup and state directly.
 
 ### Scripts
 
 ```
 scripts/
-├── generate_data.py             # Generate synthetic customers, orders, products, shipments
-├── seed_vectorstore.py          # Chunk, embed, and load policy docs into ChromaDB
-├── run_evaluation.py            # Full 23-case run via app.services.evaluation — the headless twin of the Play button
-└── generate_report.py           # Produce before/after metrics summary
+├── generate_data.py             # Seeded synthetic customers/orders/products/shipments generator
+├── calibrate_cache.py           # Scores the semantic cache threshold against a labelled pair set
+└── run_evaluation.py            # Full 23-case run via app.services.evaluation — the headless twin of the Play button
 ```
 
 ### Key Dependencies
@@ -568,13 +636,17 @@ scripts/
 | Package | Purpose |
 |---------|---------|
 | `fastapi` + `uvicorn` | Backend API framework |
-| `litellm` | Multi-model LLM routing and cost tracking |
-| `chromadb` | Local vector store for RAG |
-| `sentence-transformers` | Query and document embedding |
+| `litellm` | Client SDK for calling the configured LiteLLM gateway; token/cost accounting |
+| `httpx` | Called directly for `/v1/models` on the gateway and the TLS bootstrap |
+| `numpy` | In-process vector store for RAG + semantic cache (no external vector DB) |
+| `sentence-transformers` (optional) | `all-MiniLM-L6-v2` embeddings; app falls back to a lexical embedder and still boots without it (no `torch` required) |
 | `pydantic` | Request/response validation |
-| `next` + `react` | Frontend framework |
+| `python-dotenv` | Loads `backend/.env` |
+| `next` (15) + `react` (19) | Frontend framework |
 | `recharts` | Dashboard charting library |
-| `tailwindcss` | UI styling |
+
+No `chromadb`, no Redis, no Tailwind — the RAG/cache vector store is a plain numpy
+matrix, and styling is hand-written CSS (`frontend/src/app/globals.css`).
 
 ---
 
@@ -597,10 +669,10 @@ scripts/
 | Task | Deliverable |
 |------|------------|
 | Implement query complexity classifier | Classifier routing queries to 3 tiers |
-| Configure LiteLLM multi-model routing (Haiku + Sonnet) | Model routing operational |
+| Wire up LiteLLM gateway routing (baseline/simple/complex slots) | Model routing operational |
 | Build optimized prompt templates | 3-5 compressed templates |
-| Set up ChromaDB and embed policy documents | Vector store loaded |
-| Implement RAG retrieval service with re-ranking | RAG retrieval returning relevant chunks |
+| Chunk and embed policy documents into an in-process numpy index | Vector store loaded |
+| Implement RAG retrieval service with lexical re-ranking | RAG retrieval returning relevant chunks |
 | **Day 2 Deliverable** | **Model routing + prompt optimization + RAG all functional** |
 
 ### Day 3: Caching, Guardrails, and Governance
@@ -648,26 +720,31 @@ click **▶ Play demo** on the chat page. It runs the same baseline-then-optimiz
 story across 8 questions automatically — covering a cache hit, a RAG-grounded
 policy answer, a blocked injection, and masked PII along the way — so an
 evaluator watches the dashboard fill in live rather than take the presenter's
-word for the numbers. Steps 3–4 below work identically off whatever data is on
-screen, whether it came from Play or from typing each question by hand.
+word for the numbers. The Baseline/Optimized toggle scopes the chat window to
+one side at a time (useful once 16 turns are on screen); use **Clear chat** if
+you want a blank window for a second run — Play appends to the transcript
+rather than replacing it. Steps 3–4 below work identically off whatever data
+is on screen, whether it came from Play or from typing each question by hand.
 
 **Step 1: Baseline Mode (1.5 min)**
 1. Open chat UI in **Baseline mode**
-2. Ask: "What is your return policy?" → LLM hallucinate a wrong return window
-3. Ask: "Where is my order #12345?" → Slow response, high token count
-4. Show dashboard: high cost, high latency, hallucination flagged
+2. Ask: "What is your return policy?" → LLM hallucinates a wrong return window (the real
+   policy is 14 days; baseline typically states 30)
+3. Ask: "Where is my order #12345?" → Slower response, higher token count than optimized
+4. Show dashboard: higher cost, higher latency, hallucination flagged
 
 **Step 2: Switch to Optimized Mode (2 min)**
 1. Toggle to **Optimized mode**
-2. Ask the same policy question → RAG retrieves correct policy, cites source
-3. Ask the same order query → Routed to Haiku, fast response, low cost
-4. Ask again → Cache hit, near-instant response
-5. Show dashboard: cost dropped, latency dropped, accuracy 100%
+2. Ask the same policy question → RAG retrieves the real 14-day policy, cites the source doc
+3. Ask the same order query → Routed to the cheap tier, fast response, low cost
+4. Ask again, rephrased → Cache hit, near-instant response, zero tokens
+5. Show dashboard: cost dropped, latency dropped
 
 **Step 3: Governance Demo (1 min)**
 1. Attempt a prompt injection → Blocked, logged in audit
-2. Show audit log → All interactions logged with PII masked
-3. Show governance dashboard → Injection attempts, PII events, audit trail
+2. Show audit log → optimized interactions masked; baseline rows are **deliberately
+   left unmasked** — that contrast is what the "unmasked PII stored" counter measures
+3. Show governance page → injection attempts, PII events, audit trail
 
 **Step 4: Before/After Comparison (0.5 min)**
 1. Open comparison view → Side-by-side charts
@@ -690,7 +767,7 @@ screen, whether it came from Play or from typing each question by hand.
 |------|--------|-----------|------------|
 | LLM API rate limits during demo | Demo failure | Medium | Pre-cache key demo queries; configure LiteLLM fallback models |
 | RAG retrieval quality too low with small corpus | Poor accuracy metrics | Medium | Write high-quality policy docs with clear structure; tune chunk size (300 tokens) and overlap (50 tokens) |
-| Semantic cache false positives | Wrong answers served from cache | Low | Conservative similarity threshold (0.95+); TTL-based expiration; exclude order-specific data from cache matching |
+| Semantic cache false positives | Wrong answers served from cache | Low | Calibrated similarity threshold tuned for precision over recall (0.80, see `calibrate_cache.py`); TTL-based expiration; cache key also hashes resolved order IDs/policy sources so order-specific data can never cross-match |
 | 3-5 day timeline too tight | Incomplete submission | Medium | Prioritize Layers 1-3 (routing, prompts, RAG) as minimum viable; Layers 4-6 are enhancement layers |
 | Synthetic data not realistic enough | Weak demo credibility | Low | Use realistic order status distributions, tracking event sequences, and edge cases |
 
@@ -749,21 +826,31 @@ A: {"response": "According to our Return Policy, you have 14 days from delivery 
 
 ### Appendix B: Synthetic Data Schema Examples
 
-**Order:**
+**Order** (actual shape, `backend/app/data/orders.json`):
 ```json
 {
-  "order_id": "ORD-12345",
-  "customer_id": "CUST-001",
-  "status": "In Transit",
+  "order_id": "ORD-10001",
+  "customer_id": "CUST-041",
+  "status": "Processing",
   "items": [
-    {"product_id": "PROD-015", "name": "Wireless Headphones", "quantity": 1, "price": 79.99}
+    {
+      "product_id": "PROD-010", "name": "Waterproof Hiking Jacket", "category": "Clothing",
+      "quantity": 1, "unit_price": 189.0, "line_total": 189.0
+    }
   ],
-  "total": 87.98,
-  "order_date": "2026-07-20",
-  "estimated_delivery": "2026-08-02",
-  "shipping_method": "Standard"
+  "subtotal": 189.0,
+  "shipping_cost": 12.99,
+  "total": 201.99,
+  "order_date": "2026-06-03",
+  "shipping_method": "Express",
+  "shipping_address": {"street": "7873 Hawthorn Ter", "city": "Anchorage", "state": "AK", "zip": "66097"},
+  "estimated_delivery": "2026-06-09",
+  "tracking_number": null,
+  "carrier": null
 }
 ```
+(`tracking_number`/`carrier` are `null` until a shipment exists — the matching entry in
+`shipments.json`, when present, is the source of truth for tracking events.)
 
 **Shipment:**
 ```json
@@ -783,17 +870,27 @@ A: {"response": "According to our Return Policy, you have 14 days from delivery 
 
 ### Appendix C: Golden Test Query Example
 
+Actual shape, `backend/app/data/golden_queries.json` (order placeholders like
+`{ORDER_IN_TRANSIT}` are resolved to a real order ID from the synthetic dataset by
+`app/services/evaluation.py` before the query is run, so the same case works against any
+regenerated dataset):
+
 ```json
 {
-  "query": "What is your return policy for electronics?",
-  "expected_classification": "medium",
-  "expected_model": "claude-sonnet",
-  "expected_rag_retrieval": true,
-  "expected_answer_contains": ["14 days", "original packaging", "full refund"],
-  "expected_source": "return_policy.md",
-  "difficulty": "medium"
+  "id": "simple-01",
+  "query": "Where is my order {ORDER_IN_TRANSIT}?",
+  "expected_tier": "simple",
+  "expects_rag": false,
+  "must_contain_any": ["In Transit", "in transit"],
+  "difficulty": "easy",
+  "note": "Direct lookup — should route to the cheap model."
 }
 ```
+
+Grading (`evaluation.grade()`) checks the response contains at least one of
+`must_contain_any` (case-insensitive) and, when `expects_rag` is true, that a policy
+source was actually cited — not tier or model identity, since those are gateway-configured
+and not part of what "correct" means for a given question.
 
 ---
 
