@@ -13,6 +13,7 @@ const LINKS = [
   { href: "/dashboard", label: "Dashboard" },
   { href: "/comparison", label: "Before / After" },
   { href: "/governance", label: "Governance" },
+  { href: "/architecture", label: "Architecture" },
 ];
 
 export default function Nav() {

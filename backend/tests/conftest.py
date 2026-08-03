@@ -13,6 +13,7 @@ if str(BACKEND_DIR) not in sys.path:
 
 from app import llm_settings  # noqa: E402
 from app.config import settings  # noqa: E402
+from app.services import metrics_service  # noqa: E402
 
 
 @pytest.fixture(autouse=True)
@@ -31,3 +32,13 @@ def isolated_runtime(tmp_path, monkeypatch):
     llm_settings.reset_for_tests()
     yield
     llm_settings.reset_for_tests()
+
+
+@pytest.fixture(autouse=True)
+def clean_metrics_db():
+    """metrics_service writes to the real on-disk optibot.db, not a temp file —
+    without this, one test's interaction rows leak into the next test's counts."""
+    metrics_service.init_db()
+    metrics_service.reset()
+    yield
+    metrics_service.reset()

@@ -94,3 +94,32 @@ export function SpinnerIcon({ size = 16, className }: IconProps) {
     </svg>
   );
 }
+
+export function MicIcon({ size = 16, className }: IconProps) {
+  return (
+    <svg {...svgProps(size, className)}>
+      <rect x="9" y="2" width="6" height="12" rx="3" />
+      <path d="M5 10a7 7 0 0 0 14 0" />
+      <path d="M12 17v4M8 21h8" />
+    </svg>
+  );
+}
+
+export function SpeakerIcon({ size = 16, className }: IconProps) {
+  return (
+    <svg {...svgProps(size, className)}>
+      <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor" stroke="none" />
+      <path d="M16.3 8.7a5 5 0 0 1 0 6.6" />
+      <path d="M19 6a9 9 0 0 1 0 12" />
+    </svg>
+  );
+}
+
+export function SpeakerMuteIcon({ size = 16, className }: IconProps) {
+  return (
+    <svg {...svgProps(size, className)}>
+      <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor" stroke="none" />
+      <path d="M17 9l5 5M22 9l-5 5" />
+    </svg>
+  );
+}

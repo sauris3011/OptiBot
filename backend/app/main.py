@@ -15,7 +15,7 @@ log = logging.getLogger("optibot")
 
 from app import llm_settings  # noqa: E402
 from app.config import settings  # noqa: E402
-from app.routers import chat, health, llm_config, metrics  # noqa: E402
+from app.routers import chat, health, llm_config, metrics, simulate  # noqa: E402
 from app.services import llm_client, metrics_service, rag_service  # noqa: E402
 from app.services import gateway  # noqa: E402,F401 - import runs the TLS bootstrap
 from app.services.embeddings import backend_name  # noqa: E402
@@ -73,6 +73,7 @@ app.include_router(health.router)
 app.include_router(chat.router)
 app.include_router(metrics.router)
 app.include_router(llm_config.router)
+app.include_router(simulate.router)
 
 
 @app.get("/")

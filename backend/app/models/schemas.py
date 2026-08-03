@@ -164,3 +164,62 @@ class LlmTestResponse(BaseModel):
     response: str | None = None
     usage: LlmUsage | None = None
     config_used: dict[str, str] = Field(default_factory=dict)
+
+
+# --------------------------------------------------------------------------- #
+# Automated simulation ("Play" button) — batches golden queries through both
+# pipelines using chat_service.handle(), the same function manual chat uses.
+# --------------------------------------------------------------------------- #
+
+SimulationSize = Literal["quick", "full"]
+SimulationRunStatus = Literal["idle", "running", "completed", "cancelled", "failed"]
+
+
+class SimulationStep(BaseModel):
+    index: int
+    total: int
+    mode: Mode
+    case_id: str
+    query: str
+    difficulty: str | None = None
+    response: str = ""
+    error: str | None = None
+    model: str | None = None
+    tier: str | None = None
+    input_tokens: int = 0
+    output_tokens: int = 0
+    tokens: int = 0
+    latency_ms: int = 0
+    cost_usd: float = 0.0
+    cache_hit: bool = False
+    rag_used: bool = False
+    sources: list[str] = Field(default_factory=list)
+    confidence: float = 0.0
+    blocked: bool = False
+    guardrail_events: list[str] = Field(default_factory=list)
+    passed: bool | None = None
+    reason: str = ""
+    trace: list[TraceStep] = Field(default_factory=list)
+
+
+class SimulationState(BaseModel):
+    status: SimulationRunStatus
+    run_id: str
+    size: SimulationSize
+    total: int
+    completed: int
+    started_at: str | None = None
+    finished_at: str | None = None
+    error: str | None = None
+    steps: list[SimulationStep] = Field(default_factory=list)
+
+
+class SimulationStartRequest(BaseModel):
+    size: SimulationSize = "quick"
+    reset: bool = True
+
+
+class SimulationStartResponse(BaseModel):
+    status: Literal["started", "cancelled", "error"]
+    message: str
+    state: SimulationState
