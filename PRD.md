@@ -4,15 +4,15 @@
 
 | Field | Value |
 |-------|-------|
-| Version | 1.1 |
-| Date | 2026-08-03 |
+| Version | 1.2 |
+| Date | 2026-08-04 |
 | Status | Living document — reconciled against the implemented codebase |
 | Tech Stack | Python + FastAPI, Next.js, LiteLLM |
 | Timeline | 3-5 Days |
 
 ## Executive Summary
 
-OptiBot is an eCommerce order tracking chatbot that demonstrates measurable before-and-after improvements in GenAI workflow effectiveness. The solution implements six optimization layers — intelligent model routing, prompt optimization, RAG-grounded retrieval, semantic caching, governance guardrails, and a real-time monitoring dashboard — to prove how GenAI can be made more efficient, governed, measurable, and user-centric. Built with Python/FastAPI, Next.js, and LiteLLM, OptiBot provides a **baseline vs optimized toggle** that lets evaluators see the impact of each optimization in real time across cost, accuracy, latency, and governance metrics. A one-click **automated simulation ("Play" button)** runs a curated batch of test questions through both pipelines back-to-back, so the before/after dashboard can be populated and demonstrated in seconds rather than by typing each comparison by hand.
+OptiBot is an eCommerce order tracking chatbot that demonstrates measurable before-and-after improvements in GenAI workflow effectiveness. The solution implements six optimization layers — intelligent model routing, prompt optimization, RAG-grounded retrieval, semantic caching, governance guardrails, and a real-time monitoring dashboard — to prove how GenAI can be made more efficient, governed, measurable, and user-centric. Built with Python/FastAPI, Next.js, and LiteLLM, OptiBot provides a **baseline vs optimized toggle** that lets evaluators see the impact of each optimization in real time across cost, accuracy, latency, and governance metrics. A one-click **automated simulation ("Play" button)** runs a curated batch of test questions through both pipelines back-to-back, so the before/after dashboard can be populated and demonstrated in seconds rather than by typing each comparison by hand. The chat UI is a dark, ShopFast-branded experience with a live per-turn **optimization trace** panel, and supports **voice interaction** — ask by speaking and have replies read back — as an alternative to typing, alongside a dedicated **Architecture** page that walks through the request pipeline and component stack.
 
 ---
 
@@ -91,7 +91,7 @@ gateway-exposed model (Claude, GPT-4o, etc.) works without a code change.
 
 ```mermaid
 flowchart TD
-    A[Customer Browser] --> B[Next.js Frontend<br/>Chat + Dashboard + Comparison + Governance]
+    A[Customer Browser<br/>voice input/output via Web Speech API] --> B[Next.js Frontend<br/>Chat + Dashboard + Comparison + Governance + Architecture]
     B --> C[FastAPI Backend]
     C --> D{Input Guardrails<br/>baseline: none}
     D -->|Blocked| E[Rejection Response]
@@ -122,7 +122,7 @@ metrics/audit tables the dashboard reads from.
 
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
-| Frontend | Next.js 15 (React 19) | Chat interface, dashboard, before/after comparison, governance log, gateway settings panel |
+| Frontend | Next.js 15 (React 19) | Dark, ShopFast-branded chat interface (with voice input/output), dashboard, before/after comparison, governance log, architecture reference, gateway settings panel |
 | API | FastAPI (Python) | Request handling, routing |
 | LLM Gateway client | LiteLLM (`litellm` SDK) → operator-supplied gateway | Model calls, token/cost accounting; per-slot alias routing decided by OptiBot, not LiteLLM's own router |
 | Vector store | In-process numpy matrix | Cosine-similarity retrieval over the embedded policy corpus — no external vector DB |
@@ -375,8 +375,8 @@ Every interaction logged with:
 No visibility into chatbot performance. No way to compare cost, quality, or latency. No governance transparency.
 
 **Optimized ("After")**
-Three separate Next.js pages, all reading from the same SQLite metrics/audit tables via
-`GET /api/metrics/*`:
+Three separate Next.js pages read from the same SQLite metrics/audit tables via
+`GET /api/metrics/*`; a fourth, static page documents the architecture itself:
 
 #### `/dashboard` — Monitoring
 - Recharts comparison charts (baseline vs optimized) built from **run totals**, not a
@@ -390,9 +390,20 @@ Three separate Next.js pages, all reading from the same SQLite metrics/audit tab
   latency, hallucination/accuracy proxies)
 
 #### `/governance` — Audit
-- Event-type breakdown (chat, cache hit, blocked input, error, etc.)
+- Event-type breakdown (chat, cache hit, blocked input, error, etc.), rendered as
+  proportional bars next to the audit table rather than a bare count list
 - Audit log browser, most recent 100 entries
 - Surfaces the baseline-vs-optimized PII-masking gap directly (§Layer 5)
+
+#### `/architecture` — Solution Reference
+- Static walkthrough of the seven-step request pipeline, the nine-component tech stack,
+  and the three query-complexity tiers — content only, no API calls
+- Copy is written against what the backend actually does (gateway aliases, numpy vector
+  store, sentence-transformers embeddings), not the illustrative "ChromaDB"/"Claude Haiku"
+  placeholder text from the original design mockup, so it can't drift into claiming a
+  component the app doesn't use
+- `frontend/src/app/architecture/page.tsx` — a plain server component (no client-side
+  state, no `"use client"`), since none of its content is interactive
 
 **Implementation:**
 - FastAPI endpoints (`app/routers/metrics.py`) serving aggregated queries from SQLite —
@@ -458,16 +469,57 @@ by a leftover from baseline.
   starts, polls, and cooperatively cancels a run; only one run at a time
 - `backend/app/routers/simulate.py` — `POST /api/simulate/start`,
   `GET /api/simulate/status` (polled by the UI every 800ms), `POST /api/simulate/cancel`
-- Frontend (`frontend/src/app/page.tsx`): the existing chat page, extended with the
+- Frontend (`frontend/src/app/ChatClient.tsx`): the chat page, extended with the
   Play/Stop/Clear controls, a progress bar, a poll loop that turns each completed step
-  into an ordinary chat turn (reusing the existing metric pills, "Last request" card, and
-  "Pipeline trace" panel without modification), a mode filter over the rendered turns, and
-  a module-level cache backing the transcript so it outlives a route change
+  into an ordinary chat turn — rendered by the same per-turn "Optimization trace" card
+  list a manually typed turn uses (see below) — a mode filter over the rendered turns,
+  and a module-level cache backing the transcript so it outlives a route change
 
 **Also available headless:** `python scripts/run_evaluation.py` runs the same
 loader and grader against the full 23-question set (not just the curated 8) and
 prints the same before/after table this PRD's metrics are drawn from — the Play
 button is the same evaluation, just watchable.
+
+**Optimization trace panel:** the right-hand rail on the chat page replaces a single
+"last request" summary with a running, per-turn trace — session-total stat tiles (cost,
+tokens, avg latency, cache hits, computed client-side from the turns currently on screen)
+above a scrolling list of one card per bot turn (tier, badges for model/cache/RAG/guardrail
+events, a tokens/latency/cost/confidence grid, and the layer-by-layer trace note) — built
+from the same `ChatResponse`/`TraceStep` data whether the turn came from typing, voice, or
+Play demo, so nothing about a turn's presentation depends on how it was produced.
+
+---
+
+### Layer 6.2: Voice Interaction — Speak to Ask, Listen to the Answer
+
+**The problem this solves**
+
+Typing every question (or clicking a suggestion chip) is the only way to drive the demo.
+For an accessibility-minded or hands-free walkthrough, voice is a more natural interaction
+than a keyboard.
+
+**What it does**
+
+The chat page accepts spoken questions and can read replies back — entirely client-side via
+the browser's built-in Web Speech API, with no new backend endpoint, no server round trip
+for audio, and no added package.
+
+| Property | Behavior |
+|---|---|
+| Mic button | Next to Send; click to speak. Live transcript fills the input as you talk and auto-submits on the recognizer's final result — same effect as typing and hitting Enter |
+| Speaker toggle | Chat header, next to the mode label; on by default, reads each reply aloud as it arrives; click to mute |
+| Scope | Live chat only (typed or spoken). Play demo's 16 simulated turns are never read aloud or interrupted by voice — narrating a fast automated batch would talk over itself rather than help the demo |
+| Feature detection | Both controls simply don't render if the browser lacks `SpeechRecognition` / `speechSynthesis` (e.g. Firefox has no `SpeechRecognition`) — no dead or permanently-disabled buttons |
+| Cleanup | Recognition and any in-progress speech are stopped on Clear chat, on starting a Play run, and on unmount, so nothing keeps listening or talking in the background |
+
+**Implementation:**
+- `frontend/src/app/ChatClient.tsx` — `startListening()`/`stopListening()` wrap
+  `SpeechRecognition` (interim results update the input live, a final result calls the same
+  `submit()` a typed message uses); `speak()` wraps `SpeechSynthesisUtterance`, gated by the
+  speaker toggle and skipped for `simulated` (Play demo) turns
+- `frontend/src/lib/speech.d.ts` — ambient `SpeechRecognition` types; not part of
+  TypeScript's default DOM lib (unlike `SpeechSynthesis`, which is)
+- `frontend/src/components/icons.tsx` — `MicIcon`, `SpeakerIcon`, `SpeakerMuteIcon`
 
 ---
 
@@ -603,24 +655,35 @@ frontend/
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx            # Root layout — renders Nav + page; page state does not survive route changes
-│   │   ├── page.tsx              # Chat + Play/Stop/Clear simulation controls (main page)
+│   │   ├── page.tsx              # next/dynamic(..., { ssr: false }) wrapper around ChatClient
+│   │   ├── ChatClient.tsx        # Chat + Play/Stop/Clear simulation controls + voice input/output (main page)
 │   │   ├── dashboard/page.tsx    # Monitoring dashboard
 │   │   ├── comparison/page.tsx   # Before/after comparison view
-│   │   └── governance/page.tsx   # Audit log browser
+│   │   ├── governance/page.tsx   # Audit log browser
+│   │   ├── architecture/page.tsx # Static pipeline / tech-stack / tier-routing reference
+│   │   └── globals.css           # Dark, cyan/amber-accented design system shared by every page
 │   ├── components/
-│   │   ├── Nav.tsx               # Top nav, health pill, opens SettingsPanel
+│   │   ├── Nav.tsx               # Top nav (5 tabs), health pill, opens SettingsPanel
 │   │   ├── SettingsPanel.tsx     # Gear-icon LiteLLM gateway/model settings panel
-│   │   └── icons.tsx
+│   │   └── icons.tsx             # Incl. MicIcon/SpeakerIcon for the voice controls
 │   └── lib/
 │       ├── api.ts                # FastAPI client, incl. startSimulation/getSimulationStatus/cancelSimulation
-│       └── types.ts              # TypeScript types, incl. SimulationState/SimulationStep
+│       ├── types.ts              # TypeScript types, incl. SimulationState/SimulationStep
+│       └── speech.d.ts           # Ambient SpeechRecognition types (Web Speech API)
 ├── package.json
 └── next.config.js
 ```
 
-Chat, dashboard, comparison, and governance are each a single page component — there is no
-separate `ChatWindow`/`ChatInput`/`MetricsCard`/`ComparisonChart`/`AuditLog`/`ModeToggle`
-component layer; each page owns its own markup and state directly.
+Chat, dashboard, comparison, governance, and architecture are each a single page
+component — there is no separate `ChatWindow`/`ChatInput`/`MetricsCard`/`ComparisonChart`/
+`AuditLog`/`ModeToggle` component layer; each page owns its own markup and state directly.
+The chat page is the one exception, split into two files: `page.tsx` is a thin
+`next/dynamic(..., { ssr: false })` wrapper, and `ChatClient.tsx` holds the actual
+component. The split exists because the chat transcript is seeded from `sessionStorage`
+(so it survives navigating away and back) — that seed can only ever be correct in the
+browser, so letting Next.js server-render this page would render an empty transcript on
+the server that then mismatches whatever the client actually restores, tripping a React
+hydration error. Skipping SSR for this one page avoids that class of bug entirely.
 
 ### Scripts
 
@@ -646,7 +709,11 @@ scripts/
 | `recharts` | Dashboard charting library |
 
 No `chromadb`, no Redis, no Tailwind — the RAG/cache vector store is a plain numpy
-matrix, and styling is hand-written CSS (`frontend/src/app/globals.css`).
+matrix, and styling is hand-written CSS (`frontend/src/app/globals.css`) implementing the
+dark, cyan/amber ShopFast design system. Voice input/output uses the browser's built-in
+Web Speech API (`SpeechRecognition` + `speechSynthesis`) — not an npm package, feature-detected
+at runtime, and simply absent (not broken) in browsers without support, e.g. Firefox has no
+`SpeechRecognition`.
 
 ---
 
@@ -738,7 +805,10 @@ is on screen, whether it came from Play or from typing each question by hand.
 2. Ask the same policy question → RAG retrieves the real 14-day policy, cites the source doc
 3. Ask the same order query → Routed to the cheap tier, fast response, low cost
 4. Ask again, rephrased → Cache hit, near-instant response, zero tokens
-5. Show dashboard: cost dropped, latency dropped
+5. Optional: click the **mic** button and ask a question by voice instead of typing — the
+   transcript fills the input live and auto-sends; toggle the **speaker** icon off/on to
+   show replies being read aloud
+6. Show dashboard: cost dropped, latency dropped
 
 **Step 3: Governance Demo (1 min)**
 1. Attempt a prompt injection → Blocked, logged in audit
@@ -750,6 +820,10 @@ is on screen, whether it came from Play or from typing each question by hand.
 1. Open comparison view → Side-by-side charts
 2. Highlight: 67% cost reduction, 50% token savings, hallucination rate 35% → <5%
 
+**Step 5 (optional, 0.5 min): Architecture**
+1. Open the Architecture page → walk through the seven-step request pipeline and the
+   component stack without needing to narrate it from memory
+
 ### Evaluation Lens Mapping
 
 | Evaluation Lens | Where Demonstrated |
@@ -757,7 +831,7 @@ is on screen, whether it came from Play or from typing each question by hand.
 | **Performance & Efficiency** | Model routing (Layer 1), Prompt optimization (Layer 2), Semantic caching (Layer 4), Dashboard metrics |
 | **Trust & Governance** | RAG accuracy (Layer 3), Guardrails (Layer 5), PII masking, Audit logging, Governance dashboard |
 | **Value & Operations** | Cost reduction metrics, Cache hit rate, ROI projection, Monthly cost comparison on dashboard |
-| **User Experience** | Chat UI with mode toggle, source citations, graceful error handling, fallback design, transparent dashboard, one-click Play demo |
+| **User Experience** | Chat UI with mode toggle, voice input/output as an alternative to typing, source citations, graceful error handling, fallback design, transparent dashboard, one-click Play demo, Architecture page for self-serve technical review |
 
 ---
 
