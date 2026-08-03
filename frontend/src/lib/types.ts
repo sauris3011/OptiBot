@@ -34,6 +34,67 @@ export interface ChatResponse {
   error: string | null;
 }
 
+/* ---------------- automated simulation ("Play" button) ---------------- */
+/* Mirrors backend/app/models/schemas.py — keep the two in step. */
+
+export type SimulationSize = "quick" | "full";
+export type SimulationRunStatus =
+  | "idle"
+  | "running"
+  | "completed"
+  | "cancelled"
+  | "failed";
+
+export interface SimulationStep {
+  index: number;
+  total: number;
+  mode: Mode;
+  case_id: string;
+  query: string;
+  difficulty: string | null;
+  response: string;
+  error: string | null;
+  model: string | null;
+  tier: string | null;
+  input_tokens: number;
+  output_tokens: number;
+  tokens: number;
+  latency_ms: number;
+  cost_usd: number;
+  cache_hit: boolean;
+  rag_used: boolean;
+  sources: string[];
+  confidence: number;
+  blocked: boolean;
+  guardrail_events: string[];
+  passed: boolean | null;
+  reason: string;
+  trace: TraceStep[];
+}
+
+export interface SimulationState {
+  status: SimulationRunStatus;
+  run_id: string;
+  size: SimulationSize;
+  total: number;
+  completed: number;
+  started_at: string | null;
+  finished_at: string | null;
+  error: string | null;
+  steps: SimulationStep[];
+}
+
+export interface SimulationStartRequest {
+  size?: SimulationSize;
+  reset?: boolean;
+}
+
+export interface SimulationStartResponse {
+  status: "started" | "cancelled" | "error";
+  message: string;
+  state: SimulationState;
+}
+
 export interface ModeSummary {
   mode: string;
   requests: number;

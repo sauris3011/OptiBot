@@ -11,6 +11,9 @@ import type {
   LlmTestResponse,
   MetricsSummary,
   Mode,
+  SimulationStartRequest,
+  SimulationStartResponse,
+  SimulationState,
 } from "./types";
 
 const BASE = process.env.NEXT_PUBLIC_API_BASE || "http://127.0.0.1:8000";
@@ -81,3 +84,20 @@ export const getSampleOrders = () =>
 
 export const resetMetrics = () =>
   request<{ status: string }>("/api/metrics/reset", { method: "POST" });
+
+/**
+ * Like /api/llm-config, these answer 200 with status:"error" for a rejected
+ * start (e.g. one already running) rather than a non-2xx — callers must check
+ * the body, not just that the request succeeded.
+ */
+export const startSimulation = (body: SimulationStartRequest = {}) =>
+  request<SimulationStartResponse>("/api/simulate/start", {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+
+export const getSimulationStatus = () =>
+  request<SimulationState>("/api/simulate/status");
+
+export const cancelSimulation = () =>
+  request<SimulationStartResponse>("/api/simulate/cancel", { method: "POST" });

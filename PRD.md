@@ -12,7 +12,7 @@
 
 ## Executive Summary
 
-OptiBot is an eCommerce order tracking chatbot that demonstrates measurable before-and-after improvements in GenAI workflow effectiveness. The solution implements six optimization layers — intelligent model routing, prompt optimization, RAG-grounded retrieval, semantic caching, governance guardrails, and a real-time monitoring dashboard — to prove how GenAI can be made more efficient, governed, measurable, and user-centric. Built with Python/FastAPI, Next.js, and LiteLLM, OptiBot provides a **baseline vs optimized toggle** that lets evaluators see the impact of each optimization in real time across cost, accuracy, latency, and governance metrics.
+OptiBot is an eCommerce order tracking chatbot that demonstrates measurable before-and-after improvements in GenAI workflow effectiveness. The solution implements six optimization layers — intelligent model routing, prompt optimization, RAG-grounded retrieval, semantic caching, governance guardrails, and a real-time monitoring dashboard — to prove how GenAI can be made more efficient, governed, measurable, and user-centric. Built with Python/FastAPI, Next.js, and LiteLLM, OptiBot provides a **baseline vs optimized toggle** that lets evaluators see the impact of each optimization in real time across cost, accuracy, latency, and governance metrics. A one-click **automated simulation ("Play" button)** runs a curated batch of test questions through both pipelines back-to-back, so the before/after dashboard can be populated and demonstrated in seconds rather than by typing each comparison by hand.
 
 ---
 
@@ -353,6 +353,65 @@ A Next.js dashboard with three views:
 
 ---
 
+### Layer 6.1: Automated Simulation — the "Play" Button
+
+**The problem this solves**
+
+Populating the before/after view by hand means typing the same handful of
+questions twice — once in Baseline, once in Optimized — enough times that the
+averages mean something. That is slow to do live, and easy to skip during a
+rushed demo, leaving the dashboard looking empty or thin exactly when it needs
+to look most convincing.
+
+**What it does**
+
+A **▶ Play demo** control on the chat page runs a curated batch of the golden
+test questions (see §5, Golden Test Queries) through the pipeline
+automatically — baseline first, then optimized, one question at a time —
+using the exact same `chat_service.handle()` call a manually typed message
+uses. There is no separate "demo mode" data path: a simulated turn is a real
+turn, so every number it produces is exactly as trustworthy as one from a live
+conversation, and it lands in the same SQLite tables the Dashboard, Before/After
+Comparison, and Governance pages already read from.
+
+| Property | Behavior |
+|---|---|
+| Trigger | "▶ Play demo" button, chat page, next to the Baseline/Optimized toggle |
+| Question set | 8 hand-picked questions (of the 23-question golden set) run through both modes — 16 chats total |
+| Selection rationale | Chosen to hit every optimization layer in one pass: a direct order lookup, the same lookup rephrased (cache hit), two policy questions (RAG), a multi-issue complaint (complex tier), a nonexistent order (hallucination resistance), a prompt injection (guardrails), and a query containing PII (masking) |
+| Reset behavior | Clears existing dashboard data and the semantic cache before starting, so the before/after numbers reflect only this run |
+| Live feedback | Each question and answer streams into the chat window as it completes, tagged "auto", with the same model / tier / cost / latency pills a manual message gets, plus a pass/fail badge against the golden answer |
+| Progress | A progress bar and "{completed}/{total}" counter; a Stop button cancels between questions (an in-flight call finishes; the next one never starts) |
+| Manual chat | Disabled while a run is in progress, re-enabled the moment it finishes or is stopped — Play augments manual chat, it does not replace it |
+
+**Why baseline-then-optimized, not interleaved**
+
+Matches both the CLI harness (`scripts/run_evaluation.py`) and this PRD's own
+demo script (§9): all baseline questions run first against a clean cache, then
+the cache is cleared and all optimized questions run — so a cache hit in the
+optimized block can only be explained by *this run's* repeated question, never
+by a leftover from baseline.
+
+**Implementation:**
+- `backend/app/services/evaluation.py` — the golden-query loader, order-placeholder
+  binding, and grading logic, shared between the CLI script and the Play button
+  so "correct" means the same thing in both places
+- `backend/app/services/simulation_service.py` — a background-thread runner that
+  starts, polls, and cooperatively cancels a run; only one run at a time
+- `backend/app/routers/simulate.py` — `POST /api/simulate/start`,
+  `GET /api/simulate/status` (polled by the UI every 800ms), `POST /api/simulate/cancel`
+- Frontend: the existing chat page, extended with the Play/Stop control, a
+  progress bar, and a poll loop that turns each completed step into an ordinary
+  chat turn — reusing the existing metric pills, "Last request" card, and
+  "Pipeline trace" panel without modification
+
+**Also available headless:** `python scripts/run_evaluation.py` runs the same
+loader and grader against the full 23-question set (not just the curated 8) and
+prints the same before/after table this PRD's metrics are drawn from — the Play
+button is the same evaluation, just watchable.
+
+---
+
 ## 5. Synthetic Data Requirements
 
 | Data Type | Description | Volume | Format |
@@ -437,7 +496,8 @@ backend/
 │   ├── routers/
 │   │   ├── chat.py              # POST /api/chat — main chat endpoint
 │   │   ├── metrics.py           # GET /api/metrics — dashboard data
-│   │   └── health.py            # GET /api/health — health check
+│   │   ├── health.py            # GET /api/health — health check
+│   │   └── simulate.py          # POST /api/simulate/start, GET /status, POST /cancel — Play button
 │   ├── services/
 │   │   ├── chat_service.py      # Orchestrates the full optimization pipeline
 │   │   ├── classifier.py        # Query complexity classifier
@@ -447,7 +507,9 @@ backend/
 │   │   ├── guardrails.py        # Input/output validation
 │   │   ├── pii_detector.py      # PII detection and masking
 │   │   ├── order_service.py     # Order database queries
-│   │   └── metrics_service.py   # Metrics collection and aggregation
+│   │   ├── metrics_service.py   # Metrics collection and aggregation
+│   │   ├── evaluation.py        # Golden-query loading + grading, shared by the CLI and the Play button
+│   │   └── simulation_service.py # Play button's background runner (start/status/cancel)
 │   ├── models/                  # Pydantic request/response models
 │   ├── middleware/              # CORS, rate limiting, request logging
 │   └── data/
@@ -455,13 +517,15 @@ backend/
 │       ├── customers.json       # Synthetic customer data
 │       ├── products.json        # Synthetic product catalog
 │       ├── shipments.json       # Synthetic shipment tracking
+│       ├── golden_queries.json  # Golden test questions — also the Play button's question bank
 │       └── policies/            # Policy markdown documents for RAG
 ├── requirements.txt
 └── tests/
     ├── test_classifier.py
     ├── test_guardrails.py
     ├── test_cache.py
-    └── test_evaluation.py       # Golden dataset evaluation runner
+    ├── test_evaluation.py       # Golden dataset loading + grading
+    └── test_simulation_service.py  # Play button runner: progress, cancel, reset behavior
 ```
 
 ### Frontend (Next.js)
@@ -470,7 +534,7 @@ backend/
 frontend/
 ├── src/
 │   ├── app/
-│   │   ├── page.tsx             # Chat interface (main page)
+│   │   ├── page.tsx             # Chat interface + Play/Stop simulation control (main page)
 │   │   ├── dashboard/
 │   │   │   └── page.tsx         # Monitoring dashboard
 │   │   └── comparison/
@@ -483,8 +547,8 @@ frontend/
 │   │   ├── AuditLog.tsx         # Audit log table
 │   │   └── ModeToggle.tsx       # Baseline/Optimized toggle switch
 │   └── lib/
-│       ├── api.ts               # FastAPI client
-│       └── types.ts             # TypeScript types
+│       ├── api.ts               # FastAPI client, incl. startSimulation/getSimulationStatus/cancelSimulation
+│       └── types.ts             # TypeScript types, incl. SimulationState/SimulationStep
 ├── package.json
 └── next.config.js
 ```
@@ -495,7 +559,7 @@ frontend/
 scripts/
 ├── generate_data.py             # Generate synthetic customers, orders, products, shipments
 ├── seed_vectorstore.py          # Chunk, embed, and load policy docs into ChromaDB
-├── run_evaluation.py            # Run golden dataset through baseline + optimized, collect metrics
+├── run_evaluation.py            # Full 23-case run via app.services.evaluation — the headless twin of the Play button
 └── generate_report.py           # Produce before/after metrics summary
 ```
 
@@ -579,6 +643,14 @@ scripts/
 
 ### Demo Flow (5 minutes)
 
+**Fast-forward option:** before or instead of narrating Steps 1–2 by hand,
+click **▶ Play demo** on the chat page. It runs the same baseline-then-optimized
+story across 8 questions automatically — covering a cache hit, a RAG-grounded
+policy answer, a blocked injection, and masked PII along the way — so an
+evaluator watches the dashboard fill in live rather than take the presenter's
+word for the numbers. Steps 3–4 below work identically off whatever data is on
+screen, whether it came from Play or from typing each question by hand.
+
 **Step 1: Baseline Mode (1.5 min)**
 1. Open chat UI in **Baseline mode**
 2. Ask: "What is your return policy?" → LLM hallucinate a wrong return window
@@ -608,7 +680,7 @@ scripts/
 | **Performance & Efficiency** | Model routing (Layer 1), Prompt optimization (Layer 2), Semantic caching (Layer 4), Dashboard metrics |
 | **Trust & Governance** | RAG accuracy (Layer 3), Guardrails (Layer 5), PII masking, Audit logging, Governance dashboard |
 | **Value & Operations** | Cost reduction metrics, Cache hit rate, ROI projection, Monthly cost comparison on dashboard |
-| **User Experience** | Chat UI with mode toggle, source citations, graceful error handling, fallback design, transparent dashboard |
+| **User Experience** | Chat UI with mode toggle, source citations, graceful error handling, fallback design, transparent dashboard, one-click Play demo |
 
 ---
 

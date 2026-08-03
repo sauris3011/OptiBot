@@ -161,6 +161,45 @@ a { color: inherit; text-decoration: none; }
 }
 .toggle button.on-baseline { background: var(--baseline); color: #2a1108; }
 .toggle button.on-optimized { background: var(--optimized); color: #05271a; }
+.toggle button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---------------- Play demo (automated simulation) ---------------- */
+
+.sim-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.sim-bar .btn, .sim-bar .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  font-size: 13px;
+}
+.sim-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 240px;
+}
+.sim-progress-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.sim-progress-fill {
+  height: 100%;
+  background: var(--optimized);
+  transition: width 0.3s ease;
+}
+.sim-progress-label { font-size: 12.5px; white-space: nowrap; }
 
 /* ---------------- chat ---------------- */
 
