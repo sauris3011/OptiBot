@@ -263,6 +263,12 @@ export default function ChatPage() {
     : 0;
   const simCurrentMode = simState?.steps[simState.steps.length - 1]?.mode;
 
+  // The toggle is framed as "flip to switch between baseline and optimized"
+  // (see the page subtitle), so the window only shows turns for the selected
+  // side — otherwise Play demo's 8+8 batch makes both toggle states look
+  // identical, since they'd both be rendering the full unfiltered history.
+  const visibleTurns = turns.filter((t) => !t.mode || t.mode === mode);
+
   return (
     <>
       <h1 className="page-title">Order tracking assistant</h1>
@@ -342,13 +348,13 @@ export default function ChatPage() {
       <div className="chat-layout">
         <div className="card" style={{ padding: 0 }}>
           <div className="chat-window">
-            {turns.length === 0 && (
+            {visibleTurns.length === 0 && (
               <div className="empty">
                 Ask about an order, a policy, or try the prompt-injection
                 example to see the guardrails fire — or hit Play demo above.
               </div>
             )}
-            {turns.map((turn, i) => (
+            {visibleTurns.map((turn, i) => (
               <div
                 key={i}
                 className={`msg ${turn.role === "user" ? "user" : "bot"} ${

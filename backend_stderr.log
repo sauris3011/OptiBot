@@ -1,0 +1,22 @@
+INFO:     Will watch for changes in these directories: ['C:\\Users\\sauri\\OptiBot\\OptiBot\\backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [32684] using WatchFiles
+C:\Users\sauri\AppData\Roaming\Python\Python313\site-packages\pydantic\_internal\_config.py:345: UserWarning: Valid config keys have changed in V2:
+* 'fields' has been removed
+  warnings.warn(message, UserWarning)
+WARNING optibot.gateway: LITELLM_SSL_VERIFY=false — TLS certificate verification is DISABLED for outbound HTTPS to the LiteLLM gateway. Prefer LITELLM_CA_BUNDLE=/path/to/corporate-ca.pem when you can obtain the bundle.
+INFO:     Started server process [5496]
+INFO:     Waiting for application startup.
+INFO sentence_transformers.SentenceTransformer: Use pytorch device_name: cpu
+INFO sentence_transformers.SentenceTransformer: Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+INFO optibot: embedding backend: sentence-transformers/all-MiniLM-L6-v2
+INFO optibot: policy index ready: 33 chunks
+INFO optibot: LiteLLM gateway: http://localhost:5000
+INFO optibot: model slot baseline -> gemini-2.5-pro               ($1.25/$10.00 per Mtok, price source: exact)
+INFO optibot: model slot simple   -> gemini-2.5-flash             ($0.30/$2.50 per Mtok, price source: exact)
+INFO optibot: model slot complex  -> gemini-2.5-pro               ($1.25/$10.00 per Mtok, price source: exact)
+INFO:     Application startup complete.
+[92m22:43:25 - LiteLLM:INFO[0m: utils.py:2757 - 
+LiteLLM completion() model= gemini-2.5-pro; provider = openai
+INFO LiteLLM: 
+LiteLLM completion() model= gemini-2.5-pro; provider = openai
