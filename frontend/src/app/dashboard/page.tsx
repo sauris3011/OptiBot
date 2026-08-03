@@ -17,16 +17,17 @@ import {
 import { getSummary, resetMetrics } from "@/lib/api";
 import type { MetricsSummary } from "@/lib/types";
 
-const BASELINE = "#f2795b";
-const OPTIMIZED = "#3fd18b";
-const TIER_COLORS = ["#5b8cff", "#3fd18b", "#f5c451", "#ef5f6b"];
+const BASELINE = "#e05c5c";
+const OPTIMIZED = "#4fc3f7";
+const TIER_COLORS = ["#4fc3f7", "#f5a623", "#8a7cff", "#e05c5c"];
 
-const axis = { stroke: "#94a1c0", fontSize: 12 };
+const axis = { stroke: "#6a7590", fontSize: 12 };
 const tooltipStyle = {
-  background: "#131a2e",
-  border: "1px solid #26314f",
+  background: "#0d1128",
+  border: "1px solid #1a2040",
   borderRadius: 8,
   fontSize: 13,
+  color: "#e2e8f8",
 };
 
 export default function DashboardPage() {
@@ -77,6 +78,7 @@ export default function DashboardPage() {
     <>
       <div style={{ display: "flex", alignItems: "flex-start" }}>
         <div>
+          <div className="eyebrow">OptiBot monitoring</div>
           <h1 className="page-title">Monitoring dashboard</h1>
           <p className="page-sub">
             Live metrics from every request. Refreshes every 5 seconds.
@@ -99,7 +101,7 @@ export default function DashboardPage() {
       )}
 
       <div className="grid grid-4" style={{ marginBottom: 16 }}>
-        <div className="card stat">
+        <div className="card stat stat-tile brand">
           <span className="stat-label">Token reduction</span>
           <span className="stat-value" style={{ color: OPTIMIZED }}>
             {deltas.tokens_reduction_pct}%
@@ -108,7 +110,7 @@ export default function DashboardPage() {
             {baseline.avg_tokens} → {optimized.avg_tokens} avg
           </span>
         </div>
-        <div className="card stat">
+        <div className="card stat stat-tile">
           <span className="stat-label">Cost reduction</span>
           <span className="stat-value" style={{ color: OPTIMIZED }}>
             {deltas.cost_reduction_pct}%
@@ -117,7 +119,7 @@ export default function DashboardPage() {
             ${baseline.avg_cost_usd.toFixed(5)} → ${optimized.avg_cost_usd.toFixed(5)} per query
           </span>
         </div>
-        <div className="card stat">
+        <div className="card stat stat-tile">
           <span className="stat-label">Latency reduction</span>
           <span className="stat-value" style={{ color: OPTIMIZED }}>
             {deltas.latency_reduction_pct}%
@@ -126,7 +128,7 @@ export default function DashboardPage() {
             {baseline.avg_latency_ms} → {optimized.avg_latency_ms} ms
           </span>
         </div>
-        <div className="card stat">
+        <div className="card stat stat-tile">
           <span className="stat-label">Cache hit rate</span>
           <span className="stat-value" style={{ color: OPTIMIZED }}>
             {(optimized.cache_hit_rate * 100).toFixed(0)}%
@@ -147,10 +149,10 @@ export default function DashboardPage() {
             <h2 className="card-title">{chart.title}</h2>
             <ResponsiveContainer width="100%" height={190}>
               <BarChart data={chart.data}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#26314f" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#10152b" />
                 <XAxis dataKey="name" {...axis} />
                 <YAxis {...axis} />
-                <Tooltip contentStyle={tooltipStyle} cursor={{ fill: "#1a2340" }} />
+                <Tooltip contentStyle={tooltipStyle} cursor={{ fill: "#101736" }} />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
                 <Bar dataKey="Baseline" fill={BASELINE} radius={[4, 4, 0, 0]} />
                 <Bar dataKey="Optimized" fill={OPTIMIZED} radius={[4, 4, 0, 0]} />

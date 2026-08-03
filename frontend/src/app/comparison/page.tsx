@@ -107,13 +107,18 @@ export default function ComparisonPage() {
     },
   ];
 
+  const monthlySaved = d.monthly_cost_baseline_10k - d.monthly_cost_optimized_10k;
   const value: Row[] = [
     {
+      // The %-reduction is already the headline above and repeated on the
+      // "Avg cost per interaction" row below — showing it a third time here
+      // read as if something were wrong, so this row shows what's actually
+      // new: the absolute dollars saved.
       metric: "Projected cost / 10k queries",
       baseline: `$${d.monthly_cost_baseline_10k.toFixed(2)}`,
       optimized: `$${d.monthly_cost_optimized_10k.toFixed(2)}`,
-      delta: pct(d.cost_reduction_pct),
-      better: d.cost_reduction_pct > 0,
+      delta: monthlySaved > 0 ? `$${monthlySaved.toFixed(2)} saved` : "$0.00 saved",
+      better: monthlySaved > 0,
     },
     {
       metric: "Requests served without a model call",
@@ -141,11 +146,26 @@ export default function ComparisonPage() {
 
   return (
     <>
-      <h1 className="page-title">Before / after comparison</h1>
-      <p className="page-sub">
-        Mapped to the evaluation lenses. Numbers are computed from{" "}
-        {b.requests} baseline and {o.requests} optimized requests in this run.
-      </p>
+      <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
+        <div>
+          <div className="eyebrow">Baseline vs optimized</div>
+          <h1 className="page-title">Before / after comparison</h1>
+          <p className="page-sub">
+            Mapped to the evaluation lenses. Numbers are computed from{" "}
+            {b.requests} baseline and {o.requests} optimized requests in this run.
+          </p>
+        </div>
+        <div className="legend-row" style={{ marginBottom: 24 }}>
+          <div className="legend-item">
+            <span className="legend-swatch baseline" />
+            Baseline
+          </div>
+          <div className="legend-item">
+            <span className="legend-swatch optimized" />
+            Optimized
+          </div>
+        </div>
+      </div>
 
       {noData && (
         <div className="banner warn">
@@ -154,6 +174,32 @@ export default function ComparisonPage() {
           to populate this comparison.
         </div>
       )}
+
+      <div className="grid grid-3" style={{ marginBottom: 16 }}>
+        <div className="hero-stat brand">
+          <span className="hero-stat-label">Cost per interaction</span>
+          <span className="hero-stat-value brand">{pct(d.cost_reduction_pct)}</span>
+          <span className="hero-stat-sub">
+            ${b.avg_cost_usd.toFixed(5)} → ${o.avg_cost_usd.toFixed(5)}
+          </span>
+        </div>
+        <div className="hero-stat">
+          <span className="hero-stat-label">Avg latency</span>
+          <span className="hero-stat-value">{pct(d.latency_reduction_pct)}</span>
+          <span className="hero-stat-sub">
+            {b.avg_latency_ms} ms → {o.avg_latency_ms} ms
+          </span>
+        </div>
+        <div className="hero-stat">
+          <span className="hero-stat-label">Monthly cost · 10K queries</span>
+          <span className="hero-stat-value">
+            ${d.monthly_cost_baseline_10k.toFixed(0)} → ${d.monthly_cost_optimized_10k.toFixed(0)}
+          </span>
+          <span className="hero-stat-sub">
+            ${(d.monthly_cost_baseline_10k - d.monthly_cost_optimized_10k).toFixed(2)} saved per 10K/mo
+          </span>
+        </div>
+      </div>
 
       {sections.map(([title, subtitle, rows]) => (
         <div className="card" style={{ marginBottom: 16 }} key={title}>
@@ -174,10 +220,11 @@ export default function ComparisonPage() {
               <span className="vs-metric">{r.metric}</span>
               <span className="vs-baseline">{r.baseline}</span>
               <span className="vs-optimized">{r.optimized}</span>
-              <span
-                className="vs-delta"
-                style={{ color: r.better ? "#3fd18b" : "#94a1c0" }}
-              >
+              {/* The accent highlight is reserved for the one headline
+                  "Cost per interaction" gold stat above — coloring every
+                  row's delta the same way just reads as noise, so these
+                  stay neutral regardless of direction. */}
+              <span className="vs-delta" style={{ color: r.better ? "#e2e8f8" : "#6a7590" }}>
                 {r.delta}
               </span>
             </div>
