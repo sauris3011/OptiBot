@@ -30,6 +30,56 @@ interface Turn {
 
 const SESSION_ID = `demo-${Math.random().toString(36).slice(2, 8)}`;
 const SIM_POLL_MS = 800;
+// Persists the chat transcript across route changes — Next.js unmounts this
+// page's component (and all its useState) entirely when you navigate to
+// Dashboard/Governance/etc., so without this the chat window comes back
+// empty. sessionStorage (not localStorage) so it still clears on a real new
+// session/tab, not just page navigation.
+const CHAT_STORAGE_KEY = "optibot:chat-state:v1";
+
+interface StoredChatState {
+  turns: Turn[];
+  simState: SimulationState | null;
+  lastResult: ChatResponse | null;
+  lastTrace: TraceStep[];
+}
+
+const EMPTY_CHAT_STATE: StoredChatState = {
+  turns: [],
+  simState: null,
+  lastResult: null,
+  lastTrace: [],
+};
+
+/** The module stays loaded across client-side navigations (only a full page
+ * reload re-evaluates it), so this in-memory cache — read synchronously by
+ * useState's initializer below — survives a round trip to another page with
+ * zero risk of the read/write race an effect-based restore has (a sibling
+ * effect can fire with a stale closure before the restore's setState lands).
+ * sessionStorage is seeded into it once per real page load, purely so a hard
+ * refresh doesn't lose the transcript too. */
+let chatCache: StoredChatState = readChatCache();
+
+function readChatCache(): StoredChatState {
+  if (typeof window === "undefined") return EMPTY_CHAT_STATE;
+  try {
+    const raw = sessionStorage.getItem(CHAT_STORAGE_KEY);
+    if (raw) return JSON.parse(raw) as StoredChatState;
+  } catch {
+    // Corrupt or unavailable storage — start from a blank transcript.
+  }
+  return EMPTY_CHAT_STATE;
+}
+
+function writeChatCache(next: StoredChatState) {
+  chatCache = next;
+  try {
+    sessionStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(next));
+  } catch {
+    // Storage full or disabled (e.g. private browsing) — the in-memory
+    // cache above still covers same-session navigation either way.
+  }
+}
 
 function fmtCost(n: number) {
   return n === 0 ? "$0" : `$${n.toFixed(5)}`;
@@ -69,20 +119,24 @@ function stepToChatResponse(step: SimulationStep): ChatResponse {
 
 export default function ChatPage() {
   const [mode, setMode] = useState<Mode>("optimized");
-  const [turns, setTurns] = useState<Turn[]>([]);
+  // Seeded from the module-level cache, not a literal [] — this is what
+  // makes the transcript survive navigating to another page and back: the
+  // very first render already has last mount's data, no restore effect
+  // (and its read/write race) required.
+  const [turns, setTurns] = useState<Turn[]>(() => chatCache.turns);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [lastTrace, setLastTrace] = useState<TraceStep[]>([]);
-  const [lastResult, setLastResult] = useState<ChatResponse | null>(null);
+  const [lastTrace, setLastTrace] = useState<TraceStep[]>(() => chatCache.lastTrace);
+  const [lastResult, setLastResult] = useState<ChatResponse | null>(() => chatCache.lastResult);
   const endRef = useRef<HTMLDivElement>(null);
 
   // --- Play button: automated simulation -------------------------------
-  const [simState, setSimState] = useState<SimulationState | null>(null);
+  const [simState, setSimState] = useState<SimulationState | null>(() => chatCache.simState);
   const [simBusy, setSimBusy] = useState(false);
   const [simMessage, setSimMessage] = useState<string | null>(null);
   const pollRef = useRef<number | null>(null);
-  const renderedStepsRef = useRef(0);
+  const renderedStepsRef = useRef(chatCache.simState?.steps.length ?? 0);
   const simRunning = simState?.status === "running";
 
   const applyNewSteps = useCallback((steps: SimulationStep[]) => {
@@ -139,13 +193,16 @@ export default function ChatPage() {
   }, [pollOnce]);
 
   useEffect(() => {
-    // Covers a page refresh mid-run: pick the live run back up rather than
-    // presenting an empty chat window while the backend keeps going.
+    // Covers a page refresh mid-run, or a run that kept going (or finished)
+    // while this page was unmounted: pick the live run back up rather than
+    // presenting a stale chat window. The transcript itself is already
+    // restored above (from chatCache) — this only reconciles anything the
+    // backend did since.
     getSimulationStatus()
       .then((state) => {
         setSimState(state);
+        applyNewSteps(state.steps);
         if (state.status === "running") {
-          applyNewSteps(state.steps);
           startPolling();
         }
       })
@@ -155,6 +212,20 @@ export default function ChatPage() {
     };
   }, [applyNewSteps, startPolling]);
 
+  useEffect(() => {
+    writeChatCache({ turns, simState, lastResult, lastTrace });
+  }, [turns, simState, lastResult, lastTrace]);
+
+  function handleClear() {
+    setTurns([]);
+    setLastResult(null);
+    setLastTrace([]);
+    setSimState(null);
+    setSimMessage(null);
+    renderedStepsRef.current = 0;
+    writeChatCache(EMPTY_CHAT_STATE);
+  }
+
   async function handlePlay() {
     setSimBusy(true);
     setSimMessage(null);
@@ -162,11 +233,11 @@ export default function ChatPage() {
       const res = await startSimulation({ size: "quick", reset: true });
       setSimState(res.state);
       if (res.status === "started") {
-        // The backend just cleared the dashboard's data — mirror that here
-        // so the chat window doesn't show stale turns next to a fresh run.
-        setTurns([]);
-        setLastResult(null);
-        setLastTrace([]);
+        // The backend just reset the dashboard's data for a fresh run, but
+        // the chat transcript itself is only cleared by the Clear button —
+        // new simulated turns append after whatever is already here. Reset
+        // the step cursor so the new run's steps (which the backend numbers
+        // from 0 again) are recognised as new rather than already-rendered.
         renderedStepsRef.current = 0;
         startPolling();
       } else {
@@ -310,6 +381,14 @@ export default function ChatPage() {
               {simBusy ? <span className="spin">◐</span> : "▶"} Play demo
             </button>
           )}
+          <button
+            className="btn btn-ghost"
+            onClick={handleClear}
+            disabled={simRunning || turns.length === 0}
+            title="Clear the chat transcript (does not affect the dashboard)"
+          >
+            Clear chat
+          </button>
           {simState && simState.total > 0 && (
             <div className="sim-progress-wrap">
               <div className="sim-progress-track">
